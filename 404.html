@@ -1,0 +1,116 @@
+---
+layout: default
+comments: false
+permalink: /404.html
+---
+
+
+<!-- Page fullscreen -->
+<section class="full-container" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+	<div class="row">
+		<h1>404</h1>
+		<p class="subheading">All Your Base Are Belong to Us</p>		
+	</div>
+</section>
+
+
+<script>
+/* 全屏*/
+document.documentElement.className += 'page-fullscreen';
+
+// 人肉 404 纠错跳转 :|
+var sitehost = location.protocol + '//' + location.host;
+if( location.pathname.match('/categories/') ){
+	location.href = location.href.replace('/categories/','/tags/#')
+}
+if( location.pathname.match(/archives/) ){
+	location.href = location.href.replace('/archives','/tags/#')
+}
+if( location.pathname.match(/(about\-me|about.html)/i)){
+	location.href = sitehost + '/about/'
+}
+if( location.pathname.match('javascript-ie') ){
+	location.href = sitehost + '/posts/2011/04/14/javascript-ie-documentmode/'
+}
+if( location.pathname.match('/windowhistory') ){
+	location.href = sitehost + '/posts/2011/05/18/window-history/'
+}
+if( location.pathname.match('2015/08/07/289897') ){
+	location.href = sitehost + '/posts/2015/08/07/right-to-left-override-unicode/'
+}
+if( location.pathname.match('2011/05/20/css/') ){
+	location.href = sitehost + '/posts/2011/05/20/js-detect-css-support/'
+}
+if( location.pathname.match('posts/2011/06/10/elementclasslist-api') ){
+	location.href = sitehost + '/posts/2011/06/10/js-classlist-api/'
+}
+if( location.pathname.match('elementdataset-api') ){
+	location.href = sitehost + '/posts/2011/06/10/js-dataset-api/'
+}
+if( location.pathname.match('ie10s-html5-quirks-mode') ){
+	location.href = sitehost + '/posts/2011/12/15/ie10s-html5-quirks-mode/'
+}
+if( location.pathname.match('reverse-ordered-lists-in-html5/') ){
+	location.href = sitehost + '/posts/2011/12/27/reverse-ordered-lists-in-html5/'
+}
+if( location.pathname.match('posts/2006/10/07/blog-post') ){
+	location.href = sitehost + '/posts/2006/10/07/hello-world/'
+}
+if( location.pathname.match('osx-10-9-apache-server-php-mysql') ){
+	location.href = sitehost + '/posts/2013/11/26/osx-apache-server-php-mysql/'
+}
+if( location.pathname.match('/text-aligncenter-and-webkit-centermoz') ){
+	location.href = sitehost + '/posts/2013/01/30/text-aligncenter-and-webkit-center/'
+}
+if( location.pathname.match('font-size-px-em-rem') ){
+	location.href = sitehost + '/posts/2011/05/03/font-size-px-em-rem/'
+}
+if( location.pathname.match('detect-browser-window-is-active') ){
+	location.href = sitehost + '/posts/2012/03/12/detect-browser-window-is-active/'
+}
+if( location.pathname.match('story-of-html5-shiv') ){
+	location.href = sitehost + '/posts/2011/05/25/story-of-html5-shiv/'
+}
+if( location.pathname.match('styling-ordered-list-numbers') ){
+	location.href = sitehost + '/posts/2011/05/27/styling-ordered-list-numbers/'
+}
+if( location.pathname.match('javascript-keycodes') ){
+	location.href = sitehost + '/posts/2011/06/08/javascript-keycodes/'
+}
+if( location.pathname.match('chromenet-internalshsts') ){
+	location.href = sitehost + '/posts/2011/04/19/chromenet-internalshsts/'
+}
+if( location.pathname.match('css-any') ){
+	location.href = sitehost + '/posts/2011/04/12/css-any/'
+}
+if( location.pathname.match('html-comments') ){
+	location.href = sitehost + '/posts/2011/12/08/html-comments'
+}
+if( location.pathname.match('div-flash') ){
+	location.href = sitehost + '/posts/2014/04/30/div-flash/'
+}
+if( location.pathname.match('ie-compatibility-view-list') ){
+	location.href = sitehost + '/posts/2013/01/30/ie-compatibility-view-list/'
+}
+if( location.pathname.match('ie-meta-tag') ){
+	location.href = sitehost + '/posts/2013/01/21/ie-meta-tag/'
+}
+if( location.pathname.match('html5-download') ){
+	location.href = sitehost + '/posts/2013/02/18/html5-download/'
+}
+if( location.pathname.match('page-appers-garbled-when-back-button') ){
+	location.href = sitehost + '/posts/2012/01/11/page-appers-garbled-when-back-button/'
+}
+if( location.pathname.match('2011/04/14/blog-post') ){
+	location.href = sitehost + '/posts/2011/05/04/the-truth-about-marquee-tag'
+}
+if( location.pathname.match('2006/10/08/blog-post') ){
+	location.href = sitehost + '/posts/2006/10/07/hello-world/'
+}
+if( location.href.match('page=') ){
+	location.href = location.href.replace('/posts/?page=','/page')
+}
+if( location.pathname.match('/tags/') ){
+	location.href = location.href.replace('/tags/','/tags/#')
+}
+</script>

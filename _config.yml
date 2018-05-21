@@ -1,0 +1,112 @@
+# Site settings
+title: 任平生的学习笔记
+SEOTitle: 任平生的学习笔记
+header-img: "assets/common/home-bg.jpg"
+email: myrpsh@gmail.com
+description: "任平生的学习笔记，记录平时学习点滴。RPSH's Notes"
+keyword: "任平生, 互联网, 前端, rpsh"
+author: "任平生"
+url: "http://note.rpsh.net"
+baseurl: ""
+timezone: Asia/Shanghai
+feedurl: "http://feeds.rpsh.net/rpsh/note"
+logourl: "/assets/common/favicon.png"
+
+# SNS settings
+RSS: true
+#weibo_username:     huxpro
+zhihu_username:     rpsh
+github_username:    rpsh
+twitter_username:   rpsh
+instagram_username: rpsh
+linkedin_username: 	ihaiyang
+#facebook_username:  haiyang
+
+# Google Plus Author id
+google-plus-id: "100791036880126418228"
+
+
+
+# Build settings
+highlighter: rouge
+#permalink: pretty
+permalink: /posts/:year/:month/:day/:title/
+paginate: 10
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+
+
+
+# Markdown settings
+# replace redcarpet to kramdown,
+# although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
+# document: http://jekyllrb.com/docs/configuration/#kramdown
+# markdown: redcarpet
+#kramdown:
+#  input: GFM                            # use Github Flavored Markdown !important
+
+
+
+
+# Duoshuo settings
+#duoshuo_username: huxblog
+# Share component is depend on Comment so we can NOT use share only.
+#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+
+disqus_username: rpsh
+
+
+#sitemap
+gems:
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Analytics settings
+# Baidu Analytics
+#ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
+# Google Analytics
+ga_track_id: 'UA-5528027-2'            # Format: UA-xxxxxx-xx
+ga_domain: note.rpsh.net
+
+
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "探寻代码与生活之外的生活"
+sidebar-avatar: "/assets/common/avatar-rpsh.jpg"     # use absolute URL.
+
+
+
+# Featured Tags
+featured-tags: true                     # whether or not using Feature-Tags
+featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+
+
+# Friends
+friends: [
+    {
+        title: "任平生",
+        href: "http://rpsh.net/"
+    },
+    {
+        title: "IT乱谈",
+        href: "http://itluantan.com/"
+    }
+]
+
+
+# Site Search 
+search: true 							# whether or not using Search
+search-engine: google 					# google or baidu
+search-placeholder: '善用搜索..'			# placeholder of search input
+
+
+# Custom Search
+# Get google custom search id->  http://cse.google.com
+# Get baidu custom search id->  http://zn.baidu.com
+custom-search: true                    # whether or not using custom search
+
+# If both google-search-id and baidu-search-id has been set,
+# the site search will fallback to Baidu when the visitor can't access Google
+google-search-id: "001480698505182148536:zupx25rxeuc"
+baidu-search-id: "3051926431285584476"
