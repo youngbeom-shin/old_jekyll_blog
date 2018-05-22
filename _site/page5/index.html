@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/common/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
+	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
+
+	<title>任平生的学习笔记</title>
+	<meta name="description" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="keyword"  content="任平生, 互联网, 前端, rpsh" />
+
+	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
+	
+	<link rel="author" href="https://plus.google.com/100791036880126418228/posts" />
+	
+	<link rel="canonical" href="http://localhost:4000/page5/" />
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/blog.css" />
+
+	<!-- Pygments Github CSS -->
+	<link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Custom Fonts -->
+	<link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js" /></script>
+		<script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js" /></script>
+	<![endif]-->
+
+	<!-- og/twitter/wechat meta -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@rpsh" />
+	<meta name="twitter:url" property="og:url" content="http://localhost:4000/page5/" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="任平生的学习笔记" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/icon_wechat.png" />
+
+	<meta name="wxm:timeline_title" content="任平生的学习笔记" />
+	<meta name="wxm:appmessage_title" content="任平生的学习笔记" />
+	<meta name="wxm:appmessage_desc" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/icon_wechat.png" />
+	<meta name="wxm:link" content="http://localhost:4000/page5/" />
+	
+	<!-- header banner -->
+	<style type="text/css">
+		header.intro-header{
+			background-image: url('/assets/common/home-bg.jpg')
+		}
+		@media (max-width:767px){
+			header.intro-header{
+				background-image: url('/assets/common/home-bg.jpg');
+			}
+			/*header.intro-header:before{
+				background-image: url('/assets/common/home-bg.jpg');
+			}*/
+		}
+	</style>
+	<!-- ga & ba script hoook -->
+	<script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">任平生的学习笔记</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="navbar-site">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/" rel="bookmark">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/" rel="bookmark">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/search/" rel="bookmark">Search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/" rel="bookmark">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#navbar-site');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/assets/common/home-bg.jpg')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+				<div class="site-heading">
+					<h1>任平生的学习笔记</h1>
+					<!--<hr class="small">-->
+					<span class="subheading">任平生的学习笔记，记录平常点滴</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		
+
+<!-- USE SIDEBAR -->
+	<!-- Post Container -->
+			<div class="
+				col-lg-8 col-lg-offset-1
+				col-md-8 col-md-offset-1
+				col-sm-12
+				col-xs-12
+				post-container
+			">
+				
+<div class="post-preview">
+    <a href="/posts/2013/01/09/disabling-auto-clear-button-in-ie10/">
+        <h2 class="post-title">
+            移除 IE10 input 输入框上的清除按钮
+        </h2>
+        
+        <div class="post-content-preview">
+            
+
+IE10 除了默认交互控件的 UI 丑之外，还给 input 加了一个清除按钮，虽然看起来很有用的样子，实际情况中却有很多设计容不下它，所以我们前端就要隐藏掉这个东西，方法：
+
+input[type=text]::-ms-clear {  
+	display: none;  
+}
+
+
+资料：
+http://msdn.microsoft.com/en-us/library/windows/...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on January 9, 2013
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2012/03/12/detect-browser-window-is-active/">
+        <h2 class="post-title">
+            JS 判断浏览器窗口是否处于当前激活状态
+        </h2>
+        
+        <div class="post-content-preview">
+            项目中有个定时器，希望在浏览器窗口处于激活状态时运行，而非激活状态则停止。代码如下：
+
+timer = setInterval(adds,800);  
+  
+function onBlur(){  
+	clearInterval(timer);  
+}  
+function onFocus(){  
+	clearInterval(timer);  
+	timer = setInterval...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on March 12, 2012
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2012/03/06/htaccess-url-redirect-without-changing/">
+        <h2 class="post-title">
+            .htaccess 重定向而URL地址不变
+        </h2>
+        
+        <div class="post-content-preview">
+            在做 liveto.me 时候就用了这个技巧， 使用 .htaccess rewrite 重定向内容，而地址栏的URL保持不变。
+
+只记得是加一个参数 P 即可，但这次用上后，发现无效，访问要重定向的网址会出现 404 错误。经过搜索发现是 Apache 的 mod_proxy 未启用所致。
+
+所以，只用在 httpd.conf 中 将 mod_proxy 相关项前的 # 去掉，然后重启 A...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on March 6, 2012
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2012/01/11/page-appers-garbled-when-back-button/">
+        <h2 class="post-title">
+            IE 中按后退按钮页面乱码的解决方案
+        </h2>
+        
+        <div class="post-content-preview">
+            今天遇到一个问题，退出登录后，点IE浏览器的后退按钮，页面出现了乱码，查看页面编码变成了 GB2312。
+找了一圈也没找到问题所在。不过找到一个类似的解决办法，就是判断当前页面编码是否为 utf8，如果不是，则刷新页面。
+代码：
+
+&lt;script type="text/javascript"&gt;  
+	try{  
+		if ((document.characterSet || d...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on January 11, 2012
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/12/27/reverse-ordered-lists-in-html5/">
+        <h2 class="post-title">
+            ol 有序列表序号的倒序
+        </h2>
+        
+        <div class="post-content-preview">
+            今天看了这篇的文章，才知道原来 OL 有序列表还可以定义序号的起始数字呢。不过在 HTML4 规范中是被废弃的，但「神奇」的是浏览器却都支持这个属性。于是，你懂得，在 HTML5 中它就又重新被纳入规范。并且，在 HTML5 中为有序列表增加量了一个新属性：reversed 。通过 reversed 属性来定义_列表序号_为倒序，比如：100，99，98……
+
+通过 start 属性定义有序...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on December 27, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/12/15/ie10s-html5-quirks-mode/">
+        <h2 class="post-title">
+            IE10 的 HTML5 怪异模式
+        </h2>
+        
+        <div class="post-content-preview">
+            微软将 IE10 中默认的怪异模式称之为： HTML5 怪异模式（HTML5 Quirks Mode），一方面它遵循 HTML5 定义的渲染规则，同时也遵守怪异模式的渲染规则。在以下两种情况，IE10 会进入这种 HTML5 怪异模式：
+
+
+  一、没有文档声明
+二、使用传统的 HTML文档声明
+
+
+此外，当今的现代浏览器（Firefox，Chrome等），在即使没有文档声明的情况下，也会以...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on December 15, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/12/08/html-comments/">
+        <h2 class="post-title">
+            HTML 注释的前世今生
+        </h2>
+        
+        <div class="post-content-preview">
+            HTML 语言是从 SGML 衍生来的，HTML 的「注释」语法也就应该跟 SGML 的「注释」是一致的。实际上，它们之间却有一些的差异。
+
+SGML 是这样定义「注释」的：
+
+
+  「注释」以 &lt;! 开始，以 &gt; 结束，中间可以有零个或多个注释块。每个「注释块」以 -- 开始，并以 -- 结束，并且其中不能包含 -- 
+。
+
+
+下面是一些合法的 SGML 「注释」:
+
+
+  &...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on December 8, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/08/15/rmb-character/">
+        <h2 class="post-title">
+            人民币符号 ¥ 一横还是两横的问题
+        </h2>
+        
+        <div class="post-content-preview">
+            今天在看嗷嗷博客的时候又看到了这个问题，关于人民币符号到底是一横还是两横，根据人民币（100或50）银线上印的符号可以确定这个符号应该用两横的。
+
+恩，接下来，回顾一下为什么会产生这个问题。
+
+我们一般是这样打出这个符号：中文输入状态下，shift+4 ，出来的就是 ￥ 。
+
+这个字符 Unicode Character Code 编码是：FFE5（字符实体 &amp;#65509），在使用...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on August 15, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/06/10/js-classlist-api/">
+        <h2 class="post-title">
+            HTML5: element.classList API
+        </h2>
+        
+        <div class="post-content-preview">
+            element.classList 将会返回 element 的 class 信息
+
+{  
+	length: {number},  
+	add: function(){},  
+	remove: function(){},  
+	toogle: function(){},  
+	item: function(){},  
+	contanis: function(){}  
+}  
+
+
+&l...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on June 10, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/06/10/js-dataset-api/">
+        <h2 class="post-title">
+            HTML5: element.dataset API
+        </h2>
+        
+        <div class="post-content-preview">
+            Firefox 6 中将增加一个新的 API： element.dataset 用来获取自定义数据属性 data-* 设置的值。
+如果使用这个 element.dataset，那么 data-* 的命名需要有以下几点注意：
+
+
+  名字不能以 xml 开头
+  名字中不能使用分号
+  名字中不能包含大写字母 A-Z
+
+
+自定义数据属性将遵循以下规则转化为 DOMStringMap 键值：
+
+...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on June 10, 2011
+    </p>
+</div>
+<hr>
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/page4">&larr; Newer Posts</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/page6">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+			</div>
+	<!-- Sidebar Container -->
+			<div class="
+				col-lg-3 col-lg-offset-0
+				col-md-3 col-md-offset-0
+				col-sm-12
+				col-xs-12
+				sidebar-container
+			">
+				<!-- Search -->
+				
+				<section>
+					<!-- no hr -->
+					<h5><a href="/search/">Search</a></h5>
+					<div class="search">
+						
+						<!-- 自定义搜索 -->
+							<form class="search-form" action="/search/">
+								<input type="search" name="q" class="search-input" placeholder="善用搜索..">
+							</form>
+						
+					</div>
+				</section>
+				
+
+				<!-- Featured Tags -->
+				
+				<section>
+					<hr class="hidden-sm hidden-xs">
+					<h5><a href="/tags/">FEATURED TAGS</a></h5>
+					<div class="tags">
+						
+							
+								<a href="/tags/#CSS3" title="CSS3" rel="5">
+									CSS3
+								</a>
+							
+						
+							
+								<a href="/tags/#CSS" title="CSS" rel="15">
+									CSS
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#JS" title="JS" rel="8">
+									JS
+								</a>
+							
+						
+							
+								<a href="/tags/#IE" title="IE" rel="7">
+									IE
+								</a>
+							
+						
+							
+								<a href="/tags/#浏览器" title="浏览器" rel="3">
+									浏览器
+								</a>
+							
+						
+							
+								<a href="/tags/#渲染模式" title="渲染模式" rel="4">
+									渲染模式
+								</a>
+							
+						
+							
+								<a href="/tags/#Chrome" title="Chrome" rel="5">
+									Chrome
+								</a>
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#HTML" title="HTML" rel="5">
+									HTML
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#HTML5" title="HTML5" rel="3">
+									HTML5
+								</a>
+							
+						
+							
+								<a href="/tags/#趣识" title="趣识" rel="4">
+									趣识
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#CSS/font-family" title="CSS/font-family" rel="2">
+									CSS/font-family
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Apache" title="Apache" rel="4">
+									Apache
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Google" title="Google" rel="2">
+									Google
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#OSX" title="OSX" rel="5">
+									OSX
+								</a>
+							
+						
+							
+								<a href="/tags/#PHP" title="PHP" rel="3">
+									PHP
+								</a>
+							
+						
+							
+						
+							
+								<a href="/tags/#iOS" title="iOS" rel="3">
+									iOS
+								</a>
+							
+						
+							
+						
+							
+								<a href="/tags/#微信" title="微信" rel="2">
+									微信
+								</a>
+							
+						
+							
+								<a href="/tags/#移动开发" title="移动开发" rel="2">
+									移动开发
+								</a>
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Yosemite" title="Yosemite" rel="2">
+									Yosemite
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#iPhone" title="iPhone" rel="4">
+									iPhone
+								</a>
+							
+						
+							
+						
+							
+								<a href="/tags/#iTunes" title="iTunes" rel="2">
+									iTunes
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Mac" title="Mac" rel="2">
+									Mac
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+					</div>
+				</section>
+				
+
+				<!-- Short About -->
+				<section class="visible-md visible-lg">
+					<hr><h5><a href="/about/">ABOUT ME</a></h5>
+					<div class="short-about">
+						
+							<img src="/assets/common/avatar-rpsh.jpg" />
+						
+						
+							<p>探寻代码与生活之外的生活</p>
+						
+						<!-- SNS Link -->
+						<ul class="list-inline">
+							
+							<li>
+								<a href="http://feeds.rpsh.net/rpsh/note">
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+							
+							
+							<li>
+								<a href="https://twitter.com/rpsh">
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+							
+							
+							<li>
+								<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa  fa-stack-1x fa-inverse">知</i>
+									</span>
+								</a>
+							</li>
+							
+							
+							
+							<li>
+								<a target="_blank" href="https://instagram.com/rpsh">
+									<span class="fa-stack fa-lg">
+										<i class="fa fa-circle fa-stack-2x"></i>
+										<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+							
+							
+						</ul>
+					</div>
+				</section>
+				<!-- Friends Blog -->
+				
+				<hr>
+				<h5>FRIENDS</h5>
+				<ul class="list-inline">
+					
+						<li><a href="http://rpsh.net/">任平生</a></li>
+					
+						<li><a href="http://itluantan.com/">IT乱谈</a></li>
+					
+				</ul>
+				
+			</div>
+		
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<ul class="list-inline text-center">
+					
+					<li>
+						<a href="http://feeds.rpsh.net/rpsh/note">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="https://twitter.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+
+					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+					
+					<li>
+						<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa  fa-stack-1x fa-inverse">知</i>
+							</span>
+						</a>
+					</li>
+					
+					
+
+
+					
+					
+					
+                    <li>
+                        <a target="_blank" href="https://instagram.com/rpsh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+					
+					<li>
+						<a target="_blank" href="https://github.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+				</ul>
+				<p class="copyright text-muted">
+					Copyright &copy; 任平生的学习笔记 2018
+					<br>
+					Theme by <a href="http://huangxuan.me">Hux</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+	function async(u, c) {
+	  var d = document, t = 'script',
+		  o = d.createElement(t),
+		  s = d.getElementsByTagName(t)[0];
+	  o.src = u;
+	  if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+	  s.parentNode.insertBefore(o, s);
+	}
+</script>
+
+<!-- Highlight.js -->
+<script>
+	async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+		hljs.initHighlightingOnLoad();
+	})
+	// only load tagcloud.js in tag.html
+	if($('#tag_cloud').length !== 0){
+		async("/js/jquery.tagcloud.js",function(){
+			$.fn.tagcloud.defaults = {
+				//size: {start: 1, end: 1, unit: 'em'},
+				color: {start: '#bbbbee', end: '#0085a1'},
+			};
+			$('#tag_cloud a').tagcloud();
+		})
+	}
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+<!--fastClick.js -->
+<script>
+	async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+		var $nav = document.querySelector("nav");
+		if($nav) FastClick.attach($nav);
+	})
+</script>
+
+
+
+<!-- Google Analytics -->
+<script>
+	// dynamic User hacking by Hux
+	// var _gaId = document.getElementById('gaId').value;
+	var _gaId =  'UA-5528027-2';
+	// var _gaDomain = document.getElementById('gaDomain').value;
+	var _gaDomain = 'note.rpsh.net';
+
+	// Originial
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', _gaId, _gaDomain);
+	ga('send', 'pageview');
+</script>
+
+
+
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "http://localhost:4000",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://localhost:4000/search/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Organization",
+	"url": "http://localhost:4000 ",
+	"logo": "http://localhost:4000/assets/common/favicon.png"
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context" : "http://schema.org",
+	"@type" : "Person",
+	"name" : "任平生",
+	"url" : "",
+	"sameAs" : [
+		
+		"http://twitter.com/rpsh",
+		"http://instagram.com/rpsh",
+		"http://www.linkedin.com/in/ihaiyang",
+		"http://plus.google.com/100791036880126418228"
+	]
+}
+</script>
+
+
+<!-- Image to hack wechat -->
+<img src="http://localhost:4000/assets/common/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

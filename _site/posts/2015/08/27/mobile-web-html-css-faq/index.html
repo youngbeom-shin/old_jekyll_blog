@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/common/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
+	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
+
+	<title>移动端 HTML5 页面常见问题 —— 样式篇 - 任平生的学习笔记</title>
+	<meta name="description" content="总结移动端网页制作过程中常见的问题，诸如圆角、输入框、滚动条等等" />
+	<meta name="keyword"  content="html5, css, 常见问题, 任平生, 互联网, 前端, rpsh" />
+
+	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
+	
+	<link rel="author" href="https://plus.google.com/100791036880126418228/posts" />
+	
+	<link rel="canonical" href="http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/" />
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/blog.css" />
+
+	<!-- Pygments Github CSS -->
+	<link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Custom Fonts -->
+	<link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js" /></script>
+		<script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js" /></script>
+	<![endif]-->
+
+	<!-- og/twitter/wechat meta -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@rpsh" />
+	<meta name="twitter:url" property="og:url" content="http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="移动端 HTML5 页面常见问题 —— 样式篇 - 任平生的学习笔记" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="总结移动端网页制作过程中常见的问题，诸如圆角、输入框、滚动条等等" />
+	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/icon_wechat.png" />
+
+	<meta name="wxm:timeline_title" content="移动端 HTML5 页面常见问题 —— 样式篇 - 任平生的学习笔记" />
+	<meta name="wxm:appmessage_title" content="移动端 HTML5 页面常见问题 —— 样式篇 - 任平生的学习笔记" />
+	<meta name="wxm:appmessage_desc" content="总结移动端网页制作过程中常见的问题，诸如圆角、输入框、滚动条等等" />
+	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/icon_wechat.png" />
+	<meta name="wxm:link" content="http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/" />
+	
+	<!-- header banner -->
+	<style type="text/css">
+		header.intro-header{
+			background-image: url('/assets/common/home-bg.jpg')
+		}
+		@media (max-width:767px){
+			header.intro-header{
+				background-image: url('/assets/common/home-bg.jpg');
+			}
+			/*header.intro-header:before{
+				background-image: url('/assets/common/home-bg.jpg');
+			}*/
+		}
+	</style>
+	<!-- ga & ba script hoook -->
+	<script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">任平生的学习笔记</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="navbar-site">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/" rel="bookmark">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/" rel="bookmark">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/search/" rel="bookmark">Search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/" rel="bookmark">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#navbar-site');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/common/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<header class="intro-header" >
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="post-heading" itemscope itemtype="http://schema.org/NewsArticle">
+					<div class="tags">
+						
+						<a class="tag" href="/tags/#HTML" rel="tag" title="HTML">HTML</a>
+						
+						<a class="tag" href="/tags/#CSS" rel="tag" title="CSS">CSS</a>
+						
+						<a class="tag" href="/tags/#移动开发" rel="tag" title="移动开发">移动开发</a>
+						
+					</div>
+					<h1 itemprop="headline">移动端 HTML5 页面常见问题 —— 样式篇</h1>
+					<h2 class="subheading"></h2>
+					
+					<span class="meta">Posted by 任平生 on August 27, 2015</span>
+					<meta itemprop="alternativeHeadline" content="总结移动端网页制作过程中常见的问题，诸如圆角、输入框、滚动条等等" />
+					<meta itemprop="image" content="http://localhost:4000/assets/common/icon_wechat.png" />
+					<meta itemprop="datePublished" content="2015-08-27 12:10:00 +0800" />
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Post Content -->
+<article>
+	<div class="container">
+		<div class="row">
+
+	<!-- Post Container -->
+			<div class="
+				col-lg-8 col-lg-offset-2
+				col-md-10 col-md-offset-1
+				post-container">
+
+				<h2 id="问题android-上圆形图片使用-border-时边框显示变形">问题：Android 上圆形图片使用 border 时，边框显示变形</h2>
+<p><img width="320px" src="http://note.rpsh.net/assets/2015/08/radius.png" alt="圆形图片边框变形" /></p>
+
+<p>解决：给 img 外嵌套一个元素，为其使用圆角</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+	<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">""</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span><span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+	<span class="nl">border-radius</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+	<span class="nl">border</span><span class="p">:</span> <span class="m">4px</span> <span class="nb">solid</span> <span class="m">#FF7000</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">img</span><span class="p">{</span>
+	<span class="nl">vertical-align</span><span class="p">:</span> <span class="nb">top</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题android-上圆角元素背景颜色会溢出">问题：Android 上圆角元素，背景颜色会溢出</h2>
+<p><img width="320px" src="http://note.rpsh.net/assets/2015/08/border-radius.png" alt="背景色溢出" /></p>
+
+<p>解决：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">background-clip</span><span class="p">:</span> <span class="n">padding-box</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题-android-上圆角使用-animation-做-loading-动画时圆角背景色溢出的bug">问题： Android 上圆角使用 Animation 做 loading 动画时，圆角背景色溢出的bug</h2>
+<p><img width="320px" src="http://note.rpsh.net/assets/2015/08/radius-animation-1.gif" alt="圆角溢出" />
+<img width="320px" src="http://note.rpsh.net/assets/2015/08/radius-animation-2.gif" alt="解决圆角溢出" /></p>
+
+<p>解决：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#F9CEAC</span><span class="p">;</span>
+	<span class="nl">border-radius</span><span class="p">:</span> <span class="m">32px</span> <span class="m">0</span> <span class="m">0</span> <span class="m">32px</span><span class="p">;</span>
+	<span class="nl">-webkit-mask-image</span><span class="p">:</span> <span class="sx">url(http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>原理是使用一个圆角的蒙板通过 <code class="highlighter-rouge">-webkit-mask-image</code> 遮住多余的部分。蒙板： 
+<img style="display:inline-block;vertical-align: bottom;" src="http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png" alt="圆角蒙板" /></p>
+
+<h2 id="问题css-三角在-android-上显示为方块">问题：CSS 三角在 Android 上显示为方块</h2>
+<p>解决：可能是对这个三角使用了圆角，去掉 <code class="highlighter-rouge">border-radius</code> 即可</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">border</span><span class="p">:</span> <span class="m">10px</span> <span class="nb">solid</span> <span class="nb">transparent</span><span class="p">;</span>
+	<span class="nl">border-left-color</span><span class="p">:</span> <span class="m">#000</span><span class="p">;</span>
+	<span class="c">/*border-radius: 2px;*/</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题-android-上使用-svg-作为-background-image-时显示模糊">问题： Android 上使用 svg 作为 background-image 时显示模糊</h2>
+<p>解决：设置 <code class="highlighter-rouge">background-size</code></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">-webkit-background-size</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+	<span class="nl">background-size</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题-active-样式不生效">问题： :active 样式不生效</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/active.gif" alt="元素 active 样式" /></p>
+
+<p>解决： 参考<a href="http://note.rpsh.net/posts/2014/03/18/phone-touch-css-style-active">这篇文章</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"touchstart"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span><span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="问题-多行文字超出截断需要出现省略号">问题： 多行文字超出截断需要出现省略号</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/ellipsis.png" alt="多行文本的超出隐藏省略号" /></p>
+
+<p>解决： 参考<a href="http://note.rpsh.net/posts/2014/10/14/css-multiple-line-overflow-ellipsis">这篇文章</a></p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="n">-webkit-box</span><span class="p">;</span>
+	<span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
+	<span class="nl">text-overflow</span><span class="p">:</span> <span class="n">ellipsis</span><span class="p">;</span>
+	<span class="nl">-webkit-line-clamp</span><span class="p">:</span> <span class="m">2</span><span class="p">;</span>
+	<span class="nl">-webkit-box-orient</span><span class="p">:</span> <span class="n">vertical</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题-1px-线条边框">问题： 1px 线条、边框</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/1px_line.png" alt="1像素边框" /></p>
+
+<p>解决：使用高度为 1px ，一半为实色，一半为透明的渐变背景实现</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">background</span><span class="p">:</span> <span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">top</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span> <span class="m">50%</span><span class="p">,</span> <span class="m">#CACDD0</span> <span class="m">50%</span><span class="p">)</span> <span class="m">0</span> <span class="nb">top</span> <span class="nb">no-repeat</span><span class="p">;</span>
+	<span class="nl">background-size</span><span class="p">:</span> <span class="m">100%</span> <span class="m">1px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>如果需要有四个边框都有 1px 的线框，可以使用多背景图</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">background</span><span class="p">:</span> <span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">top</span><span class="p">,</span> <span class="m">#CACDD0</span><span class="p">,</span> <span class="m">#CACDD0</span> <span class="m">50%</span><span class="p">,</span> <span class="nb">transparent</span> <span class="m">50%</span><span class="p">,</span> <span class="nb">transparent</span> <span class="m">100%</span><span class="p">)</span> <span class="m">0</span> <span class="nb">top</span> <span class="nb">no-repeat</span><span class="p">,</span><span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">top</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span> <span class="m">50%</span><span class="p">,</span> <span class="m">#CACDD0</span> <span class="m">50%</span><span class="p">,</span> <span class="m">#CACDD0</span> <span class="m">100%</span><span class="p">)</span> <span class="m">0</span> <span class="nb">bottom</span> <span class="nb">no-repeat</span><span class="p">,</span> <span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">left</span><span class="p">,</span> <span class="m">#CACDD0</span><span class="p">,</span> <span class="m">#CACDD0</span> <span class="m">50%</span><span class="p">,</span> <span class="nb">transparent</span> <span class="m">50%</span><span class="p">,</span> <span class="nb">transparent</span> <span class="m">100%</span><span class="p">)</span> <span class="nb">left</span> <span class="m">0</span> <span class="nb">no-repeat</span><span class="p">,</span> <span class="n">-webkit-linear-gradient</span><span class="p">(</span><span class="nb">left</span><span class="p">,</span> <span class="nb">transparent</span><span class="p">,</span> <span class="nb">transparent</span> <span class="m">50%</span><span class="p">,</span> <span class="m">#CACDD0</span> <span class="m">50%</span><span class="p">,</span> <span class="m">#CACDD0</span> <span class="m">100%</span><span class="p">)</span> <span class="nb">right</span> <span class="m">0</span> <span class="nb">no-repeat</span><span class="p">;</span>
+	<span class="nl">background-size</span><span class="p">:</span> <span class="m">100%</span> <span class="m">1px</span><span class="p">,</span><span class="m">100%</span> <span class="m">1px</span><span class="p">,</span> <span class="m">1px</span> <span class="m">100%</span><span class="p">,</span> <span class="m">1px</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题滚动条滚动时没有像-ios-原生那么顺滑流畅滚动条没有-ios-回弹效果">问题：滚动条滚动时没有像 iOS 原生那么顺滑流畅，滚动条没有 iOS 回弹效果</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/scroll-1.gif" alt="iOS 滚动条" /></p>
+
+<p>解决：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+	<span class="nl">-webkit-overflow-scrolling</span><span class="p">:</span> <span class="n">touch</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>注：在 Android 上由于原生滚动没有回弹效果，所以这里也不会有回弹的效果。</p>
+
+<h2 id="问题当模块使用系统的横向滚动时不想显示出系统的滚动条样式">问题：当模块使用系统的横向滚动时，不想显示出系统的滚动条样式</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/scroll-2.gif" alt="隐藏滚动条" /></p>
+
+<p>解决：</p>
+
+<p>Android：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">::-webkit-scrollbar</span><span class="p">{</span>
+	<span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>iOS 要隐藏滚动条，会稍微复杂一些</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"box"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.wrap</span><span class="p">{</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+	<span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.box</span><span class="p">{</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="n">-webkit-calc</span><span class="p">(</span><span class="m">100%</span> <span class="err">+</span> <span class="m">5px</span><span class="p">);</span>
+	<span class="nl">overflow-x</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+	<span class="nl">overflow-y</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
+	<span class="nl">-webkit-overflow-scrolling</span><span class="p">:</span> <span class="n">touch</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>原理：<code class="highlighter-rouge">.box</code> 元素的横向滚动条通过其外层元素 <code class="highlighter-rouge">.wrap</code> 的 <code class="highlighter-rouge">overflow:hide</code> 来隐藏。 （5px 是 iOS 上滚动条元素的高度）</p>
+
+<h2 id="问题横向滚动的元素滑动时有时图片显示不出来文字显示不出来">问题：横向滚动的元素，滑动时有时图片显示不出来/文字显示不出来</h2>
+
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/scroll-3.gif" alt="滑动时元素不显示" /></p>
+
+<p>解决：给每个横滑的元素块使用硬件加速</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">li</span><span class="p">{</span>
+	<span class="nl">-webkit-transform</span><span class="p">:</span> <span class="n">translateZ</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题使用-animation-动画后页面上-overflowauto-的元素滚动条不能滑动">问题：使用 animation 动画后，页面上 overflow:auto 的元素滚动条不能滑动</h2>
+<p>解决：不使用 translate 方式的动画，换为使用 left/top 来实现元素移动的动画</p>
+
+<h2 id="问题-上下滑动页面时候页面元素消失">问题： 上下滑动页面时候，页面元素消失</h2>
+<p>解决：检查是否使用了  fadeIn 的 animation，如有则 fill-mode 使用 backwards 模式</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+	<span class="nl">-webkit-animation</span><span class="p">:</span> <span class="n">fadeIn</span> <span class="m">0.5s</span> <span class="n">ease</span> <span class="n">backwards</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题页面上数字自动变成了可以点击的链接">问题：页面上数字自动变成了可以点击的链接</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/input_tel.gif" alt="数字变为链接" /></p>
+
+<p>解决：在页面 <code class="highlighter-rouge">&lt;head&gt;</code> 里添加</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"format-detection"</span> <span class="na">content=</span><span class="s">"telephone=no"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h2 id="问题input-在-ios-中圆角内阴影去不掉">问题：input 在 iOS 中圆角、内阴影去不掉</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/input.png" alt="去掉 input 的圆角与阴影" /></p>
+
+<p>解决：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">input</span><span class="p">{</span>
+	<span class="nl">-webkit-appearance</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+	<span class="nl">border-radius</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题焦点在-input-时placeholder-没有隐藏">问题：焦点在 input 时，placeholder 没有隐藏</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/placholder.gif" alt="focus 时隐藏 placholder" /></p>
+
+<p>解决：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">input</span><span class="nd">:focus::-webkit-input-placeholder</span><span class="p">{</span>
+	<span class="nl">opacity</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="问题-input-输入框调出数字输入键盘">问题： input 输入框调出数字输入键盘</h2>
+<p>解决</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"number"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">pattern=</span><span class="s">"[0-9]*"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"tel"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+<p>分别对应下图中的1、2、3。</p>
+
+<p><img width="95%" src="http://note.rpsh.net/assets/2015/08/keyboard_number.png" alt="圆形图片边框变形" /></p>
+
+<p>需要注意的是，单独使用 <code class="highlighter-rouge">type="number"</code> 时候， iOS 上出现并不是九宫格的数字键盘，如果需要九宫格的数字键盘，可选择使用 2、3 的方法。
+1、2、3 在 Android 上均可以唤起九宫格的数字键盘</p>
+
+<h2 id="问题搜索时键盘的回车按钮文字设定为搜索">问题：搜索时，键盘的回车按钮文字设定为“搜索”</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/form_search.png" alt="定义键盘回车文案为搜索" /></p>
+
+<p>解决： <code class="highlighter-rouge">input</code> 使用 <code class="highlighter-rouge">type="search"</code>，放在 <code class="highlighter-rouge">form</code> 表单内。两者结合就能使输入法中的回车按钮文字变为“搜索”</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">""</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<h2 id="问题iframe-在-ios-上没有滚动条直接撑出去">问题：iframe 在 iOS 上没有滚动条，直接撑出去</h2>
+<p><img width="320" src="http://note.rpsh.net/assets/2015/08/iframe.png" alt="iframe 撑出界面" /></p>
+
+<p>解决：给 iframe 外嵌套一个 div， 为这个 div 设置固定高度与 <code class="highlighter-rouge">overflow</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div&gt;</span>
+	<span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">""</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">div</span><span class="p">{</span>
+	<span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+	<span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+	<span class="nl">-webkit-overflow-scrolling</span><span class="p">:</span> <span class="n">touch</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+
+				
+
+				<hr>
+
+				
+
+
+				<ul class="pager">
+					
+					<li class="previous">
+						<a href="/posts/2015/08/26/mac-wechat-image-video-location/" title="Mac/Windows版微信聊天图片、视频文件存储位置" rel="bookmark">&larr; Mac/Windows版微信聊天图片、视频文件存储位置</a>
+					</li>
+					
+					
+					<li class="next">
+						<a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/" title="Mac OS X 安装 PHP intl 扩展" rel="bookmark">Mac OS X 安装 PHP intl 扩展 &rarr;</a>
+					</li>
+					
+				</ul>
+
+
+				
+				<!-- 评论框 start -->
+				<div class="post-comment">
+					<div id="disqus_thread" class="disqus-thread"
+						data-thread-key="/posts/2015/08/27/mobile-web-html-css-faq"
+						data-title="移动端 HTML5 页面常见问题 —— 样式篇"
+						data-url="http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/" >
+					</div>
+				</div>
+				<!-- 评论框 end -->
+				
+
+			</div>
+
+			
+		</div>
+	</div>
+</article>
+
+<aside class="post-side">
+	<div class="container">
+		<div class="row">
+			<!-- Sidebar Container -->
+			<div class="
+				col-lg-8 col-lg-offset-2
+				col-md-10 col-md-offset-1
+				sidebar-container">
+
+				<!-- Featured Tags -->
+				
+				<section>
+					<hr class="hidden-sm hidden-xs">
+					<h5><a href="/tags/" rel="tag">FEATURED TAGS</a></h5>
+					<div class="tags">
+						
+							
+								<a href="/tags/#CSS3" title="CSS3" rel="tag" date-size="5">
+									CSS3
+								</a>
+							
+						
+							
+								<a href="/tags/#CSS" title="CSS" rel="tag" date-size="15">
+									CSS
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#JS" title="JS" rel="tag" date-size="8">
+									JS
+								</a>
+							
+						
+							
+								<a href="/tags/#IE" title="IE" rel="tag" date-size="7">
+									IE
+								</a>
+							
+						
+							
+								<a href="/tags/#浏览器" title="浏览器" rel="tag" date-size="3">
+									浏览器
+								</a>
+							
+						
+							
+								<a href="/tags/#渲染模式" title="渲染模式" rel="tag" date-size="4">
+									渲染模式
+								</a>
+							
+						
+							
+								<a href="/tags/#Chrome" title="Chrome" rel="tag" date-size="5">
+									Chrome
+								</a>
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#HTML" title="HTML" rel="tag" date-size="5">
+									HTML
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#HTML5" title="HTML5" rel="tag" date-size="3">
+									HTML5
+								</a>
+							
+						
+							
+								<a href="/tags/#趣识" title="趣识" rel="tag" date-size="4">
+									趣识
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#CSS/font-family" title="CSS/font-family" rel="tag" date-size="2">
+									CSS/font-family
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Apache" title="Apache" rel="tag" date-size="4">
+									Apache
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Google" title="Google" rel="tag" date-size="2">
+									Google
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#OSX" title="OSX" rel="tag" date-size="5">
+									OSX
+								</a>
+							
+						
+							
+								<a href="/tags/#PHP" title="PHP" rel="tag" date-size="3">
+									PHP
+								</a>
+							
+						
+							
+						
+							
+								<a href="/tags/#iOS" title="iOS" rel="tag" date-size="3">
+									iOS
+								</a>
+							
+						
+							
+						
+							
+								<a href="/tags/#微信" title="微信" rel="tag" date-size="2">
+									微信
+								</a>
+							
+						
+							
+								<a href="/tags/#移动开发" title="移动开发" rel="tag" date-size="2">
+									移动开发
+								</a>
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Yosemite" title="Yosemite" rel="tag" date-size="2">
+									Yosemite
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#iPhone" title="iPhone" rel="tag" date-size="4">
+									iPhone
+								</a>
+							
+						
+							
+						
+							
+								<a href="/tags/#iTunes" title="iTunes" rel="tag" date-size="2">
+									iTunes
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#Mac" title="Mac" rel="tag" date-size="2">
+									Mac
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+					</div>
+				</section>
+				
+
+				<!-- Friends Blog -->
+				
+				<hr>
+				<h5>FRIENDS</h5>
+				<ul class="list-inline">
+					
+						<li><a href="http://rpsh.net/">任平生</a></li>
+					
+						<li><a href="http://itluantan.com/">IT乱谈</a></li>
+					
+				</ul>
+				
+
+				<!-- Search Page -->
+				
+				<hr>
+				<h5><a href="/search/">Search</a></h5>
+				<div class="search">
+					
+					<!-- 自定义搜索 -->
+						<form class="search-form" action="/search/">
+							<input type="search" name="q" class="search-input" placeholder="善用搜索..">
+						</form>
+					
+				</div>
+					
+			</div>	
+		</div>	
+	</div>
+	
+</aside>
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+	/* * * CONFIGURATION VARIABLES * * */
+	var disqus_shortname = "rpsh";
+	var disqus_identifier = "/posts/2015/08/27/mobile-web-html-css-faq";
+	var disqus_url = "http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/";
+
+	(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+	function async(u, c) {
+	  var d = document, t = 'script',
+		  o = d.createElement(t),
+		  s = d.getElementsByTagName(t)[0];
+	  o.src = u;
+	  if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+	  s.parentNode.insertBefore(o, s);
+	}
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+	async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+		anchors.options = {
+		  visible: 'always',
+		  placement: 'right',
+		  icon: '#'
+		};
+		anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+	})
+</script>
+<style>
+	/* place left on bigger screen */
+	@media all and (min-width: 800px) {
+		.anchorjs-link{
+			position: absolute;
+			left: -0.75em;
+			font-size: 1.1em;
+			margin-top : -0.1em;
+		}
+	}
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<ul class="list-inline text-center">
+					
+					<li>
+						<a href="http://feeds.rpsh.net/rpsh/note">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="https://twitter.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+
+					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+					
+					<li>
+						<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa  fa-stack-1x fa-inverse">知</i>
+							</span>
+						</a>
+					</li>
+					
+					
+
+
+					
+					
+					
+                    <li>
+                        <a target="_blank" href="https://instagram.com/rpsh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+					
+					<li>
+						<a target="_blank" href="https://github.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+				</ul>
+				<p class="copyright text-muted">
+					Copyright &copy; 任平生的学习笔记 2018
+					<br>
+					Theme by <a href="http://huangxuan.me">Hux</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+	function async(u, c) {
+	  var d = document, t = 'script',
+		  o = d.createElement(t),
+		  s = d.getElementsByTagName(t)[0];
+	  o.src = u;
+	  if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+	  s.parentNode.insertBefore(o, s);
+	}
+</script>
+
+<!-- Highlight.js -->
+<script>
+	async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+		hljs.initHighlightingOnLoad();
+	})
+	// only load tagcloud.js in tag.html
+	if($('#tag_cloud').length !== 0){
+		async("/js/jquery.tagcloud.js",function(){
+			$.fn.tagcloud.defaults = {
+				//size: {start: 1, end: 1, unit: 'em'},
+				color: {start: '#bbbbee', end: '#0085a1'},
+			};
+			$('#tag_cloud a').tagcloud();
+		})
+	}
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+<!--fastClick.js -->
+<script>
+	async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+		var $nav = document.querySelector("nav");
+		if($nav) FastClick.attach($nav);
+	})
+</script>
+
+
+
+<!-- Google Analytics -->
+<script>
+	// dynamic User hacking by Hux
+	// var _gaId = document.getElementById('gaId').value;
+	var _gaId =  'UA-5528027-2';
+	// var _gaDomain = document.getElementById('gaDomain').value;
+	var _gaDomain = 'note.rpsh.net';
+
+	// Originial
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', _gaId, _gaDomain);
+	ga('send', 'pageview');
+</script>
+
+
+
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "http://localhost:4000",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://localhost:4000/search/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Organization",
+	"url": "http://localhost:4000 ",
+	"logo": "http://localhost:4000/assets/common/favicon.png"
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context" : "http://schema.org",
+	"@type" : "Person",
+	"name" : "任平生",
+	"url" : "",
+	"sameAs" : [
+		
+		"http://twitter.com/rpsh",
+		"http://instagram.com/rpsh",
+		"http://www.linkedin.com/in/ihaiyang",
+		"http://plus.google.com/100791036880126418228"
+	]
+}
+</script>
+
+
+<!-- Image to hack wechat -->
+<img src="http://localhost:4000/assets/common/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

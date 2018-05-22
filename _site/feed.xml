@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>任平生的学习笔记</title>
+    <description>任平生的学习笔记，记录平时学习点滴。RPSH's Notes</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 22 May 2018 15:54:15 +0800</pubDate>
+    <lastBuildDate>Tue, 22 May 2018 15:54:15 +0800</lastBuildDate>
+    <generator>Jekyll v3.8.1</generator>
+    
+      <item>
+        <title>将旧 Mac 的内容完全迁移到新 Mac 上</title>
+        <description>&lt;p&gt;最近工作机更换为了新的 iMac 27’ ，不想重新设置一遍各种开发环境，于是便找了一下将旧 Mac 内容完全迁移到新设备的方案。&lt;/p&gt;
+
+&lt;p&gt;原来，OS X  自带了一个「迁移助理」可以很方便地将旧 Mac 上的内容迁移到新 Mac 上。&lt;/p&gt;
+
+&lt;p&gt;如果有使用 Time Machine 则可以直接使用 Time Machine 来将旧 Mac 的内容迁移到新 Mac。如果没有使用 Time Machine ，则可以将新旧两台设备连接起来，进行内容迁移。&lt;/p&gt;
+
+&lt;p&gt;将两台 Mac 连接起来，有三种常用方案：&lt;/p&gt;
+
+&lt;p&gt;1、 两台 Mac 连接至同一个 WIFI／有线网&lt;/p&gt;
+
+&lt;p&gt;2、 使用网线将两台 Mac 通过网线接口连接起来&lt;/p&gt;
+
+&lt;p&gt;3、 使用 Thunderbolt 线缆将两台 Mac 连接起来&lt;/p&gt;
+
+&lt;p&gt;第一个方案，通过路由器中转，速度会受挺大影响。&lt;/p&gt;
+
+&lt;p&gt;第三个方案， Thunderbolt 线缆，一条两百多块，而且基本就能用这一次，投入过大。&lt;/p&gt;
+
+&lt;p&gt;所以我选择了第二个方案，使用随手可得的网线将两台 Mac 连接起来，速度虽然比不上 Thunderbolt 的，但也够用了。&lt;/p&gt;
+
+&lt;p&gt;使用网线将两台 Mac 连接起来后，分别启动每台设备上的「迁移助理」应用（可以在 spotlight 中搜索找到）。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在旧设备上选择第三个「至另一台Mac」；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在新设备上选择第一个「从 Mac、Time Machine 备份或启动磁盘」；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;确认要迁移的设备与安全码，然后选择要迁移的内容，接下来就是静等文件迁移完成。&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2016/01/move-to-new-mac-1.jpg&quot; alt=&quot;move-to-new-mac-1&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2016/01/move-to-new-mac-2.jpg&quot; alt=&quot;move-to-new-mac-2&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2016/01/move-to-new-mac-3.jpg&quot; alt=&quot;move-to-new-mac-3&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参考资料：
+&lt;a href=&quot;https://support.apple.com/zh-cn/HT204350&quot;&gt;将内容移至新 Mac&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jan 2016 22:30:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2016/01/05/move-mac-content-to-new-mac/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2016/01/05/move-mac-content-to-new-mac/</guid>
+        
+        <category>Mac</category>
+        
+        <category>OSX</category>
+        
+        <category>迁移助理</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>在网页上使用苹方字体</title>
+        <description>&lt;p&gt;随着 El Capitan 和 iOS9 发布而内置新系统中的 &lt;a href=&quot;http://www.apple.com/cn/osx/whats-new/#international-fonts&quot;&gt;苹方字体&lt;/a&gt; 给我们在中文字体的使用上带来了新的选择。&lt;/p&gt;
+
+&lt;p&gt;在 Web 上定义字体为苹方的方法：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;苹方提供了六个字重，font-family 定义如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-简 常规体&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Regular, sans-serif;&quot;&gt;常规体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-简 极细体&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Ultralight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Ultralight, sans-serif;&quot;&gt;常规体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-简 细体&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Light&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Light, sans-serif;&quot;&gt;细体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-简 纤细体&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Thin, sans-serif;&quot;&gt;纤细体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-简 中黑体&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Medium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Medium, sans-serif;&quot;&gt;中黑体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-简 中粗体&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Semibold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Semibold, sans-serif;&quot;&gt;中粗体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+
+&lt;p&gt;苹方除了简体的：苹方-简（PingFang SC），还为繁体用户提供有：苹方-繁（PingFang TC） ，苹方-港（PingFang HK）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-繁&lt;/strong&gt; 的 CSS font-family 使用：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Ultralight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Light&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Medium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Semibold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;苹方-港&lt;/strong&gt; 的 CSS font-family 使用：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Ultralight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Light&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Medium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Semibold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;style&gt;
+
+.code-demo{
+
+position: relative;
+
+margin: 30px auto;
+
+padding-left: 2em;
+
+}
+
+.code-demo:before{
+
+content: '{';
+
+position: absolute;
+
+left: 0;
+
+top: 50%;
+
+line-height: 110%;
+
+font-size: 3em;
+
+font-family: Helvetica Neue;
+
+opacity: 0.2;
+
+-webkit-transform: translateY(-58%);
+
+}
+
+&lt;/style&gt;
+
+</description>
+        <pubDate>Wed, 18 Nov 2015 23:30:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/11/18/using-pingfang-font-in-website/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/11/18/using-pingfang-font-in-website/</guid>
+        
+        <category>苹方</category>
+        
+        <category>CSS</category>
+        
+        <category>CSS/font-family</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>迁移至 Github Pages</title>
+        <description>&lt;p&gt;由于 &lt;a href=&quot;http://note.rpsh.net&quot;&gt;note.rpsh.net&lt;/a&gt; 在 &lt;a href=&quot;https://logdown.com&quot;&gt;logdown&lt;/a&gt; 付费帐号（可以绑定自定义域名）到期，就准备再折腾一下，将这个笔记再继续迁移一下，尝试了 Ghost、 Hexo 后决定搬移到 Github Pages（ 这样以后简历也能写上熟练使用 Github 了 😂 ）&lt;/p&gt;
+
+&lt;p&gt;这个模版来自 &lt;a href=&quot;http://huangxuan.me/&quot;&gt;Hux&lt;/a&gt;， 整体设计感很赞，于是拿来改一改增加了 Disqus 评论、站内搜索。&lt;/p&gt;
+
+&lt;p&gt;本来以为不会折腾的，但是在做站内搜索时候，才发现还是必须要折腾一下。&lt;/p&gt;
+
+&lt;p&gt;因为 Jekyll 程序不能提供全文检索的搜索功能，于是还是要找回万能的 Google，通过 Google &lt;a href=&quot;https://cse.google.com/&quot;&gt;Custom Search Engine(CSE)&lt;/a&gt; 来完成站内搜索。&lt;/p&gt;
+
+&lt;p&gt;Google CSE 提供了丰富的接口及回调，而且可以简单的通过 CSS 修改样式，达到与站点自身风格的一致。&lt;/p&gt;
+
+&lt;p&gt;体验站内搜索： &lt;a href=&quot;http://note.rpsh.net/search/&quot;&gt;http://note.rpsh.net/search/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2015/11/google-site-search.jpg&quot; alt=&quot;Google 站内搜索&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;完成后，有个萦绕的想法就是要给那些不能顺畅使用 Google 的访客也能有一个「后备」的搜索方案，于是找了一圈， 发现只有百度有提供基本可用的自定义&lt;a href=&quot;http://zn.baidu.com/&quot;&gt;站内搜索接口&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;但是百度的站内搜素只提供了很少的自定义功能，而且搜索结果是用 iframe 形式展示的，能对其样式进行的修改微乎其微，只能聊胜于无，GFW 受害者，麻烦凑合着用吧 🙁&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2015/11/baidu-site-search.jpg&quot; alt=&quot;Baidu 站内搜索&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 04 Nov 2015 11:30:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/11/04/move-to-github-page/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/11/04/move-to-github-page/</guid>
+        
+        <category>Github Pages</category>
+        
+        <category>Google</category>
+        
+        <category>Baidu</category>
+        
+        <category>站内搜索</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Mac OS X 安装 PHP intl 扩展</title>
+        <description>&lt;p&gt;首先，需要关掉 MAC OS X El Captian 的 System Integrity Protection（rootless）的&lt;a href=&quot;https://www.quora.com/How-do-I-turn-off-the-rootless-in-OS-X-El-Capitan-10-11&quot;&gt;机制&lt;/a&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 重启计算机时按住 Command 和 R 键进入到恢复模式
+2. 恢复模式启动后，从顶部菜单栏中选择 “实用工具 &amp;gt; 终端”
+3. 在终端窗口中输入csrutil disable并按回车键
+4. 重启系统，System Integrity Protection 就会被关闭了
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;启用 PEAR&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /usr/lib/php
+sudo php install-pear-nozlib.phar
+sudo pear channel-update pear.php.net
+sudo pecl channel-update pecl.php.net
+sudo pear upgrade-all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;使用 Homebrew 安装 ICU 库&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install icu4c
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装 intl&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pecl install intl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;icu4c path: &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/opt/icu4c/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;编辑 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/php.ini&lt;/code&gt; 在最后添加：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extension=intl.so
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;重启 Apache&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apachectl restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;检查是否安装成功&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;intl &lt;span class=&quot;c&quot;&gt;#正常会返回 'intl'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;手动安装步骤&quot;&gt;手动安装步骤&lt;/h2&gt;
+
+&lt;p&gt;手动安装 ICU（&lt;a href=&quot;http://download.icu-project.org/files/icu4c/52.1/icu4c-52_1-src.tgz&quot;&gt;ICU下载&lt;/a&gt;）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar xzvf icu4c-52_1-src.tgz
+cd icu/source
+./runConfigureICU MacOSX
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;手动安装 intl （ &lt;a href=&quot;http://www.php.net/get/php-5.5.29.tar.gz/from/a/mirror&quot;&gt;PHP源&lt;/a&gt; ）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ext/intl
+phpize
+./configure --enable-intl
+make
+sudo cp modules/intl.so /usr/lib/php/extensions/no-debug-non-zts-??????/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;参考资料&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://codingexplained.com/operating-systems/mac/installing-php-intl-extension-os-x-mavericks&quot;&gt;Installing the PHP intl extension on OS X Mavericks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://akrabat.com/setting-up-php-mysql-on-os-x-yosemite/&quot;&gt;Setting up PHP &amp;amp; MySQL on OS X Yosemite&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mansion.im/2011/php-with-intl-and-gettext-on-osx-lion/&quot;&gt;PHP WITH INTL AND GETTEXT ON OSX LION&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 07 Oct 2015 10:26:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/</guid>
+        
+        <category>OSX</category>
+        
+        <category>PHP</category>
+        
+        <category>Apache</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>移动端 HTML5 页面常见问题 —— 样式篇</title>
+        <description>&lt;h2 id=&quot;问题android-上圆形图片使用-border-时边框显示变形&quot;&gt;问题：Android 上圆形图片使用 border 时，边框显示变形&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/radius.png&quot; alt=&quot;圆形图片边框变形&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：给 img 外嵌套一个元素，为其使用圆角&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline-block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#FF7000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题android-上圆角元素背景颜色会溢出&quot;&gt;问题：Android 上圆角元素，背景颜色会溢出&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/border-radius.png&quot; alt=&quot;背景色溢出&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;background-clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;padding-box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题-android-上圆角使用-animation-做-loading-动画时圆角背景色溢出的bug&quot;&gt;问题： Android 上圆角使用 Animation 做 loading 动画时，圆角背景色溢出的bug&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/radius-animation-1.gif&quot; alt=&quot;圆角溢出&quot; /&gt;
+&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/radius-animation-2.gif&quot; alt=&quot;解决圆角溢出&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F9CEAC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;32px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;32px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-mask-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;原理是使用一个圆角的蒙板通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;-webkit-mask-image&lt;/code&gt; 遮住多余的部分。蒙板： 
+&lt;img style=&quot;display:inline-block;vertical-align: bottom;&quot; src=&quot;http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png&quot; alt=&quot;圆角蒙板&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;问题css-三角在-android-上显示为方块&quot;&gt;问题：CSS 三角在 Android 上显示为方块&lt;/h2&gt;
+&lt;p&gt;解决：可能是对这个三角使用了圆角，去掉 &lt;code class=&quot;highlighter-rouge&quot;&gt;border-radius&lt;/code&gt; 即可&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border-left-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;/*border-radius: 2px;*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题-android-上使用-svg-作为-background-image-时显示模糊&quot;&gt;问题： Android 上使用 svg 作为 background-image 时显示模糊&lt;/h2&gt;
+&lt;p&gt;解决：设置 &lt;code class=&quot;highlighter-rouge&quot;&gt;background-size&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题-active-样式不生效&quot;&gt;问题： :active 样式不生效&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/active.gif&quot; alt=&quot;元素 active 样式&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决： 参考&lt;a href=&quot;http://note.rpsh.net/posts/2014/03/18/phone-touch-css-style-active&quot;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;touchstart&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题-多行文字超出截断需要出现省略号&quot;&gt;问题： 多行文字超出截断需要出现省略号&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/ellipsis.png&quot; alt=&quot;多行文本的超出隐藏省略号&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决： 参考&lt;a href=&quot;http://note.rpsh.net/posts/2014/10/14/css-multiple-line-overflow-ellipsis&quot;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;text-overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ellipsis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-line-clamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-box-orient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题-1px-线条边框&quot;&gt;问题： 1px 线条、边框&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/1px_line.png&quot; alt=&quot;1像素边框&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：使用高度为 1px ，一半为实色，一半为透明的渐变背景实现&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果需要有四个边框都有 1px 的线框，可以使用多背景图&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bottom&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题滚动条滚动时没有像-ios-原生那么顺滑流畅滚动条没有-ios-回弹效果&quot;&gt;问题：滚动条滚动时没有像 iOS 原生那么顺滑流畅，滚动条没有 iOS 回弹效果&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/scroll-1.gif&quot; alt=&quot;iOS 滚动条&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-overflow-scrolling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;注：在 Android 上由于原生滚动没有回弹效果，所以这里也不会有回弹的效果。&lt;/p&gt;
+
+&lt;h2 id=&quot;问题当模块使用系统的横向滚动时不想显示出系统的滚动条样式&quot;&gt;问题：当模块使用系统的横向滚动时，不想显示出系统的滚动条样式&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/scroll-2.gif&quot; alt=&quot;隐藏滚动条&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：&lt;/p&gt;
+
+&lt;p&gt;Android：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;::-webkit-scrollbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;iOS 要隐藏滚动条，会稍微复杂一些&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;box&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nc&quot;&gt;.box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;overflow-x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;overflow-y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-overflow-scrolling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;原理：&lt;code class=&quot;highlighter-rouge&quot;&gt;.box&lt;/code&gt; 元素的横向滚动条通过其外层元素 &lt;code class=&quot;highlighter-rouge&quot;&gt;.wrap&lt;/code&gt; 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;overflow:hide&lt;/code&gt; 来隐藏。 （5px 是 iOS 上滚动条元素的高度）&lt;/p&gt;
+
+&lt;h2 id=&quot;问题横向滚动的元素滑动时有时图片显示不出来文字显示不出来&quot;&gt;问题：横向滚动的元素，滑动时有时图片显示不出来/文字显示不出来&lt;/h2&gt;
+
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/scroll-3.gif&quot; alt=&quot;滑动时元素不显示&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：给每个横滑的元素块使用硬件加速&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;translateZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题使用-animation-动画后页面上-overflowauto-的元素滚动条不能滑动&quot;&gt;问题：使用 animation 动画后，页面上 overflow:auto 的元素滚动条不能滑动&lt;/h2&gt;
+&lt;p&gt;解决：不使用 translate 方式的动画，换为使用 left/top 来实现元素移动的动画&lt;/p&gt;
+
+&lt;h2 id=&quot;问题-上下滑动页面时候页面元素消失&quot;&gt;问题： 上下滑动页面时候，页面元素消失&lt;/h2&gt;
+&lt;p&gt;解决：检查是否使用了  fadeIn 的 animation，如有则 fill-mode 使用 backwards 模式&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-animation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fadeIn&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.5s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ease&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;backwards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题页面上数字自动变成了可以点击的链接&quot;&gt;问题：页面上数字自动变成了可以点击的链接&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/input_tel.gif&quot; alt=&quot;数字变为链接&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：在页面 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 里添加&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;format-detection&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;telephone=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题input-在-ios-中圆角内阴影去不掉&quot;&gt;问题：input 在 iOS 中圆角、内阴影去不掉&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/input.png&quot; alt=&quot;去掉 input 的圆角与阴影&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-appearance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题焦点在-input-时placeholder-没有隐藏&quot;&gt;问题：焦点在 input 时，placeholder 没有隐藏&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/placholder.gif&quot; alt=&quot;focus 时隐藏 placholder&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:focus::-webkit-input-placeholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题-input-输入框调出数字输入键盘&quot;&gt;问题： input 输入框调出数字输入键盘&lt;/h2&gt;
+&lt;p&gt;解决&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;number&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;number&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;[0-9]*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tel&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;分别对应下图中的1、2、3。&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;95%&quot; src=&quot;http://note.rpsh.net/assets/2015/08/keyboard_number.png&quot; alt=&quot;圆形图片边框变形&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;需要注意的是，单独使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;number&quot;&lt;/code&gt; 时候， iOS 上出现并不是九宫格的数字键盘，如果需要九宫格的数字键盘，可选择使用 2、3 的方法。
+1、2、3 在 Android 上均可以唤起九宫格的数字键盘&lt;/p&gt;
+
+&lt;h2 id=&quot;问题搜索时键盘的回车按钮文字设定为搜索&quot;&gt;问题：搜索时，键盘的回车按钮文字设定为“搜索”&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/form_search.png&quot; alt=&quot;定义键盘回车文案为搜索&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决： &lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt; 使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;search&quot;&lt;/code&gt;，放在 &lt;code class=&quot;highlighter-rouge&quot;&gt;form&lt;/code&gt; 表单内。两者结合就能使输入法中的回车按钮文字变为“搜索”&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;问题iframe-在-ios-上没有滚动条直接撑出去&quot;&gt;问题：iframe 在 iOS 上没有滚动条，直接撑出去&lt;/h2&gt;
+&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/iframe.png&quot; alt=&quot;iframe 撑出界面&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;解决：给 iframe 外嵌套一个 div， 为这个 div 设置固定高度与 &lt;code class=&quot;highlighter-rouge&quot;&gt;overflow&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-overflow-scrolling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Thu, 27 Aug 2015 12:10:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/</guid>
+        
+        <category>HTML</category>
+        
+        <category>CSS</category>
+        
+        <category>移动开发</category>
+        
+        
+        <category>HTML</category>
+        
+      </item>
+    
+      <item>
+        <title>Mac/Windows版微信聊天图片、视频文件存储位置</title>
+        <description>&lt;p&gt;Mac 版微信收到的小视频默认不能保存到本地，而我们只要找到其在 Mac 上的存储位置就可以直接拿到视频文件。&lt;/p&gt;
+
+&lt;p&gt;微信聊体视频本地存储位置：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/Wechat/1.2/{一串字符}/Message/MessageTemp/{一串字符}/Video&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;微信聊体图片本地存储位置：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/Wechat/1.2/{一串字符}/Message/MessageTemp/{一串字符}/Image&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;使用 Windows 版微信的同样可以拿到微信在本地存储的聊天记录中的文件内容，在 Windows 系统存储的位置是：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;C:\Users\{用户名}\Documents\WeChat Files\{微信名}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%userprofile%\Documents\WeChat Files\{微信用户名}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这个文件夹下有：视频、音频、图片等都可以找到。&lt;/p&gt;
+</description>
+        <pubDate>Wed, 26 Aug 2015 01:58:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/08/26/mac-wechat-image-video-location/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/26/mac-wechat-image-video-location/</guid>
+        
+        <category>Mac</category>
+        
+        <category>微信</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」</title>
+        <description>&lt;p&gt;使用 iTunes 备份 iPhone 时候，遇到备份失败，提示： iTunes无法备份 iPhone，因为 iPhone 已断开连接。&lt;/p&gt;
+
+&lt;p&gt;解决办法就是，还原 iPhone 的位置与隐私，方法：&lt;/p&gt;
+
+&lt;p&gt;设置 &amp;gt; 通用 &amp;gt; 还原 &amp;gt; 还原位置与隐私&lt;/p&gt;
+
+&lt;p&gt;然后插上 USB 数据线，重新连接电脑，信任这台电脑，接下来再用 iTunes 备份就可以成功了。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;如果上述方法不成功，可以尝试如下操作：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;打开 iTunes 偏好设置；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;切换到设备选项卡；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;删掉这个这个手机对应的上一次备份文件（如这个备份文件还需保留，可以右击，选择「在 Finder 中显示」，将这个文件夹备份转移到其他位置）；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;重新连接手机到 iTunes 进行备份。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;还有一种玄学的处理手段：&lt;/p&gt;
+
+&lt;p&gt;上述方式都无效后，将手机切换到飞行模式，再重试备份／更新。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 23 Aug 2015 13:08:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/08/23/repair-itunes-iphone-backup-issue/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/23/repair-itunes-iphone-backup-issue/</guid>
+        
+        <category>iTunes</category>
+        
+        <category>iPhone</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Adobe Photoshop CC 导出 Webp 格式图片</title>
+        <description>&lt;p&gt;首先，下载插件： &lt;a href=&quot;http://telegraphics.com.au/sw/product/WebPFormat&quot;&gt;WebP Format&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Windows 将 &lt;code class=&quot;highlighter-rouge&quot;&gt;WebPFormat64.8bi&lt;/code&gt; 丢进：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C:\Program Files\Adobe\Adobe Photoshop CC 2015\Plug-ins
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Mac OS X 将 &lt;code class=&quot;highlighter-rouge&quot;&gt;WebPFormat.plugin&lt;/code&gt; 文件丢进：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Applications/Adobe Photoshop CC 2015/Plug-ins
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;重启你的 Adobe Photoshop ，在「另存为」菜单中就可以找到 WebP 格式了。
+&lt;img src=&quot;http://note.rpsh.net/assets/2015/08/webp-photoshop-plugin.jpg&quot; alt=&quot;WebPQuickLook&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mac OS X 上如果想用 QuickLook 预览 WebP 格式文件，可以安装这个插件： &lt;a href=&quot;https://github.com/emin/WebPQuickLook&quot;&gt;WebPQuickLook&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;其他一些小工具：
+&lt;a href=&quot;https://webponize.github.io/&quot;&gt;WebPonize&lt;/a&gt; Mac 上一款将图片转为 WebP 的小工具，&lt;a href=&quot;https://github.com/1000ch/WebPonize/raw/master/webponize.tar.gz&quot;&gt;下载&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/webp/docs/cwebp&quot;&gt;cwebp 命令行&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cwebp -q 80 example.png -o example.webp&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://image.online-convert.com/convert-to-webp&quot;&gt;WebP 在线转换 1&lt;/a&gt;, &lt;a href=&quot;https://webp-converter.com/&quot;&gt;2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/webp/docs/webp_codec&quot;&gt;让 Windows 支持预览 WebP 图片&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;参考链接：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- [Complete Guide to Using WebP Image Format](http://www.hongkiat.com/blog/webp-guide/)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Fri, 14 Aug 2015 12:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/08/14/photoshop-cc-webp/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/14/photoshop-cc-webp/</guid>
+        
+        <category>Photoshop</category>
+        
+        <category>WebP</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>让文字从右往左反转显示的 unicode</title>
+        <description>&lt;p&gt;有一个特殊的 unicode 可以让跟在它后边的文字从右往左反转显示&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;amp;#8238; 日照香炉生紫烟
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;效果：&lt;/p&gt;
+&lt;div&gt;
+		&amp;#8238; 日照香炉生紫烟
+&lt;/div&gt;
+
+&lt;p&gt;利用它可以做一些有趣的事情，让一些看起来正常的文字，其实背后藏着一些不正常的原文。&lt;/p&gt;
+
+&lt;table&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;&lt;/th&gt;
+			&lt;th style=&quot;text-align: center&quot;&gt;code&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;html 实体&lt;/td&gt;
+			&lt;td style=&quot;text-align: center&quot;&gt;&amp;amp;#8238;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;html 实体&lt;/td&gt;
+			&lt;td style=&quot;text-align: center&quot;&gt;&amp;amp;#x202e;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;C/C++&lt;/td&gt;
+			&lt;td style=&quot;text-align: center&quot;&gt;\u202E&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.fileformat.info/info/unicode/char/202e/index.htm&quot;&gt;http://www.fileformat.info/info/unicode/char/202e/index.htm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://krebsonsecurity.com/2011/09/right-to-left-override-aids-email-attacks/&quot;&gt;http://krebsonsecurity.com/2011/09/right-to-left-override-aids-email-attacks/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 07 Aug 2015 03:30:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/08/07/right-to-left-override-unicode/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/07/right-to-left-override-unicode/</guid>
+        
+        <category>unicode</category>
+        
+        <category>趣识</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>纯 CSS 实现实时动态毛玻璃效果</title>
+        <description>&lt;p&gt;目前在 Web 上实现毛玻璃效果一般是通过一个大截屏图片的高斯模糊加上滚动位置的切换来&lt;a href=&quot;http://www.zhihu.com/question/30502281&quot;&gt;实现&lt;/a&gt;，而在 iOS9 和 OS X 10.11 的 Safari 原生支持了 CSS 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;backdrop-filter&lt;/code&gt; 来实时地生成一个毛玻璃效果的背景。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2015/07/live-blur.gif&quot; alt=&quot;live-blur.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;代码：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-backdrop-filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;目前还需要 &lt;code class=&quot;highlighter-rouge&quot;&gt;webkit&lt;/code&gt; 的前缀。&lt;/p&gt;
+
+&lt;p&gt;除了 &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;backdrop-filter&lt;/code&gt; 还有以下这些属性&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;blur()&lt;/li&gt;
+  &lt;li&gt;brightness()&lt;/li&gt;
+  &lt;li&gt;contrast()&lt;/li&gt;
+  &lt;li&gt;drop-shadow()&lt;/li&gt;
+  &lt;li&gt;grayscale()&lt;/li&gt;
+  &lt;li&gt;hue-rotate()&lt;/li&gt;
+  &lt;li&gt;invert()&lt;/li&gt;
+  &lt;li&gt;opacity()&lt;/li&gt;
+  &lt;li&gt;saturate()&lt;/li&gt;
+  &lt;li&gt;sepia()&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;用法跟 filter &lt;a href=&quot;https://drafts.fxtf.org/filters/#typedef-filter-function-list&quot;&gt;相似&lt;/a&gt;：&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;-webkit-backdrop-filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brightness&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;不仅是普通的图片，实时播放的视频也能实现毛玻璃：&lt;/p&gt;
+
+&lt;video muted=&quot;&quot; style=&quot;margin:auto;display:block;&quot; width=&quot;375&quot; height=&quot;333&quot; autoplay=&quot;&quot; src=&quot;http://itltcdn.b0.upaiyun.com/demo/ios9-blur.mp4&quot; loop=&quot;&quot;&gt;&lt;/video&gt;
+
+&lt;p&gt;最后放一个 demo：(iOS9、OS 10.11 Safari 可以体验)&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;display:block;margin:auto;&quot; src=&quot;http://note.rpsh.net/assets/2015/07/live-blur-qr.png&quot; alt=&quot;live-blur-qr.png&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;&lt;/p&gt;
+
+&lt;iframe height=&quot;301&quot; scrolling=&quot;no&quot; src=&quot;//codepen.io/rpsh/embed/OVaYQV/?height=301&amp;amp;theme-id=0&amp;amp;default-tab=result&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/library/mac/releasenotes/General/WhatsNewInSafari/Articles/Safari_9.html&quot;&gt;Safari 9.0&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 30 Jul 2015 12:18:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2015/07/30/pure-css-live-blur/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2015/07/30/pure-css-live-blur/</guid>
+        
+        <category>CSS3</category>
+        
+        <category>CSS</category>
+        
+        <category>毛玻璃</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

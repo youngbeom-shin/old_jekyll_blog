@@ -1,26 +1,25 @@
 # Site settings
-title: 任平生的学习笔记
-SEOTitle: 任平生的学习笔记
+title: youngbeom Blog
+SEOTitle: 永范的博客 | youngbeom Blog
 header-img: "assets/common/home-bg.jpg"
-email: myrpsh@gmail.com
-description: "任平生的学习笔记，记录平时学习点滴。RPSH's Notes"
-keyword: "任平生, 互联网, 前端, rpsh"
-author: "任平生"
-url: "http://note.rpsh.net"
+email: youngbeomshin@163.com
+description: "关于交互与界面、极客与艺术 | 永范，Web & Mobile Lover，industrial designer，UX Designer | 这里是 @youngbeom永范 的个人博客，记录发生着的一切。"
+keyword: "永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计"
+author: "申永范"
+url: "http://blog.youngbeom.com"
 baseurl: ""
 timezone: Asia/Shanghai
-feedurl: "http://feeds.rpsh.net/rpsh/note"
+feedurl: ""
 logourl: "/assets/common/favicon.png"
 
 # SNS settings
 RSS: true
 #weibo_username:     huxpro
-zhihu_username:     rpsh
-github_username:    rpsh
-twitter_username:   rpsh
-instagram_username: rpsh
-linkedin_username: 	ihaiyang
-#facebook_username:  haiyang
+zhihu_username:     Young beom
+github_username:    youngbeom-shin
+weibo_username:     youngbeom
+dribbble_username:  youngbeom
+#facebook_username:  申永范
 
 # Google Plus Author id
 google-plus-id: "100791036880126418228"
@@ -73,8 +72,8 @@ ga_domain: note.rpsh.net
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "探寻代码与生活之外的生活"
-sidebar-avatar: "/assets/common/avatar-rpsh.jpg"     # use absolute URL.
+sidebar-about-description: "天生闲不住，折腾青年<br>职业产品设计师，梦想成为好的设计师"
+sidebar-avatar: "/assets/common/avatar-youngbeom.jpg"     # use absolute URL.
 
 
 
@@ -99,7 +98,7 @@ friends: [
 # Site Search 
 search: true 							# whether or not using Search
 search-engine: google 					# google or baidu
-search-placeholder: '善用搜索..'			# placeholder of search input
+search-placeholder: '搜索博客内容'			# placeholder of search input
 
 
 # Custom Search

@@ -1,0 +1,2902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/common/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
+	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
+
+	<title>Tags - 任平生的学习笔记</title>
+	<meta name="description" content="任平生笔记按 Tag 索引文章" />
+	<meta name="keyword"  content="任平生, 互联网, 前端, rpsh" />
+
+	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
+	
+	<link rel="author" href="https://plus.google.com/100791036880126418228/posts" />
+	
+	<link rel="canonical" href="http://localhost:4000/tags/" />
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/blog.css" />
+
+	<!-- Pygments Github CSS -->
+	<link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Custom Fonts -->
+	<link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js" /></script>
+		<script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js" /></script>
+	<![endif]-->
+
+	<!-- og/twitter/wechat meta -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@rpsh" />
+	<meta name="twitter:url" property="og:url" content="http://localhost:4000/tags/" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="Tags - 任平生的学习笔记" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="任平生笔记按 Tag 索引文章" />
+	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/tag-thumb.jpg" />
+
+	<meta name="wxm:timeline_title" content="Tags - 任平生的学习笔记" />
+	<meta name="wxm:appmessage_title" content="Tags - 任平生的学习笔记" />
+	<meta name="wxm:appmessage_desc" content="任平生笔记按 Tag 索引文章" />
+	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/tag-thumb.jpg" />
+	<meta name="wxm:link" content="http://localhost:4000/tags/" />
+	
+	<!-- header banner -->
+	<style type="text/css">
+		header.intro-header{
+			background-image: url('/assets/common/tag-bg.jpg')
+		}
+		@media (max-width:767px){
+			header.intro-header{
+				background-image: url('/assets/common/tag-thumb.jpg');
+			}
+			/*header.intro-header:before{
+				background-image: url('/assets/common/tag-thumb.jpg');
+			}*/
+		}
+	</style>
+	<!-- ga & ba script hoook -->
+	<script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">任平生的学习笔记</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="navbar-site">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/" rel="bookmark">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/" rel="bookmark">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/search/" rel="bookmark">Search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/" rel="bookmark">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#navbar-site');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/assets/common/tag-bg.jpg')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="site-heading" id="tag-heading">
+					<h1>Tags</h1>
+					<span class="subheading">任平生笔记按 Tag 索引文章</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<!-- Search -->
+			
+			<section>
+				<!-- no hr -->
+				<div class="search">
+					
+					<!-- 自定义搜索 -->
+						<form class="search-form" action="/search/">
+							<input type="search" name="q" class="search-input" placeholder="善用搜索..">
+						</form>
+					
+				</div>
+			</section>
+			
+			<!-- 标签云 -->
+			<div id='tag_cloud' class="tags">
+				
+				<a href="#CSS3" title="CSS3" rel="5">CSS3</a>
+				
+				<a href="#CSS" title="CSS" rel="15">CSS</a>
+				
+				<a href="#CSS/transition" title="CSS/transition" rel="1">CSS/transition</a>
+				
+				<a href="#CSS/transform" title="CSS/transform" rel="1">CSS/transform</a>
+				
+				<a href="#CSS/selectors" title="CSS/selectors" rel="1">CSS/selectors</a>
+				
+				<a href="#JS" title="JS" rel="8">JS</a>
+				
+				<a href="#IE" title="IE" rel="7">IE</a>
+				
+				<a href="#浏览器" title="浏览器" rel="3">浏览器</a>
+				
+				<a href="#渲染模式" title="渲染模式" rel="4">渲染模式</a>
+				
+				<a href="#Chrome" title="Chrome" rel="5">Chrome</a>
+				
+				<a href="#https" title="https" rel="1">https</a>
+				
+				<a href="#CSS/rem" title="CSS/rem" rel="1">CSS/rem</a>
+				
+				<a href="#HTML" title="HTML" rel="5">HTML</a>
+				
+				<a href="#有趣的事实" title="有趣的事实" rel="1">有趣的事实</a>
+				
+				<a href="#JS/history" title="JS/history" rel="1">JS/history</a>
+				
+				<a href="#hasLayout" title="hasLayout" rel="1">hasLayout</a>
+				
+				<a href="#HTML5" title="HTML5" rel="3">HTML5</a>
+				
+				<a href="#趣识" title="趣识" rel="4">趣识</a>
+				
+				<a href="#Keyboard" title="Keyboard" rel="1">Keyboard</a>
+				
+				<a href="#JS/dataset" title="JS/dataset" rel="1">JS/dataset</a>
+				
+				<a href="#JS/classList" title="JS/classList" rel="1">JS/classList</a>
+				
+				<a href="#CSS/font-family" title="CSS/font-family" rel="2">CSS/font-family</a>
+				
+				<a href="#人民币" title="人民币" rel="1">人民币</a>
+				
+				<a href="#注释" title="注释" rel="1">注释</a>
+				
+				<a href="#IE10" title="IE10" rel="1">IE10</a>
+				
+				<a href="#Apache" title="Apache" rel="4">Apache</a>
+				
+				<a href="#.htaccess" title=".htaccess" rel="1">.htaccess</a>
+				
+				<a href="#HTML/Meta" title="HTML/Meta" rel="1">HTML/Meta</a>
+				
+				<a href="#HTML5/download" title="HTML5/download" rel="1">HTML5/download</a>
+				
+				<a href="#Google" title="Google" rel="2">Google</a>
+				
+				<a href="#CSS/selection" title="CSS/selection" rel="1">CSS/selection</a>
+				
+				<a href="#性能优化" title="性能优化" rel="1">性能优化</a>
+				
+				<a href="#Droplr" title="Droplr" rel="1">Droplr</a>
+				
+				<a href="#OSX" title="OSX" rel="5">OSX</a>
+				
+				<a href="#PHP" title="PHP" rel="3">PHP</a>
+				
+				<a href="#Mysql" title="Mysql" rel="1">Mysql</a>
+				
+				<a href="#iOS" title="iOS" rel="3">iOS</a>
+				
+				<a href="#App Store" title="App Store" rel="1">App Store</a>
+				
+				<a href="#微信" title="微信" rel="2">微信</a>
+				
+				<a href="#移动开发" title="移动开发" rel="2">移动开发</a>
+				
+				<a href="#Flash" title="Flash" rel="1">Flash</a>
+				
+				<a href="#Video" title="Video" rel="1">Video</a>
+				
+				<a href="#Yosemite" title="Yosemite" rel="2">Yosemite</a>
+				
+				<a href="#CSS/flexbox" title="CSS/flexbox" rel="1">CSS/flexbox</a>
+				
+				<a href="#CSS/justify" title="CSS/justify" rel="1">CSS/justify</a>
+				
+				<a href="#Soft" title="Soft" rel="1">Soft</a>
+				
+				<a href="#synergy" title="synergy" rel="1">synergy</a>
+				
+				<a href="#CSS/trick" title="CSS/trick" rel="1">CSS/trick</a>
+				
+				<a href="#XML" title="XML" rel="1">XML</a>
+				
+				<a href="#CSS/ellipsis" title="CSS/ellipsis" rel="1">CSS/ellipsis</a>
+				
+				<a href="#GoAgentX" title="GoAgentX" rel="1">GoAgentX</a>
+				
+				<a href="#Shadowsocks" title="Shadowsocks" rel="1">Shadowsocks</a>
+				
+				<a href="#Proxifier" title="Proxifier" rel="1">Proxifier</a>
+				
+				<a href="#代理" title="代理" rel="1">代理</a>
+				
+				<a href="#iPhone" title="iPhone" rel="4">iPhone</a>
+				
+				<a href="#屏幕录制" title="屏幕录制" rel="1">屏幕录制</a>
+				
+				<a href="#iTunes" title="iTunes" rel="2">iTunes</a>
+				
+				<a href="#WIFI" title="WIFI" rel="1">WIFI</a>
+				
+				<a href="#HTML/autocomplete" title="HTML/autocomplete" rel="1">HTML/autocomplete</a>
+				
+				<a href="#ffmpeg" title="ffmpeg" rel="1">ffmpeg</a>
+				
+				<a href="#gif" title="gif" rel="1">gif</a>
+				
+				<a href="#mp4" title="mp4" rel="1">mp4</a>
+				
+				<a href="#AirDrop" title="AirDrop" rel="1">AirDrop</a>
+				
+				<a href="#毛玻璃" title="毛玻璃" rel="1">毛玻璃</a>
+				
+				<a href="#unicode" title="unicode" rel="1">unicode</a>
+				
+				<a href="#Photoshop" title="Photoshop" rel="1">Photoshop</a>
+				
+				<a href="#WebP" title="WebP" rel="1">WebP</a>
+				
+				<a href="#Mac" title="Mac" rel="2">Mac</a>
+				
+				<a href="#Github Pages" title="Github Pages" rel="1">Github Pages</a>
+				
+				<a href="#Baidu" title="Baidu" rel="1">Baidu</a>
+				
+				<a href="#站内搜索" title="站内搜索" rel="1">站内搜索</a>
+				
+				<a href="#苹方" title="苹方" rel="1">苹方</a>
+				
+				<a href="#迁移助理" title="迁移助理" rel="1">迁移助理</a>
+				
+			</div>
+
+			<!-- 标签列表 -->
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS3">CSS3</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-07-30">2015-07-30</time>
+				  <a href="/posts/2015/07/30/pure-css-live-blur/" title="纯 CSS 实现实时动态毛玻璃效果">纯 CSS 实现实时动态毛玻璃效果</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/07/30/pure-css-live-blur/">
+						<h2 class="post-title">            纯 CSS 实现实时动态毛玻璃效果
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-07-30</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-12-14">2014-12-14</time>
+				  <a href="/posts/2014/12/14/box-decoration-break/" title="box-decoration-break 定义换行元素样式">box-decoration-break 定义换行元素样式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/12/14/box-decoration-break/">
+						<h2 class="post-title">            box-decoration-break 定义换行元素样式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-12-14</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-08-01">2014-08-01</time>
+				  <a href="/posts/2014/08/01/css3-flexbox-justify/" title="CSS3 实现两端对齐的 justify 布局">CSS3 实现两端对齐的 justify 布局</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/08/01/css3-flexbox-justify/">
+						<h2 class="post-title">            CSS3 实现两端对齐的 justify 布局
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-08-01</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-12">2011-04-12</time>
+				  <a href="/posts/2011/04/12/css-any/" title="CSS 选择器 :any()">CSS 选择器 :any()</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/12/css-any/">
+						<h2 class="post-title">            CSS 选择器 :any()
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-12</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-07">2011-04-07</time>
+				  <a href="/posts/2011/04/07/css3-transition-transform/" title="CSS3: transition transform 学习笔记">CSS3: transition transform 学习笔记</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/07/css3-transition-transform/">
+						<h2 class="post-title">            CSS3: transition transform 学习笔记
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-07</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS">CSS</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-11-18">2015-11-18</time>
+				  <a href="/posts/2015/11/18/using-pingfang-font-in-website/" title="在网页上使用苹方字体">在网页上使用苹方字体</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/11/18/using-pingfang-font-in-website/">
+						<h2 class="post-title">            在网页上使用苹方字体
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-11-18</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-27">2015-08-27</time>
+				  <a href="/posts/2015/08/27/mobile-web-html-css-faq/" title="移动端 HTML5 页面常见问题 —— 样式篇">移动端 HTML5 页面常见问题 —— 样式篇</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/27/mobile-web-html-css-faq/">
+						<h2 class="post-title">            移动端 HTML5 页面常见问题 —— 样式篇
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-07-30">2015-07-30</time>
+				  <a href="/posts/2015/07/30/pure-css-live-blur/" title="纯 CSS 实现实时动态毛玻璃效果">纯 CSS 实现实时动态毛玻璃效果</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/07/30/pure-css-live-blur/">
+						<h2 class="post-title">            纯 CSS 实现实时动态毛玻璃效果
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-07-30</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-14">2014-10-14</time>
+				  <a href="/posts/2014/10/14/css-multiple-line-overflow-ellipsis/" title="纯CSS实现多行文本截断并有省略号">纯CSS实现多行文本截断并有省略号</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/14/css-multiple-line-overflow-ellipsis/">
+						<h2 class="post-title">            纯CSS实现多行文本截断并有省略号
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-14</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-03">2014-10-03</time>
+				  <a href="/posts/2014/10/03/invert-a-whole-webpage-with-css-only/" title="使用 CSS 将一个页面反色显示">使用 CSS 将一个页面反色显示</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/03/invert-a-whole-webpage-with-css-only/">
+						<h2 class="post-title">            使用 CSS 将一个页面反色显示
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-03</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-03-18">2014-03-18</time>
+				  <a href="/posts/2014/03/18/phone-touch-css-style-active/" title="iPhone 上CSS定义 active 样式">iPhone 上CSS定义 active 样式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/03/18/phone-touch-css-style-active/">
+						<h2 class="post-title">            iPhone 上CSS定义 active 样式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-03-18</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-08-27">2013-08-27</time>
+				  <a href="/posts/2013/08/27/the-now-and-future-of-selection-pseudo-element/" title="伪元素 ::selection 的现状与未来">伪元素 ::selection 的现状与未来</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/08/27/the-now-and-future-of-selection-pseudo-element/">
+						<h2 class="post-title">            伪元素 ::selection 的现状与未来
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-08-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-30">2013-01-30</time>
+				  <a href="/posts/2013/01/30/text-aligncenter-and-webkit-center/" title="text-align:center 与 -webkit-center/-moz-center 的区别">text-align:center 与 -webkit-center/-moz-center 的区别</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/30/text-aligncenter-and-webkit-center/">
+						<h2 class="post-title">            text-align:center 与 -webkit-center/-moz-center 的区别
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-30</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-13">2013-01-13</time>
+				  <a href="/posts/2013/01/13/pseudo-element-transitions-bug-fixed-in/" title="Chrome(Webkit)中伪元素不支持动画的bug修复了">Chrome(Webkit)中伪元素不支持动画的bug修复了</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/13/pseudo-element-transitions-bug-fixed-in/">
+						<h2 class="post-title">            Chrome(Webkit)中伪元素不支持动画的bug修复了
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-13</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-09">2013-01-09</time>
+				  <a href="/posts/2013/01/09/disabling-auto-clear-button-in-ie10/" title="移除 IE10 input 输入框上的清除按钮">移除 IE10 input 输入框上的清除按钮</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/09/disabling-auto-clear-button-in-ie10/">
+						<h2 class="post-title">            移除 IE10 input 输入框上的清除按钮
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-09</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-27">2011-05-27</time>
+				  <a href="/posts/2011/05/27/styling-ordered-list-numbers/" title="自定义有序列表 li 项目符号的数字样式">自定义有序列表 li 项目符号的数字样式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/27/styling-ordered-list-numbers/">
+						<h2 class="post-title">            自定义有序列表 li 项目符号的数字样式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-20">2011-05-20</time>
+				  <a href="/posts/2011/05/20/js-detect-css-support/" title="判断浏览器是否支持某个css属性">判断浏览器是否支持某个css属性</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/20/js-detect-css-support/">
+						<h2 class="post-title">            判断浏览器是否支持某个css属性
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-20</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-03">2011-05-03</time>
+				  <a href="/posts/2011/05/03/font-size-px-em-rem/" title="font-size 的 px em 与 rem 的区别">font-size 的 px em 与 rem 的区别</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/03/font-size-px-em-rem/">
+						<h2 class="post-title">            font-size 的 px em 与 rem 的区别
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-03</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-12">2011-04-12</time>
+				  <a href="/posts/2011/04/12/css-any/" title="CSS 选择器 :any()">CSS 选择器 :any()</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/12/css-any/">
+						<h2 class="post-title">            CSS 选择器 :any()
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-12</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-07">2011-04-07</time>
+				  <a href="/posts/2011/04/07/css3-transition-transform/" title="CSS3: transition transform 学习笔记">CSS3: transition transform 学习笔记</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/07/css3-transition-transform/">
+						<h2 class="post-title">            CSS3: transition transform 学习笔记
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-07</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/transition">CSS/transition</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-07">2011-04-07</time>
+				  <a href="/posts/2011/04/07/css3-transition-transform/" title="CSS3: transition transform 学习笔记">CSS3: transition transform 学习笔记</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/07/css3-transition-transform/">
+						<h2 class="post-title">            CSS3: transition transform 学习笔记
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-07</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/transform">CSS/transform</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-07">2011-04-07</time>
+				  <a href="/posts/2011/04/07/css3-transition-transform/" title="CSS3: transition transform 学习笔记">CSS3: transition transform 学习笔记</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/07/css3-transition-transform/">
+						<h2 class="post-title">            CSS3: transition transform 学习笔记
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-07</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/selectors">CSS/selectors</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-12">2011-04-12</time>
+				  <a href="/posts/2011/04/12/css-any/" title="CSS 选择器 :any()">CSS 选择器 :any()</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/12/css-any/">
+						<h2 class="post-title">            CSS 选择器 :any()
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-12</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="JS">JS</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2012-03-12">2012-03-12</time>
+				  <a href="/posts/2012/03/12/detect-browser-window-is-active/" title="JS 判断浏览器窗口是否处于当前激活状态">JS 判断浏览器窗口是否处于当前激活状态</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2012/03/12/detect-browser-window-is-active/">
+						<h2 class="post-title">            JS 判断浏览器窗口是否处于当前激活状态
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2012-03-12</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2012-01-11">2012-01-11</time>
+				  <a href="/posts/2012/01/11/page-appers-garbled-when-back-button/" title="IE 中按后退按钮页面乱码的解决方案">IE 中按后退按钮页面乱码的解决方案</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2012/01/11/page-appers-garbled-when-back-button/">
+						<h2 class="post-title">            IE 中按后退按钮页面乱码的解决方案
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2012-01-11</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-06-10">2011-06-10</time>
+				  <a href="/posts/2011/06/10/js-classlist-api/" title="HTML5: element.classList API">HTML5: element.classList API</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/06/10/js-classlist-api/">
+						<h2 class="post-title">            HTML5: element.classList API
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-06-10</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-06-10">2011-06-10</time>
+				  <a href="/posts/2011/06/10/js-dataset-api/" title="HTML5: element.dataset API">HTML5: element.dataset API</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/06/10/js-dataset-api/">
+						<h2 class="post-title">            HTML5: element.dataset API
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-06-10</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-06-08">2011-06-08</time>
+				  <a href="/posts/2011/06/08/javascript-keycodes/" title="javascript keycodes 键盘键值">javascript keycodes 键盘键值</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/06/08/javascript-keycodes/">
+						<h2 class="post-title">            javascript keycodes 键盘键值
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-06-08</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-20">2011-05-20</time>
+				  <a href="/posts/2011/05/20/js-detect-css-support/" title="判断浏览器是否支持某个css属性">判断浏览器是否支持某个css属性</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/20/js-detect-css-support/">
+						<h2 class="post-title">            判断浏览器是否支持某个css属性
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-20</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-18">2011-05-18</time>
+				  <a href="/posts/2011/05/18/window-history/" title="window.history">window.history</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/18/window-history/">
+						<h2 class="post-title">            window.history
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-18</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-14">2011-04-14</time>
+				  <a href="/posts/2011/04/14/javascript-ie-documentmode/" title="javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法">javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/14/javascript-ie-documentmode/">
+						<h2 class="post-title">            javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-14</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="IE">IE</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-30">2013-01-30</time>
+				  <a href="/posts/2013/01/30/ie-compatibility-view-list/" title="IE兼容性列表（Compatibility View List）">IE兼容性列表（Compatibility View List）</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/30/ie-compatibility-view-list/">
+						<h2 class="post-title">            IE兼容性列表（Compatibility View List）
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-30</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-21">2013-01-21</time>
+				  <a href="/posts/2013/01/21/ie-meta-tag/" title="一些神奇的 IE Meta Tags">一些神奇的 IE Meta Tags</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/21/ie-meta-tag/">
+						<h2 class="post-title">            一些神奇的 IE Meta Tags
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-21</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-09">2013-01-09</time>
+				  <a href="/posts/2013/01/09/disabling-auto-clear-button-in-ie10/" title="移除 IE10 input 输入框上的清除按钮">移除 IE10 input 输入框上的清除按钮</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/09/disabling-auto-clear-button-in-ie10/">
+						<h2 class="post-title">            移除 IE10 input 输入框上的清除按钮
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-09</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2012-01-11">2012-01-11</time>
+				  <a href="/posts/2012/01/11/page-appers-garbled-when-back-button/" title="IE 中按后退按钮页面乱码的解决方案">IE 中按后退按钮页面乱码的解决方案</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2012/01/11/page-appers-garbled-when-back-button/">
+						<h2 class="post-title">            IE 中按后退按钮页面乱码的解决方案
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2012-01-11</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-12-15">2011-12-15</time>
+				  <a href="/posts/2011/12/15/ie10s-html5-quirks-mode/" title="IE10 的 HTML5 怪异模式">IE10 的 HTML5 怪异模式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/12/15/ie10s-html5-quirks-mode/">
+						<h2 class="post-title">            IE10 的 HTML5 怪异模式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-12-15</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-20">2011-05-20</time>
+				  <a href="/posts/2011/05/20/ie8-haslayout/" title="ie8 的 hasLayout">ie8 的 hasLayout</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/20/ie8-haslayout/">
+						<h2 class="post-title">            ie8 的 hasLayout
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-20</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-14">2011-04-14</time>
+				  <a href="/posts/2011/04/14/javascript-ie-documentmode/" title="javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法">javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/14/javascript-ie-documentmode/">
+						<h2 class="post-title">            javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-14</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="浏览器">浏览器</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-20">2011-05-20</time>
+				  <a href="/posts/2011/05/20/js-detect-css-support/" title="判断浏览器是否支持某个css属性">判断浏览器是否支持某个css属性</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/20/js-detect-css-support/">
+						<h2 class="post-title">            判断浏览器是否支持某个css属性
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-20</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-14">2011-04-14</time>
+				  <a href="/posts/2011/04/14/browser-rendering-modes/" title="浏览器渲染模式">浏览器渲染模式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/14/browser-rendering-modes/">
+						<h2 class="post-title">            浏览器渲染模式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-14</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-14">2011-04-14</time>
+				  <a href="/posts/2011/04/14/javascript-ie-documentmode/" title="javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法">javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/14/javascript-ie-documentmode/">
+						<h2 class="post-title">            javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-14</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="渲染模式">渲染模式</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-30">2013-01-30</time>
+				  <a href="/posts/2013/01/30/ie-compatibility-view-list/" title="IE兼容性列表（Compatibility View List）">IE兼容性列表（Compatibility View List）</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/30/ie-compatibility-view-list/">
+						<h2 class="post-title">            IE兼容性列表（Compatibility View List）
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-30</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-12-15">2011-12-15</time>
+				  <a href="/posts/2011/12/15/ie10s-html5-quirks-mode/" title="IE10 的 HTML5 怪异模式">IE10 的 HTML5 怪异模式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/12/15/ie10s-html5-quirks-mode/">
+						<h2 class="post-title">            IE10 的 HTML5 怪异模式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-12-15</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-14">2011-04-14</time>
+				  <a href="/posts/2011/04/14/browser-rendering-modes/" title="浏览器渲染模式">浏览器渲染模式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/14/browser-rendering-modes/">
+						<h2 class="post-title">            浏览器渲染模式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-14</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-14">2011-04-14</time>
+				  <a href="/posts/2011/04/14/javascript-ie-documentmode/" title="javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法">javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/14/javascript-ie-documentmode/">
+						<h2 class="post-title">            javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-14</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Chrome">Chrome</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-27">2014-10-27</time>
+				  <a href="/posts/2014/10/27/chrome-wont-open-itunes-or-macstroe/" title="解决 Chrome 不能打开 iTunes 或 Mac Appstore">解决 Chrome 不能打开 iTunes 或 Mac Appstore</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/27/chrome-wont-open-itunes-or-macstroe/">
+						<h2 class="post-title">            解决 Chrome 不能打开 iTunes 或 Mac Appstore
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-08-27">2014-08-27</time>
+				  <a href="/posts/2014/08/27/chrome-37-chinese-characters-display-bug/" title="解决 Chrome 37 中文汉字不显示的bug">解决 Chrome 37 中文汉字不显示的bug</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/08/27/chrome-37-chinese-characters-display-bug/">
+						<h2 class="post-title">            解决 Chrome 37 中文汉字不显示的bug
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-08-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-04-29">2013-04-29</time>
+				  <a href="/posts/2013/04/29/change-googles-search-domain-in-chrome/" title="修改 Chrome 搜索默认使用 Google.com">修改 Chrome 搜索默认使用 Google.com</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/04/29/change-googles-search-domain-in-chrome/">
+						<h2 class="post-title">            修改 Chrome 搜索默认使用 Google.com
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-04-29</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-13">2013-01-13</time>
+				  <a href="/posts/2013/01/13/pseudo-element-transitions-bug-fixed-in/" title="Chrome(Webkit)中伪元素不支持动画的bug修复了">Chrome(Webkit)中伪元素不支持动画的bug修复了</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/13/pseudo-element-transitions-bug-fixed-in/">
+						<h2 class="post-title">            Chrome(Webkit)中伪元素不支持动画的bug修复了
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-13</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-19">2011-04-19</time>
+				  <a href="/posts/2011/04/19/chromenet-internalshsts/" title="设置 Chrome 强制网站使用 HTTPS">设置 Chrome 强制网站使用 HTTPS</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/19/chromenet-internalshsts/">
+						<h2 class="post-title">            设置 Chrome 强制网站使用 HTTPS
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-19</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="https">https</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-04-19">2011-04-19</time>
+				  <a href="/posts/2011/04/19/chromenet-internalshsts/" title="设置 Chrome 强制网站使用 HTTPS">设置 Chrome 强制网站使用 HTTPS</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/04/19/chromenet-internalshsts/">
+						<h2 class="post-title">            设置 Chrome 强制网站使用 HTTPS
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-04-19</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/rem">CSS/rem</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-03">2011-05-03</time>
+				  <a href="/posts/2011/05/03/font-size-px-em-rem/" title="font-size 的 px em 与 rem 的区别">font-size 的 px em 与 rem 的区别</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/03/font-size-px-em-rem/">
+						<h2 class="post-title">            font-size 的 px em 与 rem 的区别
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-03</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="HTML">HTML</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-27">2015-08-27</time>
+				  <a href="/posts/2015/08/27/mobile-web-html-css-faq/" title="移动端 HTML5 页面常见问题 —— 样式篇">移动端 HTML5 页面常见问题 —— 样式篇</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/27/mobile-web-html-css-faq/">
+						<h2 class="post-title">            移动端 HTML5 页面常见问题 —— 样式篇
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-04-30">2014-04-30</time>
+				  <a href="/posts/2014/04/30/div-flash/" title="div 浮层遮盖 flash 问题再研究">div 浮层遮盖 flash 问题再研究</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/04/30/div-flash/">
+						<h2 class="post-title">            div 浮层遮盖 flash 问题再研究
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-04-30</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-12-27">2011-12-27</time>
+				  <a href="/posts/2011/12/27/reverse-ordered-lists-in-html5/" title="ol 有序列表序号的倒序">ol 有序列表序号的倒序</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/12/27/reverse-ordered-lists-in-html5/">
+						<h2 class="post-title">            ol 有序列表序号的倒序
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-12-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-12-08">2011-12-08</time>
+				  <a href="/posts/2011/12/08/html-comments/" title="HTML 注释的前世今生">HTML 注释的前世今生</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/12/08/html-comments/">
+						<h2 class="post-title">            HTML 注释的前世今生
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-12-08</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-04">2011-05-04</time>
+				  <a href="/posts/2011/05/04/the-truth-about-marquee-tag/" title="有关 &lt;marquee&gt; 标签的一些现实">有关 &lt;marquee&gt; 标签的一些现实</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/04/the-truth-about-marquee-tag/">
+						<h2 class="post-title">            有关 &lt;marquee&gt; 标签的一些现实
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-04</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="有趣的事实">有趣的事实</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-04">2011-05-04</time>
+				  <a href="/posts/2011/05/04/the-truth-about-marquee-tag/" title="有关 &lt;marquee&gt; 标签的一些现实">有关 &lt;marquee&gt; 标签的一些现实</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/04/the-truth-about-marquee-tag/">
+						<h2 class="post-title">            有关 &lt;marquee&gt; 标签的一些现实
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-04</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="JS/history">JS/history</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-18">2011-05-18</time>
+				  <a href="/posts/2011/05/18/window-history/" title="window.history">window.history</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/18/window-history/">
+						<h2 class="post-title">            window.history
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-18</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="hasLayout">hasLayout</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-20">2011-05-20</time>
+				  <a href="/posts/2011/05/20/ie8-haslayout/" title="ie8 的 hasLayout">ie8 的 hasLayout</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/20/ie8-haslayout/">
+						<h2 class="post-title">            ie8 的 hasLayout
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="HTML5">HTML5</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-04-16">2015-04-16</time>
+				  <a href="/posts/2015/04/16/html5-form-autocomplete/" title="HTML5 表单自动填表功能">HTML5 表单自动填表功能</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/04/16/html5-form-autocomplete/">
+						<h2 class="post-title">            HTML5 表单自动填表功能
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-04-16</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-02-18">2013-02-18</time>
+				  <a href="/posts/2013/02/18/html5-download/" title="HTML5 download 属性">HTML5 download 属性</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/02/18/html5-download/">
+						<h2 class="post-title">            HTML5 download 属性
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-02-18</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-25">2011-05-25</time>
+				  <a href="/posts/2011/05/25/story-of-html5-shiv/" title="HTML5 Shiv 的一些趣事">HTML5 Shiv 的一些趣事</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/25/story-of-html5-shiv/">
+						<h2 class="post-title">            HTML5 Shiv 的一些趣事
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-25</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="趣识">趣识</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-07">2015-08-07</time>
+				  <a href="/posts/2015/08/07/right-to-left-override-unicode/" title="让文字从右往左反转显示的 unicode">让文字从右往左反转显示的 unicode</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/07/right-to-left-override-unicode/">
+						<h2 class="post-title">            让文字从右往左反转显示的 unicode
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-07</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-21">2013-01-21</time>
+				  <a href="/posts/2013/01/21/ie-meta-tag/" title="一些神奇的 IE Meta Tags">一些神奇的 IE Meta Tags</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/21/ie-meta-tag/">
+						<h2 class="post-title">            一些神奇的 IE Meta Tags
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-21</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-12-08">2011-12-08</time>
+				  <a href="/posts/2011/12/08/html-comments/" title="HTML 注释的前世今生">HTML 注释的前世今生</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/12/08/html-comments/">
+						<h2 class="post-title">            HTML 注释的前世今生
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-12-08</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-05-25">2011-05-25</time>
+				  <a href="/posts/2011/05/25/story-of-html5-shiv/" title="HTML5 Shiv 的一些趣事">HTML5 Shiv 的一些趣事</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/05/25/story-of-html5-shiv/">
+						<h2 class="post-title">            HTML5 Shiv 的一些趣事
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-05-25</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Keyboard">Keyboard</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-06-08">2011-06-08</time>
+				  <a href="/posts/2011/06/08/javascript-keycodes/" title="javascript keycodes 键盘键值">javascript keycodes 键盘键值</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/06/08/javascript-keycodes/">
+						<h2 class="post-title">            javascript keycodes 键盘键值
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-06-08</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="JS/dataset">JS/dataset</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-06-10">2011-06-10</time>
+				  <a href="/posts/2011/06/10/js-dataset-api/" title="HTML5: element.dataset API">HTML5: element.dataset API</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/06/10/js-dataset-api/">
+						<h2 class="post-title">            HTML5: element.dataset API
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-06-10</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="JS/classList">JS/classList</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-06-10">2011-06-10</time>
+				  <a href="/posts/2011/06/10/js-classlist-api/" title="HTML5: element.classList API">HTML5: element.classList API</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/06/10/js-classlist-api/">
+						<h2 class="post-title">            HTML5: element.classList API
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-06-10</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/font-family">CSS/font-family</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-11-18">2015-11-18</time>
+				  <a href="/posts/2015/11/18/using-pingfang-font-in-website/" title="在网页上使用苹方字体">在网页上使用苹方字体</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/11/18/using-pingfang-font-in-website/">
+						<h2 class="post-title">            在网页上使用苹方字体
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-11-18</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-08-15">2011-08-15</time>
+				  <a href="/posts/2011/08/15/rmb-character/" title="人民币符号 ¥ 一横还是两横的问题">人民币符号 ¥ 一横还是两横的问题</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/08/15/rmb-character/">
+						<h2 class="post-title">            人民币符号 ¥ 一横还是两横的问题
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-08-15</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="人民币">人民币</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-08-15">2011-08-15</time>
+				  <a href="/posts/2011/08/15/rmb-character/" title="人民币符号 ¥ 一横还是两横的问题">人民币符号 ¥ 一横还是两横的问题</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/08/15/rmb-character/">
+						<h2 class="post-title">            人民币符号 ¥ 一横还是两横的问题
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-08-15</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="注释">注释</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-12-08">2011-12-08</time>
+				  <a href="/posts/2011/12/08/html-comments/" title="HTML 注释的前世今生">HTML 注释的前世今生</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/12/08/html-comments/">
+						<h2 class="post-title">            HTML 注释的前世今生
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-12-08</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="IE10">IE10</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2011-12-15">2011-12-15</time>
+				  <a href="/posts/2011/12/15/ie10s-html5-quirks-mode/" title="IE10 的 HTML5 怪异模式">IE10 的 HTML5 怪异模式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2011/12/15/ie10s-html5-quirks-mode/">
+						<h2 class="post-title">            IE10 的 HTML5 怪异模式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2011-12-15</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Apache">Apache</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-10-07">2015-10-07</time>
+				  <a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/" title="Mac OS X 安装 PHP intl 扩展">Mac OS X 安装 PHP intl 扩展</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/">
+						<h2 class="post-title">            Mac OS X 安装 PHP intl 扩展
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-10-07</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-07-31">2014-07-31</time>
+				  <a href="/posts/2014/07/31/get-apache-working-on-osx-10-10-yosemite/" title="解决升级 Yosemite 后， Web Server 不工作的问题">解决升级 Yosemite 后， Web Server 不工作的问题</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/07/31/get-apache-working-on-osx-10-10-yosemite/">
+						<h2 class="post-title">            解决升级 Yosemite 后， Web Server 不工作的问题
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-07-31</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-11-26">2013-11-26</time>
+				  <a href="/posts/2013/11/26/osx-apache-server-php-mysql/" title="Mac OS X 启用 Web 服务器">Mac OS X 启用 Web 服务器</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/11/26/osx-apache-server-php-mysql/">
+						<h2 class="post-title">            Mac OS X 启用 Web 服务器
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-11-26</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2012-03-06">2012-03-06</time>
+				  <a href="/posts/2012/03/06/htaccess-url-redirect-without-changing/" title=".htaccess 重定向而URL地址不变">.htaccess 重定向而URL地址不变</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2012/03/06/htaccess-url-redirect-without-changing/">
+						<h2 class="post-title">            .htaccess 重定向而URL地址不变
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2012-03-06</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id=".htaccess">.htaccess</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2012-03-06">2012-03-06</time>
+				  <a href="/posts/2012/03/06/htaccess-url-redirect-without-changing/" title=".htaccess 重定向而URL地址不变">.htaccess 重定向而URL地址不变</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2012/03/06/htaccess-url-redirect-without-changing/">
+						<h2 class="post-title">            .htaccess 重定向而URL地址不变
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2012-03-06</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="HTML/Meta">HTML/Meta</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-01-21">2013-01-21</time>
+				  <a href="/posts/2013/01/21/ie-meta-tag/" title="一些神奇的 IE Meta Tags">一些神奇的 IE Meta Tags</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/01/21/ie-meta-tag/">
+						<h2 class="post-title">            一些神奇的 IE Meta Tags
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-01-21</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="HTML5/download">HTML5/download</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-02-18">2013-02-18</time>
+				  <a href="/posts/2013/02/18/html5-download/" title="HTML5 download 属性">HTML5 download 属性</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/02/18/html5-download/">
+						<h2 class="post-title">            HTML5 download 属性
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-02-18</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Google">Google</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-11-04">2015-11-04</time>
+				  <a href="/posts/2015/11/04/move-to-github-page/" title="迁移至 Github Pages">迁移至 Github Pages</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/11/04/move-to-github-page/">
+						<h2 class="post-title">            迁移至 Github Pages
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-11-04</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-04-29">2013-04-29</time>
+				  <a href="/posts/2013/04/29/change-googles-search-domain-in-chrome/" title="修改 Chrome 搜索默认使用 Google.com">修改 Chrome 搜索默认使用 Google.com</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/04/29/change-googles-search-domain-in-chrome/">
+						<h2 class="post-title">            修改 Chrome 搜索默认使用 Google.com
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-04-29</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/selection">CSS/selection</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-08-27">2013-08-27</time>
+				  <a href="/posts/2013/08/27/the-now-and-future-of-selection-pseudo-element/" title="伪元素 ::selection 的现状与未来">伪元素 ::selection 的现状与未来</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/08/27/the-now-and-future-of-selection-pseudo-element/">
+						<h2 class="post-title">            伪元素 ::selection 的现状与未来
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-08-27</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="性能优化">性能优化</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-11-20">2013-11-20</time>
+				  <a href="/posts/2013/11/20/url-trailing-slash/" title="给网址最后添加斜杠">给网址最后添加斜杠</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/11/20/url-trailing-slash/">
+						<h2 class="post-title">            给网址最后添加斜杠
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-11-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Droplr">Droplr</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-11-26">2013-11-26</time>
+				  <a href="/posts/2013/11/26/insert-image-with-droplr-for-markdown/" title="使用 Droplr 图片地址">使用 Droplr 图片地址</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/11/26/insert-image-with-droplr-for-markdown/">
+						<h2 class="post-title">            使用 Droplr 图片地址
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-11-26</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="OSX">OSX</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2016-01-05">2016-01-05</time>
+				  <a href="/posts/2016/01/05/move-mac-content-to-new-mac/" title="将旧 Mac 的内容完全迁移到新 Mac 上">将旧 Mac 的内容完全迁移到新 Mac 上</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2016/01/05/move-mac-content-to-new-mac/">
+						<h2 class="post-title">            将旧 Mac 的内容完全迁移到新 Mac 上
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2016-01-05</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-10-07">2015-10-07</time>
+				  <a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/" title="Mac OS X 安装 PHP intl 扩展">Mac OS X 安装 PHP intl 扩展</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/">
+						<h2 class="post-title">            Mac OS X 安装 PHP intl 扩展
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-10-07</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-08-22">2014-08-22</time>
+				  <a href="/posts/2014/08/22/yosemite-launchpad-ghost-icon/" title="OS X Yosemite 如何删掉 Launchpad 里下载不成功的图标">OS X Yosemite 如何删掉 Launchpad 里下载不成功的图标</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/08/22/yosemite-launchpad-ghost-icon/">
+						<h2 class="post-title">            OS X Yosemite 如何删掉 Launchpad 里下载不成功的图标
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-08-22</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-07-31">2014-07-31</time>
+				  <a href="/posts/2014/07/31/get-apache-working-on-osx-10-10-yosemite/" title="解决升级 Yosemite 后， Web Server 不工作的问题">解决升级 Yosemite 后， Web Server 不工作的问题</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/07/31/get-apache-working-on-osx-10-10-yosemite/">
+						<h2 class="post-title">            解决升级 Yosemite 后， Web Server 不工作的问题
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-07-31</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-11-26">2013-11-26</time>
+				  <a href="/posts/2013/11/26/osx-apache-server-php-mysql/" title="Mac OS X 启用 Web 服务器">Mac OS X 启用 Web 服务器</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/11/26/osx-apache-server-php-mysql/">
+						<h2 class="post-title">            Mac OS X 启用 Web 服务器
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-11-26</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="PHP">PHP</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-10-07">2015-10-07</time>
+				  <a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/" title="Mac OS X 安装 PHP intl 扩展">Mac OS X 安装 PHP intl 扩展</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/">
+						<h2 class="post-title">            Mac OS X 安装 PHP intl 扩展
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-10-07</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-10">2014-10-10</time>
+				  <a href="/posts/2014/10/10/php-simplexmlelement-addchild-namespace/" title="PHP SimpleXMLElement 添加带 Namespace 的节点">PHP SimpleXMLElement 添加带 Namespace 的节点</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/10/php-simplexmlelement-addchild-namespace/">
+						<h2 class="post-title">            PHP SimpleXMLElement 添加带 Namespace 的节点
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-10</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-11-26">2013-11-26</time>
+				  <a href="/posts/2013/11/26/osx-apache-server-php-mysql/" title="Mac OS X 启用 Web 服务器">Mac OS X 启用 Web 服务器</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/11/26/osx-apache-server-php-mysql/">
+						<h2 class="post-title">            Mac OS X 启用 Web 服务器
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-11-26</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Mysql">Mysql</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2013-11-26">2013-11-26</time>
+				  <a href="/posts/2013/11/26/osx-apache-server-php-mysql/" title="Mac OS X 启用 Web 服务器">Mac OS X 启用 Web 服务器</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2013/11/26/osx-apache-server-php-mysql/">
+						<h2 class="post-title">            Mac OS X 启用 Web 服务器
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2013-11-26</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="iOS">iOS</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-20">2014-10-20</time>
+				  <a href="/posts/2014/10/20/iphone-ipad-screen-recorder/" title="无需越狱 iPhone/iPad 屏幕录像">无需越狱 iPhone/iPad 屏幕录像</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/20/iphone-ipad-screen-recorder/">
+						<h2 class="post-title">            无需越狱 iPhone/iPad 屏幕录像
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-20</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-03-26">2014-03-26</time>
+				  <a href="/posts/2014/03/26/mt-8-in-itunes-links-for-appstore/" title="App Store 链接中的 mt=8 是什么意思">App Store 链接中的 mt=8 是什么意思</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/03/26/mt-8-in-itunes-links-for-appstore/">
+						<h2 class="post-title">            App Store 链接中的 mt=8 是什么意思
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-03-26</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-03-18">2014-03-18</time>
+				  <a href="/posts/2014/03/18/phone-touch-css-style-active/" title="iPhone 上CSS定义 active 样式">iPhone 上CSS定义 active 样式</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/03/18/phone-touch-css-style-active/">
+						<h2 class="post-title">            iPhone 上CSS定义 active 样式
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-03-18</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="App Store">App Store</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-03-26">2014-03-26</time>
+				  <a href="/posts/2014/03/26/mt-8-in-itunes-links-for-appstore/" title="App Store 链接中的 mt=8 是什么意思">App Store 链接中的 mt=8 是什么意思</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/03/26/mt-8-in-itunes-links-for-appstore/">
+						<h2 class="post-title">            App Store 链接中的 mt=8 是什么意思
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-03-26</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="微信">微信</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-26">2015-08-26</time>
+				  <a href="/posts/2015/08/26/mac-wechat-image-video-location/" title="Mac/Windows版微信聊天图片、视频文件存储位置">Mac/Windows版微信聊天图片、视频文件存储位置</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/26/mac-wechat-image-video-location/">
+						<h2 class="post-title">            Mac/Windows版微信聊天图片、视频文件存储位置
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-26</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-04-15">2014-04-15</time>
+				  <a href="/posts/2014/04/15/weixin-webview-clear-cache/" title="微信 webview 清理缓存方法">微信 webview 清理缓存方法</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/04/15/weixin-webview-clear-cache/">
+						<h2 class="post-title">            微信 webview 清理缓存方法
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-04-15</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="移动开发">移动开发</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-27">2015-08-27</time>
+				  <a href="/posts/2015/08/27/mobile-web-html-css-faq/" title="移动端 HTML5 页面常见问题 —— 样式篇">移动端 HTML5 页面常见问题 —— 样式篇</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/27/mobile-web-html-css-faq/">
+						<h2 class="post-title">            移动端 HTML5 页面常见问题 —— 样式篇
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-27</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-04-15">2014-04-15</time>
+				  <a href="/posts/2014/04/15/weixin-webview-clear-cache/" title="微信 webview 清理缓存方法">微信 webview 清理缓存方法</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/04/15/weixin-webview-clear-cache/">
+						<h2 class="post-title">            微信 webview 清理缓存方法
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-04-15</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Flash">Flash</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-04-30">2014-04-30</time>
+				  <a href="/posts/2014/04/30/div-flash/" title="div 浮层遮盖 flash 问题再研究">div 浮层遮盖 flash 问题再研究</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/04/30/div-flash/">
+						<h2 class="post-title">            div 浮层遮盖 flash 问题再研究
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-04-30</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Video">Video</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-04-30">2014-04-30</time>
+				  <a href="/posts/2014/04/30/div-flash/" title="div 浮层遮盖 flash 问题再研究">div 浮层遮盖 flash 问题再研究</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/04/30/div-flash/">
+						<h2 class="post-title">            div 浮层遮盖 flash 问题再研究
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-04-30</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Yosemite">Yosemite</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-08-22">2014-08-22</time>
+				  <a href="/posts/2014/08/22/yosemite-launchpad-ghost-icon/" title="OS X Yosemite 如何删掉 Launchpad 里下载不成功的图标">OS X Yosemite 如何删掉 Launchpad 里下载不成功的图标</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/08/22/yosemite-launchpad-ghost-icon/">
+						<h2 class="post-title">            OS X Yosemite 如何删掉 Launchpad 里下载不成功的图标
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-08-22</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-07-31">2014-07-31</time>
+				  <a href="/posts/2014/07/31/get-apache-working-on-osx-10-10-yosemite/" title="解决升级 Yosemite 后， Web Server 不工作的问题">解决升级 Yosemite 后， Web Server 不工作的问题</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/07/31/get-apache-working-on-osx-10-10-yosemite/">
+						<h2 class="post-title">            解决升级 Yosemite 后， Web Server 不工作的问题
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-07-31</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/flexbox">CSS/flexbox</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-08-01">2014-08-01</time>
+				  <a href="/posts/2014/08/01/css3-flexbox-justify/" title="CSS3 实现两端对齐的 justify 布局">CSS3 实现两端对齐的 justify 布局</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/08/01/css3-flexbox-justify/">
+						<h2 class="post-title">            CSS3 实现两端对齐的 justify 布局
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-08-01</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/justify">CSS/justify</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-08-01">2014-08-01</time>
+				  <a href="/posts/2014/08/01/css3-flexbox-justify/" title="CSS3 实现两端对齐的 justify 布局">CSS3 实现两端对齐的 justify 布局</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/08/01/css3-flexbox-justify/">
+						<h2 class="post-title">            CSS3 实现两端对齐的 justify 布局
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-08-01</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Soft">Soft</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-09-23">2014-09-23</time>
+				  <a href="/posts/2014/09/23/synergy-windows-mac-keyboard/" title="synergy: 一套键鼠控制多台 Mac 与 Windows">synergy: 一套键鼠控制多台 Mac 与 Windows</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/09/23/synergy-windows-mac-keyboard/">
+						<h2 class="post-title">            synergy: 一套键鼠控制多台 Mac 与 Windows
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-09-23</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="synergy">synergy</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-09-23">2014-09-23</time>
+				  <a href="/posts/2014/09/23/synergy-windows-mac-keyboard/" title="synergy: 一套键鼠控制多台 Mac 与 Windows">synergy: 一套键鼠控制多台 Mac 与 Windows</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/09/23/synergy-windows-mac-keyboard/">
+						<h2 class="post-title">            synergy: 一套键鼠控制多台 Mac 与 Windows
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-09-23</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/trick">CSS/trick</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-03">2014-10-03</time>
+				  <a href="/posts/2014/10/03/invert-a-whole-webpage-with-css-only/" title="使用 CSS 将一个页面反色显示">使用 CSS 将一个页面反色显示</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/03/invert-a-whole-webpage-with-css-only/">
+						<h2 class="post-title">            使用 CSS 将一个页面反色显示
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-03</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="XML">XML</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-10">2014-10-10</time>
+				  <a href="/posts/2014/10/10/php-simplexmlelement-addchild-namespace/" title="PHP SimpleXMLElement 添加带 Namespace 的节点">PHP SimpleXMLElement 添加带 Namespace 的节点</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/10/php-simplexmlelement-addchild-namespace/">
+						<h2 class="post-title">            PHP SimpleXMLElement 添加带 Namespace 的节点
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-10</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="CSS/ellipsis">CSS/ellipsis</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-14">2014-10-14</time>
+				  <a href="/posts/2014/10/14/css-multiple-line-overflow-ellipsis/" title="纯CSS实现多行文本截断并有省略号">纯CSS实现多行文本截断并有省略号</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/14/css-multiple-line-overflow-ellipsis/">
+						<h2 class="post-title">            纯CSS实现多行文本截断并有省略号
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-14</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="GoAgentX">GoAgentX</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-20">2014-10-20</time>
+				  <a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/" title="GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理">GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/">
+						<h2 class="post-title">            GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Shadowsocks">Shadowsocks</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-20">2014-10-20</time>
+				  <a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/" title="GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理">GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/">
+						<h2 class="post-title">            GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Proxifier">Proxifier</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-20">2014-10-20</time>
+				  <a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/" title="GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理">GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/">
+						<h2 class="post-title">            GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="代理">代理</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-20">2014-10-20</time>
+				  <a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/" title="GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理">GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/">
+						<h2 class="post-title">            GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="iPhone">iPhone</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-23">2015-08-23</time>
+				  <a href="/posts/2015/08/23/repair-itunes-iphone-backup-issue/" title="解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」">解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/23/repair-itunes-iphone-backup-issue/">
+						<h2 class="post-title">            解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-23</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-07-16">2015-07-16</time>
+				  <a href="/posts/2015/07/16/iphone-airdrop-cannot-find-mac/" title="解决 iPhone AirDrop 找不到 Mac">解决 iPhone AirDrop 找不到 Mac</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/07/16/iphone-airdrop-cannot-find-mac/">
+						<h2 class="post-title">            解决 iPhone AirDrop 找不到 Mac
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-07-16</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-04-01">2015-04-01</time>
+				  <a href="/posts/2015/04/01/fix-ios-8-wifi-slow/" title="解决 iPhone 升级 iOS 8.2 Wifi 很慢的问题">解决 iPhone 升级 iOS 8.2 Wifi 很慢的问题</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/04/01/fix-ios-8-wifi-slow/">
+						<h2 class="post-title">            解决 iPhone 升级 iOS 8.2 Wifi 很慢的问题
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-04-01</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-20">2014-10-20</time>
+				  <a href="/posts/2014/10/20/iphone-ipad-screen-recorder/" title="无需越狱 iPhone/iPad 屏幕录像">无需越狱 iPhone/iPad 屏幕录像</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/20/iphone-ipad-screen-recorder/">
+						<h2 class="post-title">            无需越狱 iPhone/iPad 屏幕录像
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="屏幕录制">屏幕录制</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-20">2014-10-20</time>
+				  <a href="/posts/2014/10/20/iphone-ipad-screen-recorder/" title="无需越狱 iPhone/iPad 屏幕录像">无需越狱 iPhone/iPad 屏幕录像</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/20/iphone-ipad-screen-recorder/">
+						<h2 class="post-title">            无需越狱 iPhone/iPad 屏幕录像
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-20</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="iTunes">iTunes</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-23">2015-08-23</time>
+				  <a href="/posts/2015/08/23/repair-itunes-iphone-backup-issue/" title="解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」">解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/23/repair-itunes-iphone-backup-issue/">
+						<h2 class="post-title">            解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-23</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2014-10-27">2014-10-27</time>
+				  <a href="/posts/2014/10/27/chrome-wont-open-itunes-or-macstroe/" title="解决 Chrome 不能打开 iTunes 或 Mac Appstore">解决 Chrome 不能打开 iTunes 或 Mac Appstore</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2014/10/27/chrome-wont-open-itunes-or-macstroe/">
+						<h2 class="post-title">            解决 Chrome 不能打开 iTunes 或 Mac Appstore
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2014-10-27</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="WIFI">WIFI</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-04-01">2015-04-01</time>
+				  <a href="/posts/2015/04/01/fix-ios-8-wifi-slow/" title="解决 iPhone 升级 iOS 8.2 Wifi 很慢的问题">解决 iPhone 升级 iOS 8.2 Wifi 很慢的问题</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/04/01/fix-ios-8-wifi-slow/">
+						<h2 class="post-title">            解决 iPhone 升级 iOS 8.2 Wifi 很慢的问题
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-04-01</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="HTML/autocomplete">HTML/autocomplete</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-04-16">2015-04-16</time>
+				  <a href="/posts/2015/04/16/html5-form-autocomplete/" title="HTML5 表单自动填表功能">HTML5 表单自动填表功能</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/04/16/html5-form-autocomplete/">
+						<h2 class="post-title">            HTML5 表单自动填表功能
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-04-16</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="ffmpeg">ffmpeg</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-04-21">2015-04-21</time>
+				  <a href="/posts/2015/04/21/mac-osx-ffmpeg-mp4-gif-convert/" title="使用 ffmpeg 实现 MP4 与 GIF 的互转">使用 ffmpeg 实现 MP4 与 GIF 的互转</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/04/21/mac-osx-ffmpeg-mp4-gif-convert/">
+						<h2 class="post-title">            使用 ffmpeg 实现 MP4 与 GIF 的互转
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-04-21</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="gif">gif</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-04-21">2015-04-21</time>
+				  <a href="/posts/2015/04/21/mac-osx-ffmpeg-mp4-gif-convert/" title="使用 ffmpeg 实现 MP4 与 GIF 的互转">使用 ffmpeg 实现 MP4 与 GIF 的互转</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/04/21/mac-osx-ffmpeg-mp4-gif-convert/">
+						<h2 class="post-title">            使用 ffmpeg 实现 MP4 与 GIF 的互转
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-04-21</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="mp4">mp4</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-04-21">2015-04-21</time>
+				  <a href="/posts/2015/04/21/mac-osx-ffmpeg-mp4-gif-convert/" title="使用 ffmpeg 实现 MP4 与 GIF 的互转">使用 ffmpeg 实现 MP4 与 GIF 的互转</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/04/21/mac-osx-ffmpeg-mp4-gif-convert/">
+						<h2 class="post-title">            使用 ffmpeg 实现 MP4 与 GIF 的互转
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-04-21</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="AirDrop">AirDrop</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-07-16">2015-07-16</time>
+				  <a href="/posts/2015/07/16/iphone-airdrop-cannot-find-mac/" title="解决 iPhone AirDrop 找不到 Mac">解决 iPhone AirDrop 找不到 Mac</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/07/16/iphone-airdrop-cannot-find-mac/">
+						<h2 class="post-title">            解决 iPhone AirDrop 找不到 Mac
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-07-16</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="毛玻璃">毛玻璃</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-07-30">2015-07-30</time>
+				  <a href="/posts/2015/07/30/pure-css-live-blur/" title="纯 CSS 实现实时动态毛玻璃效果">纯 CSS 实现实时动态毛玻璃效果</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/07/30/pure-css-live-blur/">
+						<h2 class="post-title">            纯 CSS 实现实时动态毛玻璃效果
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-07-30</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="unicode">unicode</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-07">2015-08-07</time>
+				  <a href="/posts/2015/08/07/right-to-left-override-unicode/" title="让文字从右往左反转显示的 unicode">让文字从右往左反转显示的 unicode</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/07/right-to-left-override-unicode/">
+						<h2 class="post-title">            让文字从右往左反转显示的 unicode
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-07</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Photoshop">Photoshop</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-14">2015-08-14</time>
+				  <a href="/posts/2015/08/14/photoshop-cc-webp/" title="Adobe Photoshop CC 导出 Webp 格式图片">Adobe Photoshop CC 导出 Webp 格式图片</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/14/photoshop-cc-webp/">
+						<h2 class="post-title">            Adobe Photoshop CC 导出 Webp 格式图片
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-14</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="WebP">WebP</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-14">2015-08-14</time>
+				  <a href="/posts/2015/08/14/photoshop-cc-webp/" title="Adobe Photoshop CC 导出 Webp 格式图片">Adobe Photoshop CC 导出 Webp 格式图片</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/14/photoshop-cc-webp/">
+						<h2 class="post-title">            Adobe Photoshop CC 导出 Webp 格式图片
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-14</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Mac">Mac</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2016-01-05">2016-01-05</time>
+				  <a href="/posts/2016/01/05/move-mac-content-to-new-mac/" title="将旧 Mac 的内容完全迁移到新 Mac 上">将旧 Mac 的内容完全迁移到新 Mac 上</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2016/01/05/move-mac-content-to-new-mac/">
+						<h2 class="post-title">            将旧 Mac 的内容完全迁移到新 Mac 上
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2016-01-05</p> -->
+				</div>
+				<hr>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-08-26">2015-08-26</time>
+				  <a href="/posts/2015/08/26/mac-wechat-image-video-location/" title="Mac/Windows版微信聊天图片、视频文件存储位置">Mac/Windows版微信聊天图片、视频文件存储位置</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/08/26/mac-wechat-image-video-location/">
+						<h2 class="post-title">            Mac/Windows版微信聊天图片、视频文件存储位置
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-08-26</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Github Pages">Github Pages</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-11-04">2015-11-04</time>
+				  <a href="/posts/2015/11/04/move-to-github-page/" title="迁移至 Github Pages">迁移至 Github Pages</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/11/04/move-to-github-page/">
+						<h2 class="post-title">            迁移至 Github Pages
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-11-04</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="Baidu">Baidu</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-11-04">2015-11-04</time>
+				  <a href="/posts/2015/11/04/move-to-github-page/" title="迁移至 Github Pages">迁移至 Github Pages</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/11/04/move-to-github-page/">
+						<h2 class="post-title">            迁移至 Github Pages
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-11-04</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="站内搜索">站内搜索</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-11-04">2015-11-04</time>
+				  <a href="/posts/2015/11/04/move-to-github-page/" title="迁移至 Github Pages">迁移至 Github Pages</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/11/04/move-to-github-page/">
+						<h2 class="post-title">            迁移至 Github Pages
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-11-04</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="苹方">苹方</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2015-11-18">2015-11-18</time>
+				  <a href="/posts/2015/11/18/using-pingfang-font-in-website/" title="在网页上使用苹方字体">在网页上使用苹方字体</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2015/11/18/using-pingfang-font-in-website/">
+						<h2 class="post-title">            在网页上使用苹方字体
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2015-11-18</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+			<div class="one-tag-list">
+				<span class="fa fa-tag listing-seperator" id="迁移助理">迁移助理</span>
+				
+				  <!-- <li class="listing-item">
+				  <time datetime="2016-01-05">2016-01-05</time>
+				  <a href="/posts/2016/01/05/move-mac-content-to-new-mac/" title="将旧 Mac 的内容完全迁移到新 Mac 上">将旧 Mac 的内容完全迁移到新 Mac 上</a>
+				  </li> -->
+				 <div class="post-preview">
+					<a href="/posts/2016/01/05/move-mac-content-to-new-mac/">
+						<h2 class="post-title">            将旧 Mac 的内容完全迁移到新 Mac 上
+						</h2>
+						
+					</a>
+					<!-- <p class="post-meta">2016-01-05</p> -->
+				</div>
+				<hr>
+				
+			</div>
+			
+
+		</div>
+	</div>
+</div>
+
+
+    <!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<ul class="list-inline text-center">
+					
+					<li>
+						<a href="http://feeds.rpsh.net/rpsh/note">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="https://twitter.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+
+					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+					
+					<li>
+						<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa  fa-stack-1x fa-inverse">知</i>
+							</span>
+						</a>
+					</li>
+					
+					
+
+
+					
+					
+					
+                    <li>
+                        <a target="_blank" href="https://instagram.com/rpsh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+					
+					<li>
+						<a target="_blank" href="https://github.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+				</ul>
+				<p class="copyright text-muted">
+					Copyright &copy; 任平生的学习笔记 2018
+					<br>
+					Theme by <a href="http://huangxuan.me">Hux</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+	function async(u, c) {
+	  var d = document, t = 'script',
+		  o = d.createElement(t),
+		  s = d.getElementsByTagName(t)[0];
+	  o.src = u;
+	  if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+	  s.parentNode.insertBefore(o, s);
+	}
+</script>
+
+<!-- Highlight.js -->
+<script>
+	async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+		hljs.initHighlightingOnLoad();
+	})
+	// only load tagcloud.js in tag.html
+	if($('#tag_cloud').length !== 0){
+		async("/js/jquery.tagcloud.js",function(){
+			$.fn.tagcloud.defaults = {
+				//size: {start: 1, end: 1, unit: 'em'},
+				color: {start: '#bbbbee', end: '#0085a1'},
+			};
+			$('#tag_cloud a').tagcloud();
+		})
+	}
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+<!--fastClick.js -->
+<script>
+	async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+		var $nav = document.querySelector("nav");
+		if($nav) FastClick.attach($nav);
+	})
+</script>
+
+
+
+<!-- Google Analytics -->
+<script>
+	// dynamic User hacking by Hux
+	// var _gaId = document.getElementById('gaId').value;
+	var _gaId =  'UA-5528027-2';
+	// var _gaDomain = document.getElementById('gaDomain').value;
+	var _gaDomain = 'note.rpsh.net';
+
+	// Originial
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', _gaId, _gaDomain);
+	ga('send', 'pageview');
+</script>
+
+
+
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "http://localhost:4000",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://localhost:4000/search/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Organization",
+	"url": "http://localhost:4000 ",
+	"logo": "http://localhost:4000/assets/common/favicon.png"
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context" : "http://schema.org",
+	"@type" : "Person",
+	"name" : "任平生",
+	"url" : "",
+	"sameAs" : [
+		
+		"http://twitter.com/rpsh",
+		"http://instagram.com/rpsh",
+		"http://www.linkedin.com/in/ihaiyang",
+		"http://plus.google.com/100791036880126418228"
+	]
+}
+</script>
+
+
+<!-- Image to hack wechat -->
+<img src="http://localhost:4000/assets/common/tag-thumb.jpg" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

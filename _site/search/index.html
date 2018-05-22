@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/common/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
+	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
+
+	<title>Search - 任平生的学习笔记</title>
+	<meta name="description" content="任平生笔记站内搜索" />
+	<meta name="keyword"  content="任平生, 互联网, 前端, rpsh" />
+
+	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
+	
+	<link rel="author" href="https://plus.google.com/100791036880126418228/posts" />
+	
+	<link rel="canonical" href="http://localhost:4000/search/" />
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/blog.css" />
+
+	<!-- Pygments Github CSS -->
+	<link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Custom Fonts -->
+	<link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js" /></script>
+		<script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js" /></script>
+	<![endif]-->
+
+	<!-- og/twitter/wechat meta -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@rpsh" />
+	<meta name="twitter:url" property="og:url" content="http://localhost:4000/search/" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="Search - 任平生的学习笔记" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="任平生笔记站内搜索" />
+	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/home-thumb.jpg" />
+
+	<meta name="wxm:timeline_title" content="Search - 任平生的学习笔记" />
+	<meta name="wxm:appmessage_title" content="Search - 任平生的学习笔记" />
+	<meta name="wxm:appmessage_desc" content="任平生笔记站内搜索" />
+	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/home-thumb.jpg" />
+	<meta name="wxm:link" content="http://localhost:4000/search/" />
+	
+	<!-- header banner -->
+	<style type="text/css">
+		header.intro-header{
+			background-image: url('/assets/common/home-bg.jpg')
+		}
+		@media (max-width:767px){
+			header.intro-header{
+				background-image: url('/assets/common/home-thumb.jpg');
+			}
+			/*header.intro-header:before{
+				background-image: url('/assets/common/home-thumb.jpg');
+			}*/
+		}
+	</style>
+	<!-- ga & ba script hoook -->
+	<script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">任平生的学习笔记</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="navbar-site">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/" rel="bookmark">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/" rel="bookmark">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/search/" rel="bookmark">Search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/" rel="bookmark">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#navbar-site');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Page Header -->
+<header class="intro-header" style="background-image: url('/assets/common/home-bg.jpg')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="site-heading" id="tag-heading">
+					<h1 id="search-keywords">Search</h1>
+					<span class="subheading">任平生笔记站内搜索</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+			<div class="page-search">
+				
+					<!-- 自定义搜索 start -->
+					<div class="google-search" id="google-search">
+						<gcse:search></gcse:search>	
+					</div>
+					<div class="baidu-search">
+						<div class="bdcs-frame-box" id="bdcs-frame-box"></div>
+					</div>
+					<!-- 自定义搜索 end -->
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+// url query
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	    results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+// 从搜索框进入，则修改页面头部 title
+if( getParameterByName('q') ){
+	var q = getParameterByName('q');
+	document.getElementById('search-keywords').innerHTML = '{' + q + '}';
+	document.title = q + ' - 任平生的学习笔记';
+}
+</script>
+
+
+
+<!-- 自定义搜索 start -->
+	
+	<!-- Google 自定义搜索 start -->
+	<script>
+	(function() {
+		var cx = '001480698505182148536:zupx25rxeuc';
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript';
+		gcse.async = true;
+		gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//cse.google.com/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
+
+		// google search callback
+		window.__gcse ={
+			callback: cesCallback
+		}
+		function cesCallback(){
+			// 设置 placeholer
+			var gscInput = document.getElementById('gsc-i-id1');
+			gscInput.setAttribute('placeholder','善用搜索..');
+			gscInput.setAttribute('autocomplete','on');
+
+			// 隐藏百度搜索
+			document.querySelectorAll('.baidu-search')[0].classList.add('hide')
+
+			// 搜索时，修改页面头部 title
+			gscInput.addEventListener('keydown',function(e){
+				var key = e.which || e.keyCode;
+				if (key === 13) { // 13 is enter
+					var keywords = document.getElementById('gsc-i-id1').value;
+					document.getElementById('search-keywords').innerHTML = '{' + keywords + '}';
+					document.title = keywords + ' - 任平生的学习笔记';
+				}
+				
+			})
+		}
+
+		gcse.onerror = function(){
+
+			
+			/* google search 加载失败，fallback 到百度 start */
+				var bdcs = document.createElement('script');
+				bdcs.type = 'text/javascript';
+				bdcs.async = true;
+				bdcs.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//zhannei.baidu.com/static/js/iframe.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(bdcs, s);
+
+				/* Baidu search 不支持 callback ，修改页面 title 统一为 Search */
+				document.getElementById('search-keywords').innerHTML = 'Search';
+				document.title = 'Search - 任平生的学习笔记';
+				
+			/* google search 加载失败，fallback 到百度 end */
+			
+		}
+		
+	})();
+	</script>
+	<!-- Google 自定义搜索 end -->
+	
+
+	
+	<!-- Baidu 自定义搜索 start -->
+	<script>
+		var bdcsFrameSid="3051926431285584476";
+		var bdcsFrameCharset= "utf-8";
+		var bdcsFrameWidth = 700;
+		var bdcsFrameWt = 1;
+		var bdcsFrameHt = 2;
+		var bdcsFrameResultNum = 10;
+		var bdcsFrameBgColor = "#ffffff";
+
+		
+	</script>
+	<!-- Baidu 自定义搜索 end -->
+	
+
+
+<style>
+
+/* search difficulty */
+.search-difficulty{
+	margin: 40px auto;
+	text-align: center;
+	font-size: 26px;
+	color: #777;
+}
+.search-difficulty p{
+	color: #ddd;
+}
+.search-difficulty a{
+	margin: 0 10px;
+}
+/* google search */
+.page-search{
+	min-height: 200px;
+}
+.page-search em{
+	font-style: normal;
+}
+.page-search *:focus{
+	outline: none;
+}
+.page-search .gsc-control-cse{
+	font-family: "Helvetica Neue", "Arial", "PingFang SC", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", "Noto Sans CJK SC", "Source Han Sans CN", "Noto Sans SC", "Source Han Sans TC", "Noto Sans CJK TC", "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+.page-search .gsc-input-box{
+	position: relative;
+	height: 40px;
+	border: 1px solid #D9D9D9;
+	border-radius: 999em;
+}
+.page-search table.gsc-search-box{
+	margin-bottom: 0;
+}
+.page-search .gsc-input-box .gstl_50{
+	height: 100%;
+}
+.page-search .gsc-input{
+	background: none !important;
+	margin: 0 !important;
+	height: 38px !important;
+}
+.page-search .gsc-search-box .gsc-input>input:hover,
+.page-search .gsc-input-box-hover{
+	border: 1px solid #BFBFBF;
+	box-shadow: none;
+}
+.page-search .gsc-search-box .gsc-input>input:focus,
+.page-search .gsc-input-box-focus{
+	box-shadow: none;
+}
+.page-search .gsc-input-box-focus{
+	border-color: #A5A5A5;
+}
+.page-search .gsib_b .gsst_a{
+	padding-top: 10px;
+	padding-right: 10px;
+}
+.page-search table.gsc-search-box td{
+	padding-left: 0;
+	padding-top: 0;
+	height: 38px;
+	vertical-align: top;
+}
+.page-search .gsc-search-box .gsc-input{
+	padding-right: 0 !important;
+	text-align: center;
+	font-size: 20px;
+}
+.page-search .gsc-search-box .gsc-input::-webkit-input-placeholder{
+	font-size: 16px;
+	line-height: 36px;
+}
+.page-search .gsc-search-box .gsc-input:focus::-webkit-input-placeholder{
+	opacity: 0;
+}
+.page-search .gsc-search-button{
+	margin: 0;
+	display: none;
+}
+.page-search .gsc-result-info{
+	padding-left: 0;
+}
+.page-search .gsc-selected-option-container{
+	width: auto !important;
+	max-width: none !important;
+	padding: 0 6px;
+}
+.page-search .gsc-control-cse .gsc-option-selector{
+	display: none;
+}
+.page-search .gsc-selected-option-container{
+	background-image: none;
+	box-shadow: none;
+	height: 29px;
+}
+/* 搜索纠正 */
+.page-search .gs-spelling{
+	padding-left: 0;
+	color: #404040;
+}
+.page-search .gs-spelling a{
+	text-decoration: none;
+}
+/* 搜索结果 */
+.page-search .gsc-result .gs-title{
+	height: auto;
+	text-decoration: none;
+}
+.page-search .gsc-table-result,
+.page-search .gsc-thumbnail-inside,
+.page-search .gsc-url-top{
+	padding-left: 0;
+}
+
+.page-search .gs-result .gs-title, 
+.page-search .gs-result .gs-title *{
+	color: #404040;
+}
+.page-search .gsc-control-cse .gs-result .gs-title,
+.page-search .gsc-control-cse .gs-result .gs-title *{
+	font-size: 21px;
+	text-decoration: none;
+}
+.page-search .gsc-control-cse .gs-result .gs-title{
+	line-height: 1.3;
+	margin: 0px 0 10px;
+}
+.page-search .gsc-control-cse .gs-result .gs-title:hover,
+.page-search .gsc-control-cse .gs-result .gs-title:hover *{
+	color: #0085a1;
+}
+.page-search .gsc-url-top,
+.page-search .gs-visibleUrl{
+	display: none;
+}
+.page-search .gsc-control-cse .gs-snippet{
+	color: #a3a3a3;
+	font-size: 15px;
+}
+.page-search .gsc-control-cse-zh_CN .gs-snippet b{
+	/*color: #15D;*/
+}
+.page-search .gsc-control-cse .gs-result .gs-title b{
+	color: #C03;
+}
+.page-search .gsc-webResult .gsc-result{
+	padding: 30px 0;
+	border: none;
+	border-bottom: 1px solid #eee;
+}
+.page-search .gsc-webResult .gsc-result:hover{
+	border: none;
+	border-bottom: 1px solid #eee;
+}
+.page-search .gsc-webResult .gsc-result:hover .gs-snippet{
+	color: #909090;
+}
+.page-search .gsc-results .gsc-cursor{
+	display: block;
+	text-align: center;
+}
+.page-search .gsc-results .gsc-cursor-box{
+	margin-top: 20px;
+}
+.page-search .gsc-results .gsc-cursor-box .gsc-cursor-page{
+	display: inline-block;
+	padding: 0 14px;
+	margin: 0 2px;
+	line-height: 1.4;
+	font-size: 30px;
+	font-weight: normal;
+	border-radius: 100%;
+	cursor: pointer !important;
+}
+.page-search .gsc-results .gsc-cursor-box .gsc-cursor-page:hover{
+	text-decoration: none;
+	background-color: #404040;
+	color: #fff;
+}
+.page-search .gsc-results .gsc-cursor-box .gsc-cursor-page:focus{
+	outline: 0 none;
+}
+/* 搜索结果标题 */
+@media only screen and (min-width: 768px){
+	.page-search .gsc-control-cse .gs-result .gs-title,
+	.page-search .gsc-control-cse .gs-result .gs-title *{
+		font-size: 26px !important;
+	}
+}
+
+/* 无结果 */
+.page-search .gs-no-results-result .gs-snippet{
+	border: none;
+	background: none;
+	text-align: center;
+	color: #C03;
+}
+
+
+/* baidu search */
+.bdcs-frame-box,
+.bdcs-frame-box iframe{
+	position: relative;
+	width: 100% !important;
+	margin: auto;
+}
+.bdcs-frame-box{
+	min-height: 200px;
+	margin-bottom: -120px;
+}
+.bdcs-frame-box:after{
+	content: '';
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	height: 100px;
+	left: 0;
+	bottom: 0;
+	background-color: #fff;
+}
+footer{
+	position: relative;
+	z-index: 10;
+}
+</style>
+
+<!-- 自定义搜索 end -->
+	
+
+
+    <!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<ul class="list-inline text-center">
+					
+					<li>
+						<a href="http://feeds.rpsh.net/rpsh/note">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+					
+					<li>
+						<a href="https://twitter.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+
+					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+					
+					<li>
+						<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa  fa-stack-1x fa-inverse">知</i>
+							</span>
+						</a>
+					</li>
+					
+					
+
+
+					
+					
+					
+                    <li>
+                        <a target="_blank" href="https://instagram.com/rpsh">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+					
+					<li>
+						<a target="_blank" href="https://github.com/rpsh">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+				</ul>
+				<p class="copyright text-muted">
+					Copyright &copy; 任平生的学习笔记 2018
+					<br>
+					Theme by <a href="http://huangxuan.me">Hux</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+	function async(u, c) {
+	  var d = document, t = 'script',
+		  o = d.createElement(t),
+		  s = d.getElementsByTagName(t)[0];
+	  o.src = u;
+	  if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+	  s.parentNode.insertBefore(o, s);
+	}
+</script>
+
+<!-- Highlight.js -->
+<script>
+	async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+		hljs.initHighlightingOnLoad();
+	})
+	// only load tagcloud.js in tag.html
+	if($('#tag_cloud').length !== 0){
+		async("/js/jquery.tagcloud.js",function(){
+			$.fn.tagcloud.defaults = {
+				//size: {start: 1, end: 1, unit: 'em'},
+				color: {start: '#bbbbee', end: '#0085a1'},
+			};
+			$('#tag_cloud a').tagcloud();
+		})
+	}
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+<!--fastClick.js -->
+<script>
+	async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+		var $nav = document.querySelector("nav");
+		if($nav) FastClick.attach($nav);
+	})
+</script>
+
+
+
+<!-- Google Analytics -->
+<script>
+	// dynamic User hacking by Hux
+	// var _gaId = document.getElementById('gaId').value;
+	var _gaId =  'UA-5528027-2';
+	// var _gaDomain = document.getElementById('gaDomain').value;
+	var _gaDomain = 'note.rpsh.net';
+
+	// Originial
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', _gaId, _gaDomain);
+	ga('send', 'pageview');
+</script>
+
+
+
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "http://localhost:4000",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://localhost:4000/search/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Organization",
+	"url": "http://localhost:4000 ",
+	"logo": "http://localhost:4000/assets/common/favicon.png"
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context" : "http://schema.org",
+	"@type" : "Person",
+	"name" : "任平生",
+	"url" : "",
+	"sameAs" : [
+		
+		"http://twitter.com/rpsh",
+		"http://instagram.com/rpsh",
+		"http://www.linkedin.com/in/ihaiyang",
+		"http://plus.google.com/100791036880126418228"
+	]
+}
+</script>
+
+
+<!-- Image to hack wechat -->
+<img src="http://localhost:4000/assets/common/home-thumb.jpg" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
