@@ -13,7 +13,7 @@ feedurl: ""
 logourl: "/assets/common/favicon.png"
 
 # SNS settings
-RSS: true
+RSS: false
 #weibo_username:     youngbeom
 zhihu_username:     youngbeomshin
 github_username:    youngbeom-shin
