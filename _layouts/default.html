@@ -17,6 +17,16 @@
 <img src="{{ site.url }}/{% if page.thumb-img %}{{ page.thumb-img }}{% else %}assets/common/icon_wechat.png{% endif %}" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119556076-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119556076-1');
+</script>
+
 </body>
 
 </html>
