@@ -57,6 +57,7 @@ disqus_username: rpsh
 
 
 #sitemap
+url: "http://blog.youngbeom.com" # the base hostname & protocol for your site
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
