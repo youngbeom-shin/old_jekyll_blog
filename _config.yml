@@ -57,7 +57,7 @@ disqus_username: rpsh
 
 
 #sitemap
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
