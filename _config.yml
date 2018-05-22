@@ -72,7 +72,7 @@ ga_domain: blog.youngbeom.com
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "天生闲不住，折腾青年<br>设计师，工具控，漫威粉，理想主义"
+sidebar-about-description: "天生闲不住，折腾青年<br>设计师，工具控，漫威粉，理想范"
 sidebar-avatar: "/assets/common/avatar-youngbeom.jpg"     # use absolute URL.
 
 
