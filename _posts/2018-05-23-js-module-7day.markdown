@@ -2,7 +2,7 @@
 layout:     keynote
 title:      "Example Post using Keynote Layout"
 subtitle:   "Keynote: JavaScript Modularization Journey"
-iframe:     "https://www.icloud.com/keynote/0nt6eNOIfgNZQ4JBA-_0FOV6g"
+iframe:     "https://www.icloud.com/keynote/0nt6eNOIfgNZQ4JBA-_0FOV6g "
 date:       2018-05-23
 author:     "Hux"
 header-img: "img/post-bg-js-version.jpg"
@@ -19,7 +19,7 @@ tags:
 于是，我决定将它重新发到我的博客上，并为它专门制作了适用于 Keynote 展示文稿的新布局。它能自动根据屏幕大小/旋转以一定比例填充屏幕，你也可以直接点击下方链接在新页面打开，来获得更好的、沉浸式的全屏体验
 
 
-### [Watch Slides →](http://huangxuan.me/js-module-7day)
+### [Watch Slides →](https://www.icloud.com/keynote/0nt6eNOIfgNZQ4JBA-_0FOV6g)
 
 <img src="http://huangxuan.me/js-module-7day/attach/qrcode.png" width="350" height="350"/>
 
