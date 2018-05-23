@@ -3,12 +3,12 @@ layout:     keynote
 title:      "Example Post using Keynote Layout"
 subtitle:   "Keynote: JavaScript Modularization Journey"
 iframe:     "https://www.icloud.com/keynote/0nt6eNOIfgNZQ4JBA-_0FOV6g"
-date:       2015-07-09
+date:       2018-05-23
 author:     "Hux"
 header-img: "img/post-bg-js-version.jpg"
 tags:
-    - 前端开发
-    - JavaScript
+    - keynote
+    - 动效设计
 ---
 
 
