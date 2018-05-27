@@ -52,7 +52,7 @@ anchorjs: true                          # if you want to customize anchor. check
 # Share component is depend on Comment so we can NOT use share only.
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-disqus_username: rpsh
+disqus_username: 申永范
 
 
 #sitemap
