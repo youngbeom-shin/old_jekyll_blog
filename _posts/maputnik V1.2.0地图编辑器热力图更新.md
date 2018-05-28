@@ -46,8 +46,9 @@ tags:
 ## 需要解决的问题
 现在的数据都是地图瓦片上的数据，都是静态的数据，没有大范围的动态变化，但是热力图的特性最大的优点就是能够动态的展示一定区域内的数据密度的显示，希望能把更多的和服务器接收和返回的动态数据更好的结合在地图上。
 
-另外推荐阅读一篇medium中关于热力图的文章
+另外推荐阅读两篇关于热力图的博客文章
 [building the global heatmap](https://medium.com/strava-engineering/the-global-heatmap-now-6x-hotter-23fc01d301de)
+[Introducing heatmaps in Mapbox GL JS](https://blog.mapbox.com/introducing-heatmaps-in-mapbox-gl-js-71355ada9e6c)
 
 
 相关链接：
