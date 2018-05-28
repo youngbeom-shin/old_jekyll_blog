@@ -1,0 +1,56 @@
+---
+layout: post
+title: "maputnik V1.2.0地图编辑器热力图更新"
+subtitle:   "阅读时间：2m 22s   单词：472 "
+description: "体验maputnik V1.2.0新版本编辑器更新的热力图feature"
+keyword: "技术文档"
+date: 2018-5-28 11:59
+comments: true
+header-img: "assets/common/heatmap-bg.jpg"
+thumb-img: "assets/common/heatmap-thumb.jpg"
+author:     "youngbeom"
+tags:
+    development 
+    
+## heatmap layer type added
+四月份maputnik团队在GitHub上发布了新的V1.2.0版本的maputnik editor，在这个版本中最主要的也是最亮眼的功能就是能够将数据以热力图的模式展现出来，
+![](http://blog.youngbeom.com/assets/2018/05/heatmap-1.jpg)
+
+
+## 如何在新版本的编辑器上使用热力图模式
+截止目前maputnik团队只是在GitHub上托管了他们的代码，网页链接也是github pages的链接，以使用体验来讲，个人感觉还是太慢了，所以委托了我们的工程师将release的代码和网页文件托管到了我们自己的国内的服务器上，这样一来速度就非常快了，下面用几张截图来展示这次的更新
+
+### 官方现版本maputnik编辑器
+1-下面的界面是一直使用版本的编辑器
+![](http://blog.youngbeom.com/assets/2018/05/heatmap-2.jpg)
+1-标记的链接是官方的org结尾的链接，使用起来还是很流畅的
+2-官方的logo在新版本的位置是有了一定的改变，这个在后面的截图中会展现出来
+3-这个地方是改变的重点，这个版本的数据的展示类型当中是只有上面几种类型，并没有heatmap的展示。
+
+### V1.2.0版本github pages编辑器
+![](maputnik%20V1.2.0%E5%9C%B0%E5%9B%BE%E7%BC%96%E8%BE%91%E5%99%A8%E7%83%AD%E5%8A%9B%E5%9B%BE%E6%9B%B4%E6%96%B0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-05-28%20%E4%B8%8A%E5%8D%8811.13.13.png)
+1-官方在GitHub pages上托管了代码生成了一个链接
+2-在编辑器logo的部分加上了新版本V1.2.0的标记
+3-在数据的类型上不仅增加了heatmap还有hillshade
+
+### 托管到国内服务器后的编辑器
+通过工程师把代码部署到国内服务器后，访问速度上快了很多，通过简单的编辑就能直接出现热力图的显示，在下面的图片中利用了building的数据来做演示
+![](http://blog.youngbeom.com/assets/2018/05/heatmap-3.jpg)
+1-maputnik V1.2.0代码可部署到自己的服务器上生成链接
+2-logo V1.2.0部分加载正常
+3-building的数据用heatmap的类型显示
+
+## 新版本的特性应用
+在新版本出现新的数据展现方式会在地图设计中有多种应用方式，比如交通拥堵，人流拥堵等方式的数据交互，这个版本的开源会在接下来的地图设计上有更大的便利性
+
+## 需要解决的问题
+现在的数据都是地图瓦片上的数据，都是静态的数据，没有大范围的动态变化，但是热力图的特性最大的优点就是能够动态的展示一定区域内的数据密度的显示，希望能把更多的和服务器接收和返回的动态数据更好的结合在地图上。
+
+另外推荐阅读一篇medium中关于热力图的文章
+[building the global heatmap](https://medium.com/strava-engineering/the-global-heatmap-now-6x-hotter-23fc01d301de)
+
+
+相关链接：
+[github maputnik/editor](https://github.com/maputnik/editor/releases)
+[maputnik editor](http://editor.openmaptiles.org/)
+[mapbox style-spec heatmap](https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-heatmap)
