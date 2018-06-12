@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "在产品设计中积极影响用户心理的文案"
+title: "在产品中积极影响用户心理的文案"
 subtitle:   "用户心理"
 description: "用户心理"
 keyword: "设计文档"
@@ -20,7 +20,7 @@ tags:
 主要归纳一下在工作中遇到的一个问题的解决方案
 
 ## 小程序的相册功能
-![](http://blog.youngbeom.com/assets/2018/06/ck_trip-mainpage-1.jpg)
+![](http://blog.youngbeom.com/assets/2018/06/design-psychology-1.jpg)
 
 背景：首先小程序中加入相册功能不是设计之初的意图，相册的本意是收集用户上传的带有经纬度的照片来作为接下来应用内的内容积累做工作，初期这个功能的主要目标用户是长期居住在海外的一些种子用户及亲朋好友，利用它们的区位优势，将生活中拍摄的作品上传到内容平台展示给更多的用户，是一种众包的尝试。
 问题：初期利用网页版上传用户照片的过程中遇到了一个问题，就是iOS11的版本对用户在Safari浏览器上传照片时抹掉了经纬度信息，也就是就算是收集到了用户的宝贵的照片资料，也会因为缺少经纬度信息而无法匹配到地图应用上，所以想到了折中的方案，利用小程序来实现。
@@ -40,11 +40,11 @@ tags:
 将用户的“得”的因素加大，减少用户的“舍”的心理暗示会加大用户对产品的好感度，降低用户的心理负担。
 
 #### “舍”-文案方案
-![](http://blog.youngbeom.com/assets/2018/06/ck_trip-mainpage-1.jpg)
+![](http://blog.youngbeom.com/assets/2018/06/design-psychology-2.jpg)
 方案分析：用户的负担较大，会产生为什么电商平台还要上传相片这样的想法？
 
 ### “得”-文案方案
-![](http://blog.youngbeom.com/assets/2018/06/ck_trip-mainpage-1.jpg)
+![](http://blog.youngbeom.com/assets/2018/06/design-psychology-3.jpg)
 文案分析：用户会产生额外获得的福利的概念，在购买商品时还能查看优质的摄影作品，让用户首先是享受所获得的bonus，之后如果有了感动就主动上传，这对本身要上传照片的用户和以单纯购物为目的的用户都有了照顾。
 
 ## 最后
