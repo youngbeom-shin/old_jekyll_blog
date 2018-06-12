@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "在产品中积极影响用户心理的文案"
+title: "在产品中积极引导用户的文案"
 subtitle:   "用户心理"
 description: "用户心理"
 keyword: "设计文档"
