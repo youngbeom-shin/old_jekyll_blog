@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "稀客旅游电商小程序主界面改版"
+title: "稀客旅游电商程序主界面改版"
 subtitle:   "主界面微调及阶段性总结"
 description: "主界面微调及阶段性总结"
 keyword: "设计文档"
