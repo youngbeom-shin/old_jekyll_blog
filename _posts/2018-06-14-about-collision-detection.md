@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "关于地图中POI碰撞检测的实现方案"
+title: "不同数据源POI碰撞检测的实现方案"
 subtitle:   "设计开发"
 description: "设计开发"
 keyword: "技术文档"
