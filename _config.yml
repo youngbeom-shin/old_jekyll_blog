@@ -54,6 +54,8 @@ anchorjs: true                          # if you want to customize anchor. check
 
 disqus_username: youngbeom
 
+livere_uid: youngbeom
+
 
 #sitemap
 url: "http://blog.youngbeom.com" # the base hostname & protocol for your site
