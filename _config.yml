@@ -48,11 +48,11 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 # Duoshuo settings
-#duoshuo_username: huxblog
+#duoshuo_username: youngbeom
 # Share component is depend on Comment so we can NOT use share only.
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-disqus_username: 申永范
+disqus_username: youngbeom
 
 
 #sitemap
