@@ -13,8 +13,9 @@ feedurl: ""
 logourl: "/assets/common/favicon.png"
 
 # SNS settings
-RSS: false
-#weibo_username:     youngbeom
+RSS: ture
+email: "youngbeomshin@163.com"
+weibo_username:     only贤俊
 zhihu_username:     youngbeomshin
 github_username:    youngbeom-shin
 weibo_username:     youngbeom
@@ -47,14 +48,13 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 
-# Duoshuo settings
-#duoshuo_username: youngbeom
-# Share component is depend on Comment so we can NOT use share only.
-#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# 评论系统
+# Disqus comments configuration (leave blank to disable comments)
+disqus_shortname: 'youngbeom'
 
-disqus_username: youngbeom
-
-livere_uid: youngbeom
+# Support for LiveRe comments system.
+# You can get your uid from https://livere.com/insight/myCode (General web site)
+livere_uid: MTAyMC8zNzgwNS8xNDMzNg==
 
 
 #sitemap
@@ -97,7 +97,7 @@ friends: [
 ]
 
 
-# Site Search 
+# Site Search
 search: true 							# whether or not using Search
 search-engine: google 					# google or baidu
 search-placeholder: '搜索博客内容'			# placeholder of search input
