@@ -9,9 +9,9 @@
 	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
 	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
 
-	<title>任平生的学习笔记</title>
-	<meta name="description" content="任平生的学习笔记，记录平常点滴" />
-	<meta name="keyword"  content="任平生, 互联网, 前端, rpsh" />
+	<title>永范的博客 | youngbeom Blog</title>
+	<meta name="description" content="关于设计 关于生活，记录知识与成长" />
+	<meta name="keyword"  content="永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计" />
 
 	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
 	
@@ -42,13 +42,13 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@rpsh" />
 	<meta name="twitter:url" property="og:url" content="http://localhost:4000/page2/" />
-	<meta name="twitter:title" property="og:title" itemprop="name" content="任平生的学习笔记" />
-	<meta name="twitter:description" property="og:description" itemprop="description" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="永范的博客 | youngbeom Blog" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="关于设计 关于生活，记录知识与成长" />
 	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/icon_wechat.png" />
 
-	<meta name="wxm:timeline_title" content="任平生的学习笔记" />
-	<meta name="wxm:appmessage_title" content="任平生的学习笔记" />
-	<meta name="wxm:appmessage_desc" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="wxm:timeline_title" content="永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_title" content="永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_desc" content="关于设计 关于生活，记录知识与成长" />
 	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/icon_wechat.png" />
 	<meta name="wxm:link" content="http://localhost:4000/page2/" />
 	
@@ -85,7 +85,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">任平生的学习笔记</a>
+            <a class="navbar-brand" href="/">youngbeom Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -156,9 +156,9 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
 				<div class="site-heading">
-					<h1>任平生的学习笔记</h1>
+					<h1>youngbeom Blog</h1>
 					<!--<hr class="small">-->
-					<span class="subheading">任平生的学习笔记，记录平常点滴</span>
+					<span class="subheading">关于设计 关于生活，记录知识与成长</span>
 				</div>
 			</div>
 		</div>
@@ -181,243 +181,265 @@
 			">
 				
 <div class="post-preview">
-    <a href="/posts/2015/07/16/iphone-airdrop-cannot-find-mac/">
+    <a href="/posts/2016/01/05/move-mac-content-to-new-mac/">
         <h2 class="post-title">
-            解决 iPhone AirDrop 找不到 Mac
+            将旧 Mac 的内容完全迁移到新 Mac 上
         </h2>
         
         <div class="post-content-preview">
-            升级到 El Caption 测试版后，iPhone 就死活不能 Airdrop 找到我的 Macbook 了，两个设备间互传文件变得异常麻烦，猜测应该是蓝牙的配置文件出问题了，试试删掉旧的配置文件后，果然问题就修复了。
+            最近工作机更换为了新的 iMac 27’ ，不想重新设置一遍各种开发环境，于是便找了一下将旧 Mac 内容完全迁移到新设备的方案。
 
+原来，OS X  自带了一个「迁移助理」可以很方便地将旧 Mac 上的内容迁移到新 Mac 上。
 
-  在 Mac 上打开目录： /Library/Preferences
-  找到文件： com.apple.Bluetooth.plist 删除之
-  关掉蓝牙，重新打...
+如果有使用 Time Machine 则可以直接使用 Time Machine 来将旧 Mac 的内容迁移到新 Mac。如果没有使用 Time Machine ...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on July 16, 2015
+        Posted by 任平生 on January 5, 2016
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2015/04/21/mac-osx-ffmpeg-mp4-gif-convert/">
+    <a href="/posts/2015/11/18/using-pingfang-font-in-website/">
         <h2 class="post-title">
-            使用 ffmpeg 实现 MP4 与 GIF 的互转
+            在网页上使用苹方字体
         </h2>
         
         <div class="post-content-preview">
-            在 Mac OSX 上使用 Homebrew 安装 ffmpeg：
+            随着 El Capitan 和 iOS9 发布而内置新系统中的 苹方字体 给我们在中文字体的使用上带来了新的选择。
 
-brew install ffmpeg
+在 Web 上定义字体为苹方的方法：
 
-brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --wi...
+font-family: PingFangSC-Regular, sans-serif;
+
+
+苹方提供了六个字重，font-family 定义如下：
+
+苹方-简 常规体
+
+font-family: PingFangSC-Regular,...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on April 21, 2015
+        Posted by 任平生 on November 18, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2015/04/16/html5-form-autocomplete/">
+    <a href="/posts/2015/11/04/move-to-github-page/">
         <h2 class="post-title">
-            HTML5 表单自动填表功能
+            迁移至 Github Pages
         </h2>
         
         <div class="post-content-preview">
-            使用 autocomplete 属性可以为表单提供自动填表能力：
+            由于 note.rpsh.net 在 logdown 付费帐号（可以绑定自定义域名）到期，就准备再折腾一下，将这个笔记再继续迁移一下，尝试了 Ghost、 Hexo 后决定搬移到 Github Pages（ 这样以后简历也能写上熟练使用 Github 了 😂 ）
 
+这个模版来自 Hux， 整体设计感很赞，于是拿来改一改增加了 Disqus 评论、站内搜索。
 
-
-&lt;input type="text" name="name" autocomplete="name"&gt;
-
-&lt;input type="email" name="email" autocomplete="email"&gt;
-
-&lt;input type="tel" name="phone" autoco...
+本来以为不会折腾的，但是在做站内...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on April 16, 2015
+        Posted by 任平生 on November 4, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2015/04/01/fix-ios-8-wifi-slow/">
+    <a href="/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/">
         <h2 class="post-title">
-            解决 iPhone 升级 iOS 8.2 Wifi 很慢的问题
+            Mac OS X 安装 PHP intl 扩展
         </h2>
         
         <div class="post-content-preview">
-            升级 iOS 8.2 后，有时候 iPhone 连接 Wifi 会非常的慢，网页基本处于打不开的状态，经过搜索，修复方法是关闭 Wifi 的定位。
+            首先，需要关掉 MAC OS X El Captian 的 System Integrity Protection（rootless）的机制：
 
-操作如下：
-系统设置－ 隐私－定位服务－系统服务 - Wifi网络，关掉。
-
-
-
+1. 重启计算机时按住 Command 和 R 键进入到恢复模式
+2. 恢复模式启动后，从顶部菜单栏中选择 “实用工具 &gt; 终端”
+3. 在终端窗口中输入csrutil disable并按回车键
+4. 重启系统，System Integrit...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on April 1, 2015
+        Posted by 任平生 on October 7, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2014/12/14/box-decoration-break/">
+    <a href="/posts/2015/08/27/mobile-web-html-css-faq/">
         <h2 class="post-title">
-            box-decoration-break 定义换行元素样式
+            移动端 HTML5 页面常见问题 —— 样式篇
         </h2>
         
         <div class="post-content-preview">
-            box-decoration-break 可以用来定义换行元素的 background, padding, border, border-image, box-shadow, margin, clip 的应用方式。
-有两个值： slice, clone 
-slice 默认模式；
-clone 换行的部分具有相同的 margin, padding, border，拥有自己的border-radi...
+            问题：Android 上圆形图片使用 border 时，边框显示变形
+
+
+解决：给 img 外嵌套一个元素，为其使用圆角
+
+&lt;div&gt;
+	&lt;img src=""&gt;
+&lt;/div&gt;
+
+
+div{
+	display: inline-block;
+	border-radius: 50%;
+	border: 4px solid #FF7000;
+}
+img{
+	ve...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on December 14, 2014
+        Posted by 任平生 on August 27, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2014/10/27/chrome-wont-open-itunes-or-macstroe/">
+    <a href="/posts/2015/08/26/mac-wechat-image-video-location/">
         <h2 class="post-title">
-            解决 Chrome 不能打开 iTunes 或 Mac Appstore
+            Mac/Windows版微信聊天图片、视频文件存储位置
         </h2>
         
         <div class="post-content-preview">
-            
+            Mac 版微信收到的小视频默认不能保存到本地，而我们只要找到其在 Mac 上的存储位置就可以直接拿到视频文件。
 
-在 Chrome 里点 iTunes/Mac Appstore 里的打开链接，不能正确启动 iTunes/Mac AppStore，重新启用的方法是：
+微信聊体视频本地存储位置：
 
-打开目录：
-
-Mac OS X
-~/Library/Application Support/Google/Chrome/
-
-
-Windows7
-%LocalAppData%/Google/Chrome/User Data/
-
-
-
-找到 ...
+~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/Wechat/1.2/{一串字符}/Message/MessageTemp/{一串字符}/Vide...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on October 27, 2014
+        Posted by 任平生 on August 26, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2014/10/20/iphone-ipad-screen-recorder/">
+    <a href="/posts/2015/08/23/repair-itunes-iphone-backup-issue/">
         <h2 class="post-title">
-            无需越狱 iPhone/iPad 屏幕录像
+            解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」
         </h2>
         
         <div class="post-content-preview">
-            升级到 iOS8 后，配合 Yosemite 的 QuickTime 就可以免越狱、免插件录制 iPhone、iPad 屏幕录像。
+            使用 iTunes 备份 iPhone 时候，遇到备份失败，提示： iTunes无法备份 iPhone，因为 iPhone 已断开连接。
 
-1、通过 Lightning to USB 线(?)将 iPhone/iPad 与 Mac 相连接
+解决办法就是，还原 iPhone 的位置与隐私，方法：
 
+设置 &gt; 通用 &gt; 还原 &gt; 还原位置与隐私
 
-
-2、打开 QuickTime， 文件 -&gt; 新建影片录制
-
-
-
-3、录制来源选择 iPhone
+然后插上 USB 数据线，重新连接电脑，信任这台电脑，接下来再用 iTunes 备份就可以成功了。
 
 
 
-4、开始录制吧
-
-来源： Make Scree...
+如果上述方法不成功，可以...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on October 20, 2014
+        Posted by 任平生 on August 23, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2014/10/20/goagentx-shadowsocks-through-http-proxy/">
+    <a href="/posts/2015/08/14/photoshop-cc-webp/">
         <h2 class="post-title">
-            GoAgentX ＋ Proxifier 让不支持代理的软件实现走代理
+            Adobe Photoshop CC 导出 Webp 格式图片
         </h2>
         
         <div class="post-content-preview">
-            公司内上网必须要通过 HTTP 代理，而我们个人翻墙的时候用到的利器 GoAgentX 必须也要通过 http 代理才能连上 Shadowsocks 的代理服务器（这是多么的蛋疼）。
+            首先，下载插件： WebP Format
 
-这时候，我们需要一个叫做 Proxifier（网盘下载）的应用来实现那些不能设置代理的软件来通过代理。
+Windows 将 WebPFormat64.8bi 丢进：
 
-1、在 Proxifier 里添加 HTTPS 代理
-
-
+C:\Program Files\Adobe\Adobe Photoshop CC 2015\Plug-ins
 
 
+Mac OS X 将 WebPFormat.plugin 文件丢进：
 
-2、Rules 添加 GoAgentX...
+/Applications/Adobe Photoshop CC 2015/Plug-ins
+
+
+...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on October 20, 2014
+        Posted by 任平生 on August 14, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2014/10/14/css-multiple-line-overflow-ellipsis/">
+    <a href="/posts/2015/08/07/right-to-left-override-unicode/">
         <h2 class="post-title">
-            纯CSS实现多行文本截断并有省略号
+            让文字从右往左反转显示的 unicode
         </h2>
         
         <div class="post-content-preview">
-            单行文本截断并末尾出现省略号一般写法是：
+            有一个特殊的 unicode 可以让跟在它后边的文字从右往左反转显示
 
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+&amp;#8238; 日照香炉生紫烟
 
 
-多行文版截断并出现省略号的纯CSS解决一直是个“复杂的难题“，不过有个“被废弃”的 webkit 私有属性反而可以实现，而且在移动端的兼容性不错， iOS 与 Android 均有不错的支持
+效果：
 
-display: -we...
+		&#8238; 日照香炉生紫烟
+
+
+利用它可以做一些有趣的事情，让一些看起来正常的文字，其实背后藏着一些不正常的原文。
+
+
+	
+		
+			
+			code
+		
+	
+	
+		
+			html 实体
+			&amp;#8238;
+		
+		
+			html 实体
+...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on October 14, 2014
+        Posted by 任平生 on August 7, 2015
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2014/10/10/php-simplexmlelement-addchild-namespace/">
+    <a href="/posts/2015/07/30/pure-css-live-blur/">
         <h2 class="post-title">
-            PHP SimpleXMLElement 添加带 Namespace 的节点
+            纯 CSS 实现实时动态毛玻璃效果
         </h2>
         
         <div class="post-content-preview">
-            &lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;rss version="2.0"
-	xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
-&gt;
-	&lt;channel&gt;
-		&lt;title&gt;IT 乱谈&lt;/title&gt;
-		&lt;link&gt;...
+            目前在 Web 上实现毛玻璃效果一般是通过一个大截屏图片的高斯模糊加上滚动位置的切换来实现，而在 iOS9 和 OS X 10.11 的 Safari 原生支持了 CSS 的 backdrop-filter 来实时地生成一个毛玻璃效果的背景。
+
+
+
+代码：
+
+{
+	-webkit-backdrop-filter: blur(10px);
+}
+
+目前还需要 webkit 的前缀。
+
+除了 bl...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on October 10, 2014
+        Posted by 任平生 on July 30, 2015
     </p>
 </div>
 <hr>
@@ -457,7 +479,7 @@ display: -we...
 						
 						<!-- 自定义搜索 -->
 							<form class="search-form" action="/search/">
-								<input type="search" name="q" class="search-input" placeholder="善用搜索..">
+								<input type="search" name="q" class="search-input" placeholder="搜索博客内容">
 							</form>
 						
 					</div>
@@ -705,6 +727,44 @@ display: -we...
 						
 							
 						
+							
+								<a href="/tags/#design" title="design" rel="5">
+									design
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#development" title="development" rel="3">
+									development
+								</a>
+							
+						
+							
+								<a href="/tags/#数据可视化" title="数据可视化" rel="2">
+									数据可视化
+								</a>
+							
+						
+							
+								<a href="/tags/#界面设计" title="界面设计" rel="2">
+									界面设计
+								</a>
+							
+						
+							
+						
 					</div>
 				</section>
 				
@@ -714,16 +774,16 @@ display: -we...
 					<hr><h5><a href="/about/">ABOUT ME</a></h5>
 					<div class="short-about">
 						
-							<img src="/assets/common/avatar-rpsh.jpg" />
+							<img src="/assets/common/avatar-youngbeom.jpg" />
 						
 						
-							<p>探寻代码与生活之外的生活</p>
+							<p>天生闲不住，折腾青年<br>设计师，工具控，漫威粉，理想范</p>
 						
 						<!-- SNS Link -->
 						<ul class="list-inline">
 							
 							<li>
-								<a href="http://feeds.rpsh.net/rpsh/note">
+								<a href="">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
 										<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -732,18 +792,9 @@ display: -we...
 							</li>
 							
 							
-							<li>
-								<a href="https://twitter.com/rpsh">
-									<span class="fa-stack fa-lg">
-										<i class="fa fa-circle fa-stack-2x"></i>
-										<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</li>
-							
 							
 							<li>
-								<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+								<a target="_blank" href="https://www.zhihu.com/people/youngbeomshin">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
 										<i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -752,15 +803,15 @@ display: -we...
 							</li>
 							
 							
-							
 							<li>
-								<a target="_blank" href="https://instagram.com/rpsh">
+								<a target="_blank" href="http://weibo.com/youngbeom">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
-										<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+										<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
 							</li>
+							
 							
 							
 						</ul>
@@ -792,7 +843,7 @@ display: -we...
 				<ul class="list-inline text-center">
 					
 					<li>
-						<a href="http://feeds.rpsh.net/rpsh/note">
+						<a href="">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -801,20 +852,11 @@ display: -we...
 					</li>
 					
 					
-					<li>
-						<a href="https://twitter.com/rpsh">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-							</span>
-						</a>
-					</li>
-					
 
 					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
 					
 					<li>
-						<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+						<a target="_blank" href="https://www.zhihu.com/people/youngbeomshin">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -823,25 +865,25 @@ display: -we...
 					</li>
 					
 					
+					<li>
+						<a target="_blank" href="http://weibo.com/youngbeom">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
 
 
 					
 					
 					
-                    <li>
-                        <a target="_blank" href="https://instagram.com/rpsh">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
                     
 
 					
 					<li>
-						<a target="_blank" href="https://github.com/rpsh">
+						<a target="_blank" href="https://github.com/youngbeom-shin">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -851,7 +893,7 @@ display: -we...
 					
 				</ul>
 				<p class="copyright text-muted">
-					Copyright &copy; 任平生的学习笔记 2018
+					Copyright &copy; youngbeom Blog 2018
 					<br>
 					Theme by <a href="http://huangxuan.me">Hux</a>
 				</p>
@@ -914,9 +956,9 @@ display: -we...
 <script>
 	// dynamic User hacking by Hux
 	// var _gaId = document.getElementById('gaId').value;
-	var _gaId =  'UA-5528027-2';
+	var _gaId =  'UA-119556076-1';
 	// var _gaDomain = document.getElementById('gaDomain').value;
-	var _gaDomain = 'note.rpsh.net';
+	var _gaDomain = 'blog.youngbeom.com';
 
 	// Originial
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -956,13 +998,13 @@ display: -we...
 {
 	"@context" : "http://schema.org",
 	"@type" : "Person",
-	"name" : "任平生",
+	"name" : "申永范",
 	"url" : "",
 	"sameAs" : [
 		
-		"http://twitter.com/rpsh",
-		"http://instagram.com/rpsh",
-		"http://www.linkedin.com/in/ihaiyang",
+		
+		
+		
 		"http://plus.google.com/100791036880126418228"
 	]
 }
@@ -972,6 +1014,16 @@ display: -we...
 <!-- Image to hack wechat -->
 <img src="http://localhost:4000/assets/common/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119556076-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119556076-1');
+</script>
 
 </body>
 

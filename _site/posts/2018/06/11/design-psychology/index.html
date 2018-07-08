@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/common/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
+	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
+
+	<title>在产品中积极引导用户的文案 - 永范的博客 | youngbeom Blog</title>
+	<meta name="description" content="用户心理" />
+	<meta name="keyword"  content="设计文档, 永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计" />
+
+	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
+	
+	<link rel="author" href="https://plus.google.com/100791036880126418228/posts" />
+	
+	<link rel="canonical" href="http://localhost:4000/posts/2018/06/11/design-psychology/" />
+
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="/css/blog.css" />
+
+	<!-- Pygments Github CSS -->
+	<link rel="stylesheet" href="/css/syntax.css" />
+
+	<!-- Custom Fonts -->
+	<link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js" /></script>
+		<script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js" /></script>
+	<![endif]-->
+
+	<!-- og/twitter/wechat meta -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@rpsh" />
+	<meta name="twitter:url" property="og:url" content="http://localhost:4000/posts/2018/06/11/design-psychology/" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="在产品中积极引导用户的文案 - 永范的博客 | youngbeom Blog" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="用户心理" />
+	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/home-thumb.jpg" />
+
+	<meta name="wxm:timeline_title" content="在产品中积极引导用户的文案 - 永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_title" content="在产品中积极引导用户的文案 - 永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_desc" content="用户心理" />
+	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/home-thumb.jpg" />
+	<meta name="wxm:link" content="http://localhost:4000/posts/2018/06/11/design-psychology/" />
+	
+	<!-- header banner -->
+	<style type="text/css">
+		header.intro-header{
+			background-image: url('/assets/common/home-bg.jpg')
+		}
+		@media (max-width:767px){
+			header.intro-header{
+				background-image: url('/assets/common/home-thumb.jpg');
+			}
+			/*header.intro-header:before{
+				background-image: url('/assets/common/home-thumb.jpg');
+			}*/
+		}
+	</style>
+	<!-- ga & ba script hoook -->
+	<script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">youngbeom Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="navbar-site">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/" rel="bookmark">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/" rel="bookmark">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/search/" rel="bookmark">Search</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/" rel="bookmark">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#navbar-site');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/assets/common/home-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/assets/common/home-bg.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/02tags/#design" title="design">design</a>
+                        
+                        <a class="tag" href="/02tags/#界面设计" title="界面设计">界面设计</a>
+                        
+                    </div>
+                    <h1>在产品中积极引导用户的文案</h1>
+                    
+                    
+                    <h2 class="subheading">用户心理</h2>
+                    
+                    <span class="meta">Posted by youngbeom on June 11, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<p>单词：880 阅读时间：4m24s</p>
+
+<p>主要归纳一下在工作中遇到的一个问题的解决方案</p>
+
+<h2 id="小程序的相册功能">小程序的相册功能</h2>
+<p><img src="http://blog.youngbeom.com/assets/2018/06/design-psychology-1.jpg" alt="" /></p>
+
+<p>背景：首先小程序中加入相册功能不是设计之初的意图，相册的本意是收集用户上传的带有经纬度的照片来作为接下来应用内的内容积累做工作，初期这个功能的主要目标用户是长期居住在海外的一些种子用户及亲朋好友，利用它们的区位优势，将生活中拍摄的作品上传到内容平台展示给更多的用户，是一种众包的尝试。
+问题：初期利用网页版上传用户照片的过程中遇到了一个问题，就是iOS11的版本对用户在Safari浏览器上传照片时抹掉了经纬度信息，也就是就算是收集到了用户的宝贵的照片资料，也会因为缺少经纬度信息而无法匹配到地图应用上，所以想到了折中的方案，利用小程序来实现。
+分歧：在回忆中成员对相册功能的实现都有不同的见解，首先大部分人的观点是：
+<strong>产品的定位模糊</strong>-因为加入了和产品主要功能差别较大的功能，是否会导致产品推广使用带来一些难度。
+<strong>用户信任度的问题</strong>-首先在电商平台主要功能的还未完成的情况下，加入相册功能是否会让用户对产品的信任度降低。
+<strong>用户隐私的问题</strong>-首先现阶段的小程序相册功能首要目的是收集照片，所以很多细节还未完善，比如用户上传的照片因为没有审核机制是否会涉及敏感信息，再有用户对上传的照片没有修改删除的权限是否不够友好。还缺乏一些隐私条款的补充…
+<strong>对大部分用户是否是伪需求</strong>-相册功能到底能给用户带来什么激励，单纯的存储照片的功能iOS已经完全满足，用户为何还要用稀客的小程序上传照片，这里就是对两种不同的需求的用户产生了一个使用路径上的分歧，大部分利用电商小程序的用户是为了快速购买商品并体验，而利用相册上传照片的只是我们的熟人用户，这种设计对单纯购买商品的用户产生较大的视觉打扰和下单量的流失，小程序设计之初的目的就是快速完成下单购买并体验，与我们的设计初衷有所违背。</p>
+
+<h2 id="功能界面设计">功能界面设计</h2>
+<p>在会议沟通过程中产品负责人给出了解释：类似电商中的照片分享的模型不是首创，小红书就是一个典型的应用，因为有对标的成功案例，所以不存在用户反映过大的问题，其次因为产品还未大范围推广，所以在试水的阶段是需要快速完成收集图像数据的目标，但是也要尽量的克制一些，避免出现一些问题。所以在产品设计上开放了两个页面，一个是我上传的照片，在这里管理并上传照片，另一个是热门，这里是展示用户上传的优质资源的“广场”，在用户点击相册tab时首先看到的是一张过渡页面，引导并告知用户这个功能的设计意图，尽量的避免使用上的违和感。</p>
+
+<h2 id="产品心理对用户的影响">产品心理对用户的影响</h2>
+<p>这里着重说明的是在过渡页上的设计意图，过渡页想要给用户达到的一种认知就是这个功能是为了让用户欣赏到国外各个地方使用者上传的精美的照片，间接的引导用户也去在境外体验完成商品后也去上传完成一些体验照片，对于用户的满足和产品本身的满足取一个合理的平衡</p>
+
+<h3 id="文案中对用户的-舍与得-心理暗示">文案中对用户的 “舍”与“得” 心理暗示**</h3>
+<p>将用户的“得”的因素加大，减少用户的“舍”的心理暗示会加大用户对产品的好感度，降低用户的心理负担。</p>
+
+<h4 id="舍-文案方案">“舍”-文案方案</h4>
+<p><img src="http://blog.youngbeom.com/assets/2018/06/design-psychology-2.jpg" alt="" />
+方案分析：用户的负担较大，会产生为什么电商平台还要上传相片这样的想法？</p>
+
+<h3 id="得-文案方案">“得”-文案方案</h3>
+<p><img src="http://blog.youngbeom.com/assets/2018/06/design-psychology-3.jpg" alt="" />
+文案分析：用户会产生额外获得的福利的概念，在购买商品时还能查看优质的摄影作品，让用户首先是享受所获得的bonus，之后如果有了感动就主动上传，这对本身要上传照片的用户和以单纯购物为目的的用户都有了照顾。</p>
+
+<h2 id="最后">最后</h2>
+<p>设计一个功能页面不是一件难的事情，难的是真正想清楚设计出来的页面是否是真真正正的满足了用户实际的使用需求，发挥了产品的使用价值，而不是单方面的为了业务目的在不是非常恰当的地方做了一个功能，最后还是希望设计是真正解决问题的，而不是逃避问题。</p>
+
+<p>2018 6-11 19:00</p>
+
+<p>单词：880 阅读时间：4m24s</p>
+
+<p>#4-设计</p>
+
+
+                <hr style="visibility: hidden;">
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/posts/2018/06/04/c_trip-mainpage/" data-toggle="tooltip" data-placement="top" title="稀客旅游电商程序主界面改版">
+                        Previous<br>
+                        <span>稀客旅游电商程序主界面改版</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/posts/2018/06/14/about-collision-detection/" data-toggle="tooltip" data-placement="top" title="不同数据源POI碰撞检测的实现方案">
+                        Next<br>
+                        <span>不同数据源POI碰撞检测的实现方案</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+<p></p>
+
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_wechat"></a>
+<a class="a2a_button_sina_weibo"></a>
+<a class="a2a_button_douban"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_line"></a>
+<a class="a2a_button_kakao"></a>
+</div>
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.linkname = "youngbeom的博客";
+a2a_config.linkurl = "https://blog.youngbeom.com/";
+a2a_config.onclick = 1;
+a2a_config.locale = "zh-CN";
+a2a_config.prioritize = ["wechat", "sina_weibo", "facebook", "twitter", "line", "kakao"];
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+<p></p>
+
+
+<div id="disqus_thread"></div>
+<!-- Add Disqus comments (not comment count) -->
+<script type="text/javascript">
+    var disqus_shortname  = 'youngbeom';
+    var disqus_identifier = '/posts/2018/06/11/design-psychology/';
+    var disqus_title      = '在产品中积极引导用户的文案';
+    var disqus_url        = 'http://localhost:4000/posts/2018/06/11/design-psychology/';
+    // var disqus_developer = 1; // Comment out when the site is live
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<!-- Add Disqus comment count (not the comments) -->
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname  = 'youngbeom';
+  // var disqus_developer = 1; // Comment out when the site is live
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
+<noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgwNS8xNDMzNg==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/02tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+                				<a href="/02tags/#CSS3" title="CSS3" rel="5">
+                                    CSS3
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#CSS" title="CSS" rel="15">
+                                    CSS
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#JS" title="JS" rel="8">
+                                    JS
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#IE" title="IE" rel="7">
+                                    IE
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#浏览器" title="浏览器" rel="3">
+                                    浏览器
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#渲染模式" title="渲染模式" rel="4">
+                                    渲染模式
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#Chrome" title="Chrome" rel="5">
+                                    Chrome
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#HTML" title="HTML" rel="5">
+                                    HTML
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#HTML5" title="HTML5" rel="3">
+                                    HTML5
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#趣识" title="趣识" rel="4">
+                                    趣识
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#CSS/font-family" title="CSS/font-family" rel="2">
+                                    CSS/font-family
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#Apache" title="Apache" rel="4">
+                                    Apache
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#Google" title="Google" rel="2">
+                                    Google
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#OSX" title="OSX" rel="5">
+                                    OSX
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#PHP" title="PHP" rel="3">
+                                    PHP
+                                </a>
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#iOS" title="iOS" rel="3">
+                                    iOS
+                                </a>
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#微信" title="微信" rel="2">
+                                    微信
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#移动开发" title="移动开发" rel="2">
+                                    移动开发
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#Yosemite" title="Yosemite" rel="2">
+                                    Yosemite
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#iPhone" title="iPhone" rel="4">
+                                    iPhone
+                                </a>
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#iTunes" title="iTunes" rel="2">
+                                    iTunes
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#Mac" title="Mac" rel="2">
+                                    Mac
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#design" title="design" rel="5">
+                                    design
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/02tags/#development" title="development" rel="3">
+                                    development
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#数据可视化" title="数据可视化" rel="2">
+                                    数据可视化
+                                </a>
+                            
+        				
+                            
+                				<a href="/02tags/#界面设计" title="界面设计" rel="2">
+                                    界面设计
+                                </a>
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://rpsh.net/">任平生</a></li>
+                    
+                        <li><a href="http://itluantan.com/">IT乱谈</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<ul class="list-inline text-center">
+					
+					<li>
+						<a href="">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+					
+
+					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+					
+					<li>
+						<a target="_blank" href="https://www.zhihu.com/people/youngbeomshin">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa  fa-stack-1x fa-inverse">知</i>
+							</span>
+						</a>
+					</li>
+					
+					
+					<li>
+						<a target="_blank" href="http://weibo.com/youngbeom">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+
+
+					
+					
+					
+                    
+
+					
+					<li>
+						<a target="_blank" href="https://github.com/youngbeom-shin">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
+				</ul>
+				<p class="copyright text-muted">
+					Copyright &copy; youngbeom Blog 2018
+					<br>
+					Theme by <a href="http://huangxuan.me">Hux</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+	function async(u, c) {
+	  var d = document, t = 'script',
+		  o = d.createElement(t),
+		  s = d.getElementsByTagName(t)[0];
+	  o.src = u;
+	  if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+	  s.parentNode.insertBefore(o, s);
+	}
+</script>
+
+<!-- Highlight.js -->
+<script>
+	async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+		hljs.initHighlightingOnLoad();
+	})
+	// only load tagcloud.js in tag.html
+	if($('#tag_cloud').length !== 0){
+		async("/js/jquery.tagcloud.js",function(){
+			$.fn.tagcloud.defaults = {
+				//size: {start: 1, end: 1, unit: 'em'},
+				color: {start: '#bbbbee', end: '#0085a1'},
+			};
+			$('#tag_cloud a').tagcloud();
+		})
+	}
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+<!--fastClick.js -->
+<script>
+	async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+		var $nav = document.querySelector("nav");
+		if($nav) FastClick.attach($nav);
+	})
+</script>
+
+
+
+<!-- Google Analytics -->
+<script>
+	// dynamic User hacking by Hux
+	// var _gaId = document.getElementById('gaId').value;
+	var _gaId =  'UA-119556076-1';
+	// var _gaDomain = document.getElementById('gaDomain').value;
+	var _gaDomain = 'blog.youngbeom.com';
+
+	// Originial
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', _gaId, _gaDomain);
+	ga('send', 'pageview');
+</script>
+
+
+
+
+
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	"url": "http://localhost:4000",
+	"potentialAction": {
+		"@type": "SearchAction",
+		"target": "http://localhost:4000/search/?q={search_term_string}",
+		"query-input": "required name=search_term_string"
+	}
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context": "http://schema.org",
+	"@type": "Organization",
+	"url": "http://localhost:4000 ",
+	"logo": "http://localhost:4000/assets/common/favicon.png"
+}
+</script>
+<script type="application/ld+json">
+{
+	"@context" : "http://schema.org",
+	"@type" : "Person",
+	"name" : "申永范",
+	"url" : "",
+	"sameAs" : [
+		
+		
+		
+		
+		"http://plus.google.com/100791036880126418228"
+	]
+}
+</script>
+
+
+<!-- Image to hack wechat -->
+<img src="http://localhost:4000/assets/common/home-thumb.jpg" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119556076-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119556076-1');
+</script>
+
+</body>
+
+</html>

@@ -9,9 +9,9 @@
 	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
 	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
 
-	<title>任平生的学习笔记</title>
-	<meta name="description" content="任平生的学习笔记，记录平常点滴" />
-	<meta name="keyword"  content="任平生, 互联网, 前端, rpsh" />
+	<title>永范的博客 | youngbeom Blog</title>
+	<meta name="description" content="关于设计 关于生活，记录知识与成长" />
+	<meta name="keyword"  content="永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计" />
 
 	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
 	
@@ -42,13 +42,13 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@rpsh" />
 	<meta name="twitter:url" property="og:url" content="http://localhost:4000/page4/" />
-	<meta name="twitter:title" property="og:title" itemprop="name" content="任平生的学习笔记" />
-	<meta name="twitter:description" property="og:description" itemprop="description" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="永范的博客 | youngbeom Blog" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="关于设计 关于生活，记录知识与成长" />
 	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/icon_wechat.png" />
 
-	<meta name="wxm:timeline_title" content="任平生的学习笔记" />
-	<meta name="wxm:appmessage_title" content="任平生的学习笔记" />
-	<meta name="wxm:appmessage_desc" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="wxm:timeline_title" content="永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_title" content="永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_desc" content="关于设计 关于生活，记录知识与成长" />
 	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/icon_wechat.png" />
 	<meta name="wxm:link" content="http://localhost:4000/page4/" />
 	
@@ -85,7 +85,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">任平生的学习笔记</a>
+            <a class="navbar-brand" href="/">youngbeom Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -156,9 +156,9 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
 				<div class="site-heading">
-					<h1>任平生的学习笔记</h1>
+					<h1>youngbeom Blog</h1>
 					<!--<hr class="small">-->
-					<span class="subheading">任平生的学习笔记，记录平常点滴</span>
+					<span class="subheading">关于设计 关于生活，记录知识与成长</span>
 				</div>
 			</div>
 		</div>
@@ -181,244 +181,254 @@
 			">
 				
 <div class="post-preview">
-    <a href="/posts/2013/11/26/osx-apache-server-php-mysql/">
+    <a href="/posts/2014/10/03/invert-a-whole-webpage-with-css-only/">
         <h2 class="post-title">
-            Mac OS X 启用 Web 服务器
+            使用 CSS 将一个页面反色显示
         </h2>
         
         <div class="post-content-preview">
-            原文： Get Apache, MySQL, PHP and phpMyAdmin working on OSX 10.9 Mavericks
+            将一个页面反色
 
-Update: 2014/10/28 修改文章添加在 Yosemite 上开启 Web Server 的步骤
+仅 IE9+ 支持
 
-Mac OS X 10.9 依旧预装了 Apache ，但是已经不能在 「系统偏好设置」中的「Web 共享」来开启了，需要手动通过命令行...
+body:before { 
+	content:"";
+	position:fixed;
+	top:50%; left: 50%;
+	z-index:9999;
+	width:1px; height: 1px;
+	outline:2999px solid invert;
+}
+
+
+这里利用的 outline 的颜色 invert 来实现颜色的反色。
+
+反...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on November 26, 2013
+        Posted by 任平生 on October 3, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/11/26/insert-image-with-droplr-for-markdown/">
+    <a href="/posts/2014/09/23/synergy-windows-mac-keyboard/">
         <h2 class="post-title">
-            使用 Droplr 图片地址
+            synergy: 一套键鼠控制多台 Mac 与 Windows
         </h2>
         
         <div class="post-content-preview">
-            Markdown 写东西，配合 Droplr 上传图片使用，真是太方便了。
+            安装 Synergy 后，就可以用一套键鼠控制局域网里的多台电脑，支持 Windows、Mac、Linux 多系统。
 
-使用 Droplr 上传图片后，会自动获得一个 URL，如： http://d.pr/i/uw3d 。不过这个 URL 是页面而不是图片的，要想在 Markdwon 中使用，只需在这个地址最后加一个 + 即可： http://d.pr/i/uw3d+
 
-代码：
 
-![image alt](http://d.pr/i...
+我是使用 Mac 作为服务端，使用 Mac 的键鼠去控制 Windows，由于习惯了 Mac 键盘的 Command 作为类似 Ctrl 的组合键，于是设置 Command 映射 Windows 的 Ctrl 键，control 映射 Win 键，映射方法：
+
+1. 打...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on November 26, 2013
+        Posted by 任平生 on September 23, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/11/20/url-trailing-slash/">
+    <a href="/posts/2014/08/27/chrome-37-chinese-characters-display-bug/">
         <h2 class="post-title">
-            给网址最后添加斜杠
+            解决 Chrome 37 中文汉字不显示的bug
         </h2>
         
         <div class="post-content-preview">
-            如果可能，应尽量给 URL 的最后加上一个斜杠 /
-比如我们在浏览器里打开 http://v.qq.com/tv , 会先 301 重定向到 http://v.qq.com/tv/ 然后才开始请求页面内容资源
+            更新 Chrome 到 37 后，发现很多网页的汉字都不显示了：
 
 
 
-这样不仅白白耗费一次服务器请求响应，而且让页面响应时间慢了 146 毫秒 (以截图为例)。此外，不一致的 URL 也不利于 SEO。
+解决办法：
+打开： chrome://flags/#disable-direct-write
+将「停用 DirectWrite」选项，设置为启用。
+重启 Chrome 问题解决。
 
-原因：
+参考资料：
+DirectWrite 是什么
 
-
-  http://v.qq.c...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on November 20, 2013
+        Posted by 任平生 on August 27, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/08/27/the-now-and-future-of-selection-pseudo-element/">
+    <a href="/posts/2014/08/22/yosemite-launchpad-ghost-icon/">
         <h2 class="post-title">
-            伪元素 ::selection 的现状与未来
+            OS X Yosemite 如何删掉 Launchpad 里下载不成功的图标
         </h2>
         
         <div class="post-content-preview">
-            伪元素 ::selection 用来定义反选的样式，一般写法如下：
-
-::-moz-selection{  
-	color: white;  
-	background: hotpink;  
-}  
-::selection{  
-	color: white;  
-	background: hotpink;  
-} 
+            在 Yosemite 中遇到类似这样下载失败的图标，按住 option 也不能删除掉
 
 
-除了 IE6-8，其他现代浏览均支持这段CSS。Firefox 是唯一一...
+
+删除方法：
+
+sudo rm -rf ~/Library/Application\ Support/Dock
+
+输入密码，然后再执行
+
+killall Dock
+
+
+执行后我这里依然遗留了1个图标没有删除，重复上述步骤后，总算把所有的这些 ghost 图标删掉了。
+
+PS：执行这个操作后 Launch...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on August 27, 2013
+        Posted by 任平生 on August 22, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/04/29/change-googles-search-domain-in-chrome/">
+    <a href="/posts/2014/08/01/css3-flexbox-justify/">
         <h2 class="post-title">
-            修改 Chrome 搜索默认使用 Google.com
+            CSS3 实现两端对齐的 justify 布局
         </h2>
         
         <div class="post-content-preview">
-            修改 Chrome 搜索默认使用 Google.com
-
-首先关闭所有 Chrome 窗口，然后按一下操作：
+            使用 CSS3 的 flexbox 来实现两端对齐的效果非常容易
 
 
-  
-    
-      Windows: 
-转到目录 %LOCALAPPDATA%\Google\Chrome\User Data\Default\Preferences
-      Mac:
-转到目录 ~/Library/Application Support/Google...
+HTML：
+
+&lt;div class="main"&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+CSS:...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on April 29, 2013
+        Posted by 任平生 on August 1, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/02/18/html5-download/">
+    <a href="/posts/2014/07/31/get-apache-working-on-osx-10-10-yosemite/">
         <h2 class="post-title">
-            HTML5 download 属性
+            解决升级 Yosemite 后， Web Server 不工作的问题
         </h2>
         
         <div class="post-content-preview">
-            HTML5 的 download 属性有两个作用：
+            升级 10.10 的 Yosemite 后， 系统自带的 Apache Server 就出问题了， ~username/ 死活访问不到，找到问题解决方案如下：
 
-一、使链接点击后发起下载
-代码一：
+编辑 username.config 文件：
+sudo vi /etc/apache2/users/username.config
 
-&lt;a href="/files/logo.png" download="mylogo"&gt;My Site&lt;/a&gt;	
+添加 Require all granted
 
-
-通常点击这么一个链接，浏览器会直接打开 logo.png 的图片（png 是浏览器支持直接打开的文件类型）。
-而支持 download 属性的浏览器里点击这个链...
+&lt;Directory "/Users/use...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on February 18, 2013
+        Posted by 任平生 on July 31, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/01/30/ie-compatibility-view-list/">
+    <a href="/posts/2014/04/30/div-flash/">
         <h2 class="post-title">
-            IE兼容性列表（Compatibility View List）
+            div 浮层遮盖 flash 问题再研究
         </h2>
         
         <div class="post-content-preview">
-            IE兼容性列表：
+            div 浮层遮挡 Flash 的研究汗牛充栋，随便 Google 一下都能找到浩如烟海的资料，最简单的解决方案就是使用 wmode="opaque" 或者 wmode="transparent"，如此的简单而又一劳永逸。
 
-
-  IE8兼容性列表：http://www.microsoft.com/en-us/download/details.aspx?id=16599
-  IE9兼容新列表：http://ie9cvlist.ie.microsoft.com/ie9CompatViewList.xml
-
-
-本地的兼容性列表：（Win+R，输入打开）
-
-
-  IE8： res://iecompa...
+没有特殊需求的到这里就可以止步了，但是 wmode="opaque" 并不适合所有网站，比如视频网站，视频网站对 Flash 的表现性能有着极致的追求，让我们更倾向选择使...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on January 30, 2013
+        Posted by 任平生 on April 30, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/01/30/text-aligncenter-and-webkit-center/">
+    <a href="/posts/2014/04/15/weixin-webview-clear-cache/">
         <h2 class="post-title">
-            text-align:center 与 -webkit-center/-moz-center 的区别
+            微信 webview 清理缓存方法
         </h2>
         
         <div class="post-content-preview">
-            text-align:center 与 text-align:-webkit-center/-moz-center 的区别：
+            在做微信移动页面开发时若用到清理缓存，方法如下
+
+依次打开微信：我－通用－微信 －清理微信存储空间，就可以清理掉 webview 的缓存。
+
+（进入「清理微信存储空间」页面无需任何操作，当点击进入这个页面的时候，微信已经执行了清理缓存的操作）
 
 
 
-如上例。
-text-align:center 只能让 inline 元素居中，而不能让 block 元素居中；
-text-align:-webkit-center 可以让其中的 block 元素也可以居中；
+对于 Android 版微信，目前微信自动使用了 QQ浏览器的 X5 内核，如果上述方法不可以清掉缓存，可以执行如下操作：
 
-当然，在例一中，给内部的 block 元素设置 ma...
+在任意聊天窗口发送...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on January 30, 2013
+        Posted by 任平生 on April 15, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/01/21/ie-meta-tag/">
+    <a href="/posts/2014/03/26/mt-8-in-itunes-links-for-appstore/">
         <h2 class="post-title">
-            一些神奇的 IE Meta Tags
+            App Store 链接中的 mt=8 是什么意思
         </h2>
         
         <div class="post-content-preview">
-            &lt;meta name="MSSmartTagsPreventParsing" content="true" /&gt;  
+            常见到 iOS App 发出来的下载链接最后都会跟一个 ?mt=8 的尾巴，这是什么意思呢？在 Stackoverflow 上找到了答案：
 
+mt = Media Type
+而数字的对应关系如下：
 
-作用：禁用 IE6 的 Smart Tags 功能。
-详解：微软在 IE6 Beta 版和 Word 2010 中引入了一个功能：Smart Tags，自动给一些「标签」词语加上带下划线样式的链接，鼠标hover时候可以使用预定义的一些程序的功能：
-
-
-
-（图...
+1   Music
+2   Podcasts
+3   Audiobooks
+4   TV Shows
+5   Music Videos
+6   Movies
+7   iPod Games
+8  ...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on January 21, 2013
+        Posted by 任平生 on March 26, 2014
     </p>
 </div>
 <hr>
 
 <div class="post-preview">
-    <a href="/posts/2013/01/13/pseudo-element-transitions-bug-fixed-in/">
+    <a href="/posts/2014/03/18/phone-touch-css-style-active/">
         <h2 class="post-title">
-            Chrome(Webkit)中伪元素不支持动画的bug修复了
+            iPhone 上CSS定义 active 样式
         </h2>
         
         <div class="post-content-preview">
-            webkit 中伪元素（pseudo element）不支持动画（transition 和 animation ）的bug终于修复了（Chrome  26）。这真是一个漫长的过程啊。
+            如果给按钮定义 :hover 样式，在 iPhone 上按钮点击一次是 hover 态，再点击一次 hover 态才会消失，这显然不是我们想要的，继而想通过定义 :active 样式来实现按钮按下时的效果，但发现定义的 active 样式在 iPhone 上点击时没有任何效果。 搜索后发现，只需添加一段 js 即可：
 
-不过当前稳定版本的Chrome 24，看来等稳定版本升级到26还得一段时间。
-
-这样除了 Opera 所有主流浏览器的最新版本都可以支持伪元素的动画行为了。
-
-需要注意的是，IE10 中，伪元素对动画的支持有...
+document.addEventListener("touchstar...
         </div>
     </a>
     <p class="post-meta">
-        Posted by 任平生 on January 13, 2013
+        Posted by 任平生 on March 18, 2014
     </p>
 </div>
 <hr>
@@ -458,7 +468,7 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 						
 						<!-- 自定义搜索 -->
 							<form class="search-form" action="/search/">
-								<input type="search" name="q" class="search-input" placeholder="善用搜索..">
+								<input type="search" name="q" class="search-input" placeholder="搜索博客内容">
 							</form>
 						
 					</div>
@@ -706,6 +716,44 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 						
 							
 						
+							
+								<a href="/tags/#design" title="design" rel="5">
+									design
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#development" title="development" rel="3">
+									development
+								</a>
+							
+						
+							
+								<a href="/tags/#数据可视化" title="数据可视化" rel="2">
+									数据可视化
+								</a>
+							
+						
+							
+								<a href="/tags/#界面设计" title="界面设计" rel="2">
+									界面设计
+								</a>
+							
+						
+							
+						
 					</div>
 				</section>
 				
@@ -715,16 +763,16 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 					<hr><h5><a href="/about/">ABOUT ME</a></h5>
 					<div class="short-about">
 						
-							<img src="/assets/common/avatar-rpsh.jpg" />
+							<img src="/assets/common/avatar-youngbeom.jpg" />
 						
 						
-							<p>探寻代码与生活之外的生活</p>
+							<p>天生闲不住，折腾青年<br>设计师，工具控，漫威粉，理想范</p>
 						
 						<!-- SNS Link -->
 						<ul class="list-inline">
 							
 							<li>
-								<a href="http://feeds.rpsh.net/rpsh/note">
+								<a href="">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
 										<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -733,18 +781,9 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 							</li>
 							
 							
-							<li>
-								<a href="https://twitter.com/rpsh">
-									<span class="fa-stack fa-lg">
-										<i class="fa fa-circle fa-stack-2x"></i>
-										<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</li>
-							
 							
 							<li>
-								<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+								<a target="_blank" href="https://www.zhihu.com/people/youngbeomshin">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
 										<i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -753,15 +792,15 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 							</li>
 							
 							
-							
 							<li>
-								<a target="_blank" href="https://instagram.com/rpsh">
+								<a target="_blank" href="http://weibo.com/youngbeom">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
-										<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+										<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
 							</li>
+							
 							
 							
 						</ul>
@@ -793,7 +832,7 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 				<ul class="list-inline text-center">
 					
 					<li>
-						<a href="http://feeds.rpsh.net/rpsh/note">
+						<a href="">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -802,20 +841,11 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 					</li>
 					
 					
-					<li>
-						<a href="https://twitter.com/rpsh">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-							</span>
-						</a>
-					</li>
-					
 
 					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
 					
 					<li>
-						<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+						<a target="_blank" href="https://www.zhihu.com/people/youngbeomshin">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -824,25 +854,25 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 					</li>
 					
 					
+					<li>
+						<a target="_blank" href="http://weibo.com/youngbeom">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
 
 
 					
 					
 					
-                    <li>
-                        <a target="_blank" href="https://instagram.com/rpsh">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
                     
 
 					
 					<li>
-						<a target="_blank" href="https://github.com/rpsh">
+						<a target="_blank" href="https://github.com/youngbeom-shin">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -852,7 +882,7 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 					
 				</ul>
 				<p class="copyright text-muted">
-					Copyright &copy; 任平生的学习笔记 2018
+					Copyright &copy; youngbeom Blog 2018
 					<br>
 					Theme by <a href="http://huangxuan.me">Hux</a>
 				</p>
@@ -915,9 +945,9 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 <script>
 	// dynamic User hacking by Hux
 	// var _gaId = document.getElementById('gaId').value;
-	var _gaId =  'UA-5528027-2';
+	var _gaId =  'UA-119556076-1';
 	// var _gaDomain = document.getElementById('gaDomain').value;
-	var _gaDomain = 'note.rpsh.net';
+	var _gaDomain = 'blog.youngbeom.com';
 
 	// Originial
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -957,13 +987,13 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 {
 	"@context" : "http://schema.org",
 	"@type" : "Person",
-	"name" : "任平生",
+	"name" : "申永范",
 	"url" : "",
 	"sameAs" : [
 		
-		"http://twitter.com/rpsh",
-		"http://instagram.com/rpsh",
-		"http://www.linkedin.com/in/ihaiyang",
+		
+		
+		
 		"http://plus.google.com/100791036880126418228"
 	]
 }
@@ -973,6 +1003,16 @@ text-align:-webkit-center 可以让其中的 block 元素也可以居中；
 <!-- Image to hack wechat -->
 <img src="http://localhost:4000/assets/common/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119556076-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119556076-1');
+</script>
 
 </body>
 

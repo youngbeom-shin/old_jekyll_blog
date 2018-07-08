@@ -9,9 +9,9 @@
 	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
 	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
 
-	<title>任平生的学习笔记</title>
-	<meta name="description" content="任平生的学习笔记，记录平常点滴" />
-	<meta name="keyword"  content="任平生, 互联网, 前端, rpsh" />
+	<title>永范的博客 | youngbeom Blog</title>
+	<meta name="description" content="关于设计 关于生活，记录知识与成长" />
+	<meta name="keyword"  content="永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计" />
 
 	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
 	
@@ -42,13 +42,13 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@rpsh" />
 	<meta name="twitter:url" property="og:url" content="http://localhost:4000/page7/" />
-	<meta name="twitter:title" property="og:title" itemprop="name" content="任平生的学习笔记" />
-	<meta name="twitter:description" property="og:description" itemprop="description" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="永范的博客 | youngbeom Blog" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="关于设计 关于生活，记录知识与成长" />
 	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/icon_wechat.png" />
 
-	<meta name="wxm:timeline_title" content="任平生的学习笔记" />
-	<meta name="wxm:appmessage_title" content="任平生的学习笔记" />
-	<meta name="wxm:appmessage_desc" content="任平生的学习笔记，记录平常点滴" />
+	<meta name="wxm:timeline_title" content="永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_title" content="永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_desc" content="关于设计 关于生活，记录知识与成长" />
 	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/icon_wechat.png" />
 	<meta name="wxm:link" content="http://localhost:4000/page7/" />
 	
@@ -85,7 +85,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">任平生的学习笔记</a>
+            <a class="navbar-brand" href="/">youngbeom Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -156,9 +156,9 @@
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
 				<div class="site-heading">
-					<h1>任平生的学习笔记</h1>
+					<h1>youngbeom Blog</h1>
 					<!--<hr class="small">-->
-					<span class="subheading">任平生的学习笔记，记录平常点滴</span>
+					<span class="subheading">关于设计 关于生活，记录知识与成长</span>
 				</div>
 			</div>
 		</div>
@@ -181,93 +181,230 @@
 			">
 				
 <div class="post-preview">
-    <a href="/posts/2011/04/14/javascript-ie-documentmode/">
+    <a href="/posts/2011/06/08/javascript-keycodes/">
         <h2 class="post-title">
-            javascript: 判断 IE 的渲染模式 及 判断浏览器标准渲染模式的方法
+            javascript keycodes 键盘键值
         </h2>
         
         <div class="post-content-preview">
-            判断 ie 是使用ie9、ie8、ie7 哪种模式渲染的方法： 
-document.documentMode
-如果没有文档声明，则返回数字 5
+            
+via：http://shikargar.wordpress.com/2010/10/27/javascript-key-codes/ 
 
-只有ie8、ie9可以使用此方法；
-ie6 、非IE浏览器使用 document.documentMode 都将返回 undefined；
+在页面上增加键盘快捷键：
 
-判断文档是否使用标准模式进行渲染的方法：document.compatMode
-标准模式将返回：CSS1C...
+var inputFocus = false;  
+$(':input').blur(function(){  
+	inputFocus = false;  
+});  
+$(':input').focus(function...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on June 8, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/05/27/styling-ordered-list-numbers/">
+        <h2 class="post-title">
+            自定义有序列表 li 项目符号的数字样式
+        </h2>
+        
+        <div class="post-content-preview">
+            下面是一个自定义有序列表 li 项目符号样式的思路：
+
+  
+ List item one  
+ List item two  
+ List item three  
+ List item four  
+
+
+CSS:
+
+ol{  
+	margin-left:0px;  
+	padding-left:0px;  
+	counter-reset:li;  
+}  
+
+
+ol &gt; li{
+	...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on May 27, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/05/25/story-of-html5-shiv/">
+        <h2 class="post-title">
+            HTML5 Shiv 的一些趣事
+        </h2>
+        
+        <div class="post-content-preview">
+            我敢肯定，你一定没听说过 Sjoerd Visscher 这个名字，虽然你天天在熟练地用着 HTML5 Shiv 去修复 IE 不能识别未知元素的bug。
+
+2002年，荷兰海牙。 Visscher 在改进 XSL 的显示样式的过程中发现，非HTML元素不能应用CSS样式。
+
+2008年，HTML5 已经出现了，一些新的元素被提出并应用，但是 IE 6-8 不能识别未知元素，这些新元素不能作...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on May 25, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/05/20/js-detect-css-support/">
+        <h2 class="post-title">
+            判断浏览器是否支持某个css属性
+        </h2>
+        
+        <div class="post-content-preview">
+            根据 UA 来判断浏览器版本，再根据浏览器版本来确定是否支持某个 css 属性的方法弱爆了，直接判断浏览器是否支持某个CSS属性才是王道。
+
+判断是否支持 text-overflow
+
+if( 'textOverflow' in document.documentElement.style){  
+	alert('support');  
+}else{  
+	alert('no suppor...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on May 20, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/05/20/ie8-haslayout/">
+        <h2 class="post-title">
+            ie8 的 hasLayout
+        </h2>
+        
+        <div class="post-content-preview">
+            今天跟一个同事说 ie8 已经没有 hasLayout 了，但却被认为有异议，所以动手实验了一下，在ie8中，检测 block 元素的 hasLayout  为 true， inline 元素的 hasLayout 为 false。
+但是却不能用之前的触发 ie6/7 hasLayout 的方法去触发了，比如 zoom:1 ， height:1% 等就不能让 ie8 的 hasLayout ...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on May 20, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/05/18/window-history/">
+        <h2 class="post-title">
+            window.history
+        </h2>
+        
+        <div class="post-content-preview">
+            通常，我们使用 #hash 跳转页面的某个位置，但有时跳转并不是你想要的，如果阻止了默认的跳转行为，那么 #hash 就不会计入 history ，点击浏览器的后退按钮就什么都不会发生了 （想象 gmail 中的所有操作都是靠 #hash 来切换不同的界面的，而且点后退按钮可以返回之前操作的界面）
+
+通过 HTML5 的 history API，我们可以很容易地实现我们想要的：
+
+histo...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on May 18, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/05/04/the-truth-about-marquee-tag/">
+        <h2 class="post-title">
+            有关 &lt;marquee&gt; 标签的一些现实
+        </h2>
+        
+        <div class="post-content-preview">
+            今天发现了一个蛋疼的现实：
+&lt;marquee&gt; 是被各个浏览器都支持的，我记得当初之所以不建议大家在代码中使用 marquee 的原因就是这个东西只有 ie 支持，是非标准的标签… 那么现在呢？ 当 HTML5 越来越以现实需求为中心，当 a 标签都可以包裹 h1, p, div 的时候， marquee 真的有那么邪恶吗？
+
+在非ie浏览器中并不一定需要 &lt;marquee...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on May 4, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/05/03/font-size-px-em-rem/">
+        <h2 class="post-title">
+            font-size 的 px em 与 rem 的区别
+        </h2>
+        
+        <div class="post-content-preview">
+            之前看到说 px 与 em 的区别是 px 在 ie 里不能放大，但是我用 ctrl 滚动鼠标放大页面，文字是可以放大的嘛，就一直以为这个是以讹传讹的错误理论；
+
+今天看了Jonathan Snook 的文章，才注意到，这个放大文字，是指浏览器自带的 文字大小 的调整功能，并不是放大整个页面，在ie中，调整文字的功能是这个：
+
+
+
+OK，那么一切就明了了。 如果使用 px 作为字体大小的单位...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on May 3, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/04/19/chromenet-internalshsts/">
+        <h2 class="post-title">
+            设置 Chrome 强制网站使用 HTTPS
+        </h2>
+        
+        <div class="post-content-preview">
+            chrome://net-internals/#hsts
+可以设置强制使用 https 链接的网址
+
+(chrome|checkout|health|docs|spreadsheets|sites|appengine|encrypted).google.com  
+
+
+参考链接：
+http://dev.chromium.org/sts
+http://src.chromium.org/view...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on April 19, 2011
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/posts/2011/04/14/browser-rendering-modes/">
+        <h2 class="post-title">
+            浏览器渲染模式
+        </h2>
+        
+        <div class="post-content-preview">
+            浏览器共有三种渲染模式：怪异模式（Quirks mode）、准标准模式（almost standards mode）、标准模式（full standards mode）
+各个浏览器相同版本的 标准模式 和 准标准模式 之间差异极少。
+
+
+via: http://www.w3help.org/zh-cn/causes/readme.html 
+
+&lt;!doctype html&gt;
+
+当...
         </div>
     </a>
     <p class="post-meta">
         Posted by 任平生 on April 14, 2011
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/posts/2011/04/12/css-any/">
-        <h2 class="post-title">
-            CSS 选择器 :any()
-        </h2>
-        
-        <div class="post-content-preview">
-            Firefox4 和 最新的 Chrome 隔夜更新版中增加了一个新的 CSS 选择器 :any()
-这个选择器目前还没有写入 CSS3 规范，不过随着 Chrome 的加入，相信其他浏览器很快也会开始支持这个选择器
-当前，需要使用浏览器厂家前缀：  -moz-any() , -webkit-any()
-
-看一下之前我们在CSS中会写到的一段代码：
-
-a{ color:#ccc }  
-na...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 任平生 on April 12, 2011
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/posts/2011/04/07/css3-transition-transform/">
-        <h2 class="post-title">
-            CSS3: transition transform 学习笔记
-        </h2>
-        
-        <div class="post-content-preview">
-            .box{
-	-webkit-transition:background-color 2s ease-out; 
-	-moz-transition:background-color 2s ease-out;
-}
-
-
-之所以将 transition 写在 .box 而不是 .box:hover 是因为当写在 :hover 中时， transition-timing-function 无法控制离...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 任平生 on April 7, 2011
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/posts/2006/10/07/hello-world/">
-        <h2 class="post-title">
-            一蓑烟雨任平生
-        </h2>
-        
-        <div class="post-content-preview">
-            定风波
-—-苏轼
-莫听穿林打叶声，何妨吟啸且徐行。
-竹杖芒鞋轻胜马，谁怕，一蓑烟雨任平生。
-料峭春风吹酒醒，微冷，山头斜照却相迎。
-回首向来萧瑟处，归去，也无风雨也无晴。
-
-
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 任平生 on October 7, 2006
     </p>
 </div>
 <hr>
@@ -281,6 +418,10 @@ na...
         <a href="/page6">&larr; Newer Posts</a>
     </li>
     
+    
+    <li class="next">
+        <a href="/page8">Older Posts &rarr;</a>
+    </li>
     
 </ul>
 
@@ -303,7 +444,7 @@ na...
 						
 						<!-- 自定义搜索 -->
 							<form class="search-form" action="/search/">
-								<input type="search" name="q" class="search-input" placeholder="善用搜索..">
+								<input type="search" name="q" class="search-input" placeholder="搜索博客内容">
 							</form>
 						
 					</div>
@@ -551,6 +692,44 @@ na...
 						
 							
 						
+							
+								<a href="/tags/#design" title="design" rel="5">
+									design
+								</a>
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+								<a href="/tags/#development" title="development" rel="3">
+									development
+								</a>
+							
+						
+							
+								<a href="/tags/#数据可视化" title="数据可视化" rel="2">
+									数据可视化
+								</a>
+							
+						
+							
+								<a href="/tags/#界面设计" title="界面设计" rel="2">
+									界面设计
+								</a>
+							
+						
+							
+						
 					</div>
 				</section>
 				
@@ -560,16 +739,16 @@ na...
 					<hr><h5><a href="/about/">ABOUT ME</a></h5>
 					<div class="short-about">
 						
-							<img src="/assets/common/avatar-rpsh.jpg" />
+							<img src="/assets/common/avatar-youngbeom.jpg" />
 						
 						
-							<p>探寻代码与生活之外的生活</p>
+							<p>天生闲不住，折腾青年<br>设计师，工具控，漫威粉，理想范</p>
 						
 						<!-- SNS Link -->
 						<ul class="list-inline">
 							
 							<li>
-								<a href="http://feeds.rpsh.net/rpsh/note">
+								<a href="">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
 										<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -578,18 +757,9 @@ na...
 							</li>
 							
 							
-							<li>
-								<a href="https://twitter.com/rpsh">
-									<span class="fa-stack fa-lg">
-										<i class="fa fa-circle fa-stack-2x"></i>
-										<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-							</li>
-							
 							
 							<li>
-								<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+								<a target="_blank" href="https://www.zhihu.com/people/youngbeomshin">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
 										<i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -598,15 +768,15 @@ na...
 							</li>
 							
 							
-							
 							<li>
-								<a target="_blank" href="https://instagram.com/rpsh">
+								<a target="_blank" href="http://weibo.com/youngbeom">
 									<span class="fa-stack fa-lg">
 										<i class="fa fa-circle fa-stack-2x"></i>
-										<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+										<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
 									</span>
 								</a>
 							</li>
+							
 							
 							
 						</ul>
@@ -638,7 +808,7 @@ na...
 				<ul class="list-inline text-center">
 					
 					<li>
-						<a href="http://feeds.rpsh.net/rpsh/note">
+						<a href="">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -647,20 +817,11 @@ na...
 					</li>
 					
 					
-					<li>
-						<a href="https://twitter.com/rpsh">
-							<span class="fa-stack fa-lg">
-								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-							</span>
-						</a>
-					</li>
-					
 
 					<!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
 					
 					<li>
-						<a target="_blank" href="https://www.zhihu.com/people/rpsh">
+						<a target="_blank" href="https://www.zhihu.com/people/youngbeomshin">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa  fa-stack-1x fa-inverse">知</i>
@@ -669,25 +830,25 @@ na...
 					</li>
 					
 					
+					<li>
+						<a target="_blank" href="http://weibo.com/youngbeom">
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+							</span>
+						</a>
+					</li>
+					
 
 
 					
 					
 					
-                    <li>
-                        <a target="_blank" href="https://instagram.com/rpsh">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    
                     
 
 					
 					<li>
-						<a target="_blank" href="https://github.com/rpsh">
+						<a target="_blank" href="https://github.com/youngbeom-shin">
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
 								<i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -697,7 +858,7 @@ na...
 					
 				</ul>
 				<p class="copyright text-muted">
-					Copyright &copy; 任平生的学习笔记 2018
+					Copyright &copy; youngbeom Blog 2018
 					<br>
 					Theme by <a href="http://huangxuan.me">Hux</a>
 				</p>
@@ -760,9 +921,9 @@ na...
 <script>
 	// dynamic User hacking by Hux
 	// var _gaId = document.getElementById('gaId').value;
-	var _gaId =  'UA-5528027-2';
+	var _gaId =  'UA-119556076-1';
 	// var _gaDomain = document.getElementById('gaDomain').value;
-	var _gaDomain = 'note.rpsh.net';
+	var _gaDomain = 'blog.youngbeom.com';
 
 	// Originial
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -802,13 +963,13 @@ na...
 {
 	"@context" : "http://schema.org",
 	"@type" : "Person",
-	"name" : "任平生",
+	"name" : "申永范",
 	"url" : "",
 	"sameAs" : [
 		
-		"http://twitter.com/rpsh",
-		"http://instagram.com/rpsh",
-		"http://www.linkedin.com/in/ihaiyang",
+		
+		
+		
 		"http://plus.google.com/100791036880126418228"
 	]
 }
@@ -818,6 +979,16 @@ na...
 <!-- Image to hack wechat -->
 <img src="http://localhost:4000/assets/common/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119556076-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-119556076-1');
+</script>
 
 </body>
 

@@ -1,818 +1,481 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>任平生的学习笔记</title>
-    <description>任平生的学习笔记，记录平时学习点滴。RPSH's Notes</description>
+    <title>youngbeom Blog</title>
+    <description>关于交互与界面、极客与艺术 | 永范，Web &amp; Mobile Lover，industrial designer，UX Designer | 这里是 @youngbeom永范 的个人博客，记录发生着的一切。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 22 May 2018 16:26:14 +0800</pubDate>
-    <lastBuildDate>Tue, 22 May 2018 16:26:14 +0800</lastBuildDate>
+    <pubDate>Fri, 06 Jul 2018 21:58:07 +0800</pubDate>
+    <lastBuildDate>Fri, 06 Jul 2018 21:58:07 +0800</lastBuildDate>
     <generator>Jekyll v3.8.1</generator>
     
       <item>
-        <title>将旧 Mac 的内容完全迁移到新 Mac 上</title>
-        <description>&lt;p&gt;最近工作机更换为了新的 iMac 27’ ，不想重新设置一遍各种开发环境，于是便找了一下将旧 Mac 内容完全迁移到新设备的方案。&lt;/p&gt;
+        <title>不同数据源POI碰撞检测的实现方案</title>
+        <description>&lt;p&gt;单词数量：400  阅读时间：2m00s&lt;/p&gt;
 
-&lt;p&gt;原来，OS X  自带了一个「迁移助理」可以很方便地将旧 Mac 上的内容迁移到新 Mac 上。&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;问题：&lt;/h2&gt;
+&lt;p&gt;因为现有的地图样式中使用了多种来源的POI数据，所以在zoom值发生改变时无法发生碰撞检测，因此会有POI重叠的现象产生。
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/collision_detection.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;em&gt;上图中显示的是圣彼得堡的世界杯体育场的位置，两个兴趣点（POI）因为没法碰撞检测而发生了重叠。&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;如果有使用 Time Machine 则可以直接使用 Time Machine 来将旧 Mac 的内容迁移到新 Mac。如果没有使用 Time Machine ，则可以将新旧两台设备连接起来，进行内容迁移。&lt;/p&gt;
+&lt;h2 id=&quot;前期设计&quot;&gt;前期设计：&lt;/h2&gt;
+&lt;p&gt;在设计之初因为了解到这种情况会发生，暂时没有特别好的情况下我们提出了多种解决方案，比如不同来源的数据在icon样式上采用了不同的设计，数据库当中的带有其它多种字段的优质数据我们用背景带类型颜色icon白的方式来高亮显示，相反打到瓦片里的只有经纬度和类型的我们用白色背景类型色icon的方式显示，降低视觉权重，再比如不是非常重要的POI点像地铁出入口直接用图标，不显示它的名称和类型。通过这一系列的设计尽可能的增加地图的易读性。但是这些并没有从根本上解决图标重叠的问题。&lt;/p&gt;
 
-&lt;p&gt;将两台 Mac 连接起来，有三种常用方案：&lt;/p&gt;
+&lt;h2 id=&quot;预想方案&quot;&gt;预想方案：&lt;/h2&gt;
+&lt;p&gt;之前工程师在处理压缩的底图数据时，发现已经压缩成PBF的数据可以逆向工程变成json数据，解压出来的json数据就会带有一个地理位置的名字类型和经纬度等信息，这时工程师就提出了一种猜想，可不可以将osm的POI数据提取出来，清洗整理后导入到自己的数据库，让所有地图上的兴趣点都变成一个数据源，这样就对兴趣点的碰撞检测提供了可行性。
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/data_source.png&quot; alt=&quot;&quot; /&gt;
+已知在同一数据来源时可以用一个图层在央视文件中赋予样式特性，因此也就有了碰撞检测的条件，希望上述猜想得到验证，因为数据量巨大工程师甚至调用了一台32核的服务器跑了小半天…
+最后感谢公司给力的工程师们，通过他们的不懈努力可以让用户可以有更好的用户体验，希望大家在使用产品时会更加的便捷吧！&lt;/p&gt;
 
-&lt;p&gt;1、 两台 Mac 连接至同一个 WIFI／有线网&lt;/p&gt;
+&lt;p&gt;2018年6月14日 下午3:06&lt;/p&gt;
 
-&lt;p&gt;2、 使用网线将两台 Mac 通过网线接口连接起来&lt;/p&gt;
-
-&lt;p&gt;3、 使用 Thunderbolt 线缆将两台 Mac 连接起来&lt;/p&gt;
-
-&lt;p&gt;第一个方案，通过路由器中转，速度会受挺大影响。&lt;/p&gt;
-
-&lt;p&gt;第三个方案， Thunderbolt 线缆，一条两百多块，而且基本就能用这一次，投入过大。&lt;/p&gt;
-
-&lt;p&gt;所以我选择了第二个方案，使用随手可得的网线将两台 Mac 连接起来，速度虽然比不上 Thunderbolt 的，但也够用了。&lt;/p&gt;
-
-&lt;p&gt;使用网线将两台 Mac 连接起来后，分别启动每台设备上的「迁移助理」应用（可以在 spotlight 中搜索找到）。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;在旧设备上选择第三个「至另一台Mac」；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在新设备上选择第一个「从 Mac、Time Machine 备份或启动磁盘」；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;确认要迁移的设备与安全码，然后选择要迁移的内容，接下来就是静等文件迁移完成。&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2016/01/move-to-new-mac-1.jpg&quot; alt=&quot;move-to-new-mac-1&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2016/01/move-to-new-mac-2.jpg&quot; alt=&quot;move-to-new-mac-2&quot; /&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2016/01/move-to-new-mac-3.jpg&quot; alt=&quot;move-to-new-mac-3&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;参考资料：
-&lt;a href=&quot;https://support.apple.com/zh-cn/HT204350&quot;&gt;将内容移至新 Mac&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;#3-技术&lt;/p&gt;
 </description>
-        <pubDate>Tue, 05 Jan 2016 22:30:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2016/01/05/move-mac-content-to-new-mac/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2016/01/05/move-mac-content-to-new-mac/</guid>
+        <pubDate>Thu, 14 Jun 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/06/14/about-collision-detection/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/06/14/about-collision-detection/</guid>
         
-        <category>Mac</category>
+        <category>development</category>
         
-        <category>OSX</category>
-        
-        <category>迁移助理</category>
+        <category>地图数据</category>
         
         
       </item>
     
       <item>
-        <title>在网页上使用苹方字体</title>
-        <description>&lt;p&gt;随着 El Capitan 和 iOS9 发布而内置新系统中的 &lt;a href=&quot;http://www.apple.com/cn/osx/whats-new/#international-fonts&quot;&gt;苹方字体&lt;/a&gt; 给我们在中文字体的使用上带来了新的选择。&lt;/p&gt;
+        <title>在产品中积极引导用户的文案</title>
+        <description>&lt;p&gt;单词：880 阅读时间：4m24s&lt;/p&gt;
 
-&lt;p&gt;在 Web 上定义字体为苹方的方法：&lt;/p&gt;
+&lt;p&gt;主要归纳一下在工作中遇到的一个问题的解决方案&lt;/p&gt;
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;小程序的相册功能&quot;&gt;小程序的相册功能&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/design-psychology-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;苹方提供了六个字重，font-family 定义如下：&lt;/p&gt;
+&lt;p&gt;背景：首先小程序中加入相册功能不是设计之初的意图，相册的本意是收集用户上传的带有经纬度的照片来作为接下来应用内的内容积累做工作，初期这个功能的主要目标用户是长期居住在海外的一些种子用户及亲朋好友，利用它们的区位优势，将生活中拍摄的作品上传到内容平台展示给更多的用户，是一种众包的尝试。
+问题：初期利用网页版上传用户照片的过程中遇到了一个问题，就是iOS11的版本对用户在Safari浏览器上传照片时抹掉了经纬度信息，也就是就算是收集到了用户的宝贵的照片资料，也会因为缺少经纬度信息而无法匹配到地图应用上，所以想到了折中的方案，利用小程序来实现。
+分歧：在回忆中成员对相册功能的实现都有不同的见解，首先大部分人的观点是：
+&lt;strong&gt;产品的定位模糊&lt;/strong&gt;-因为加入了和产品主要功能差别较大的功能，是否会导致产品推广使用带来一些难度。
+&lt;strong&gt;用户信任度的问题&lt;/strong&gt;-首先在电商平台主要功能的还未完成的情况下，加入相册功能是否会让用户对产品的信任度降低。
+&lt;strong&gt;用户隐私的问题&lt;/strong&gt;-首先现阶段的小程序相册功能首要目的是收集照片，所以很多细节还未完善，比如用户上传的照片因为没有审核机制是否会涉及敏感信息，再有用户对上传的照片没有修改删除的权限是否不够友好。还缺乏一些隐私条款的补充…
+&lt;strong&gt;对大部分用户是否是伪需求&lt;/strong&gt;-相册功能到底能给用户带来什么激励，单纯的存储照片的功能iOS已经完全满足，用户为何还要用稀客的小程序上传照片，这里就是对两种不同的需求的用户产生了一个使用路径上的分歧，大部分利用电商小程序的用户是为了快速购买商品并体验，而利用相册上传照片的只是我们的熟人用户，这种设计对单纯购买商品的用户产生较大的视觉打扰和下单量的流失，小程序设计之初的目的就是快速完成下单购买并体验，与我们的设计初衷有所违背。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;苹方-简 常规体&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;功能界面设计&quot;&gt;功能界面设计&lt;/h2&gt;
+&lt;p&gt;在会议沟通过程中产品负责人给出了解释：类似电商中的照片分享的模型不是首创，小红书就是一个典型的应用，因为有对标的成功案例，所以不存在用户反映过大的问题，其次因为产品还未大范围推广，所以在试水的阶段是需要快速完成收集图像数据的目标，但是也要尽量的克制一些，避免出现一些问题。所以在产品设计上开放了两个页面，一个是我上传的照片，在这里管理并上传照片，另一个是热门，这里是展示用户上传的优质资源的“广场”，在用户点击相册tab时首先看到的是一张过渡页面，引导并告知用户这个功能的设计意图，尽量的避免使用上的违和感。&lt;/p&gt;
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;产品心理对用户的影响&quot;&gt;产品心理对用户的影响&lt;/h2&gt;
+&lt;p&gt;这里着重说明的是在过渡页上的设计意图，过渡页想要给用户达到的一种认知就是这个功能是为了让用户欣赏到国外各个地方使用者上传的精美的照片，间接的引导用户也去在境外体验完成商品后也去上传完成一些体验照片，对于用户的满足和产品本身的满足取一个合理的平衡&lt;/p&gt;
 
-&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Regular, sans-serif;&quot;&gt;常规体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+&lt;h3 id=&quot;文案中对用户的-舍与得-心理暗示&quot;&gt;文案中对用户的 “舍”与“得” 心理暗示**&lt;/h3&gt;
+&lt;p&gt;将用户的“得”的因素加大，减少用户的“舍”的心理暗示会加大用户对产品的好感度，降低用户的心理负担。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;苹方-简 极细体&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id=&quot;舍-文案方案&quot;&gt;“舍”-文案方案&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/design-psychology-2.jpg&quot; alt=&quot;&quot; /&gt;
+方案分析：用户的负担较大，会产生为什么电商平台还要上传相片这样的想法？&lt;/p&gt;
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Ultralight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;得-文案方案&quot;&gt;“得”-文案方案&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/design-psychology-3.jpg&quot; alt=&quot;&quot; /&gt;
+文案分析：用户会产生额外获得的福利的概念，在购买商品时还能查看优质的摄影作品，让用户首先是享受所获得的bonus，之后如果有了感动就主动上传，这对本身要上传照片的用户和以单纯购物为目的的用户都有了照顾。&lt;/p&gt;
 
-&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Ultralight, sans-serif;&quot;&gt;常规体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
+&lt;h2 id=&quot;最后&quot;&gt;最后&lt;/h2&gt;
+&lt;p&gt;设计一个功能页面不是一件难的事情，难的是真正想清楚设计出来的页面是否是真真正正的满足了用户实际的使用需求，发挥了产品的使用价值，而不是单方面的为了业务目的在不是非常恰当的地方做了一个功能，最后还是希望设计是真正解决问题的，而不是逃避问题。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;苹方-简 细体&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2018 6-11 19:00&lt;/p&gt;
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Light&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;单词：880 阅读时间：4m24s&lt;/p&gt;
 
-&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Light, sans-serif;&quot;&gt;细体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;苹方-简 纤细体&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Thin, sans-serif;&quot;&gt;纤细体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;苹方-简 中黑体&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Medium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Medium, sans-serif;&quot;&gt;中黑体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;苹方-简 中粗体&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangSC-Semibold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;code-demo&quot; style=&quot;font-family: PingFangSC-Semibold, sans-serif;&quot;&gt;中粗体 示例： 一蓑烟雨任平生 To be or not to be, that is the question&lt;/div&gt;
-
-&lt;p&gt;苹方除了简体的：苹方-简（PingFang SC），还为繁体用户提供有：苹方-繁（PingFang TC） ，苹方-港（PingFang HK）&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;苹方-繁&lt;/strong&gt; 的 CSS font-family 使用：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Ultralight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Light&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Medium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangTC-Semibold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;苹方-港&lt;/strong&gt; 的 CSS font-family 使用：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Regular&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Ultralight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Light&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Thin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Medium&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;PingFangHK-Semibold&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sans-serif&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;style&gt;
-
-.code-demo{
-
-position: relative;
-
-margin: 30px auto;
-
-padding-left: 2em;
-
-}
-
-.code-demo:before{
-
-content: '{';
-
-position: absolute;
-
-left: 0;
-
-top: 50%;
-
-line-height: 110%;
-
-font-size: 3em;
-
-font-family: Helvetica Neue;
-
-opacity: 0.2;
-
--webkit-transform: translateY(-58%);
-
-}
-
-&lt;/style&gt;
-
+&lt;p&gt;#4-设计&lt;/p&gt;
 </description>
-        <pubDate>Wed, 18 Nov 2015 23:30:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/11/18/using-pingfang-font-in-website/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/11/18/using-pingfang-font-in-website/</guid>
+        <pubDate>Mon, 11 Jun 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/06/11/design-psychology/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/06/11/design-psychology/</guid>
         
-        <category>苹方</category>
+        <category>design</category>
         
-        <category>CSS</category>
-        
-        <category>CSS/font-family</category>
+        <category>界面设计</category>
         
         
       </item>
     
       <item>
-        <title>迁移至 Github Pages</title>
-        <description>&lt;p&gt;由于 &lt;a href=&quot;http://note.rpsh.net&quot;&gt;note.rpsh.net&lt;/a&gt; 在 &lt;a href=&quot;https://logdown.com&quot;&gt;logdown&lt;/a&gt; 付费帐号（可以绑定自定义域名）到期，就准备再折腾一下，将这个笔记再继续迁移一下，尝试了 Ghost、 Hexo 后决定搬移到 Github Pages（ 这样以后简历也能写上熟练使用 Github 了 😂 ）&lt;/p&gt;
+        <title>稀客旅游电商程序主界面改版</title>
+        <description>&lt;p&gt;单词：665 阅读时间：3m19s&lt;/p&gt;
 
-&lt;p&gt;这个模版来自 &lt;a href=&quot;http://huangxuan.me/&quot;&gt;Hux&lt;/a&gt;， 整体设计感很赞，于是拿来改一改增加了 Disqus 评论、站内搜索。&lt;/p&gt;
+&lt;h2 id=&quot;设计目标&quot;&gt;设计目标&lt;/h2&gt;
+&lt;p&gt;相比初期的几种商品，现阶段商品数目不断增加，为了更加便利的使用户挑选自己的目标商品，同时增加用户的下单率&lt;/p&gt;
 
-&lt;p&gt;本来以为不会折腾的，但是在做站内搜索时候，才发现还是必须要折腾一下。&lt;/p&gt;
-
-&lt;p&gt;因为 Jekyll 程序不能提供全文检索的搜索功能，于是还是要找回万能的 Google，通过 Google &lt;a href=&quot;https://cse.google.com/&quot;&gt;Custom Search Engine(CSE)&lt;/a&gt; 来完成站内搜索。&lt;/p&gt;
-
-&lt;p&gt;Google CSE 提供了丰富的接口及回调，而且可以简单的通过 CSS 修改样式，达到与站点自身风格的一致。&lt;/p&gt;
-
-&lt;p&gt;体验站内搜索： &lt;a href=&quot;http://note.rpsh.net/search/&quot;&gt;http://note.rpsh.net/search/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2015/11/google-site-search.jpg&quot; alt=&quot;Google 站内搜索&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;完成后，有个萦绕的想法就是要给那些不能顺畅使用 Google 的访客也能有一个「后备」的搜索方案，于是找了一圈， 发现只有百度有提供基本可用的自定义&lt;a href=&quot;http://zn.baidu.com/&quot;&gt;站内搜索接口&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;但是百度的站内搜素只提供了很少的自定义功能，而且搜索结果是用 iframe 形式展示的，能对其样式进行的修改微乎其微，只能聊胜于无，GFW 受害者，麻烦凑合着用吧 🙁&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2015/11/baidu-site-search.jpg&quot; alt=&quot;Baidu 站内搜索&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Wed, 04 Nov 2015 11:30:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/11/04/move-to-github-page/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/11/04/move-to-github-page/</guid>
-        
-        <category>Github Pages</category>
-        
-        <category>Google</category>
-        
-        <category>Baidu</category>
-        
-        <category>站内搜索</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Mac OS X 安装 PHP intl 扩展</title>
-        <description>&lt;p&gt;首先，需要关掉 MAC OS X El Captian 的 System Integrity Protection（rootless）的&lt;a href=&quot;https://www.quora.com/How-do-I-turn-off-the-rootless-in-OS-X-El-Capitan-10-11&quot;&gt;机制&lt;/a&gt;：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 重启计算机时按住 Command 和 R 键进入到恢复模式
-2. 恢复模式启动后，从顶部菜单栏中选择 “实用工具 &amp;gt; 终端”
-3. 在终端窗口中输入csrutil disable并按回车键
-4. 重启系统，System Integrity Protection 就会被关闭了
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;启用 PEAR&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /usr/lib/php
-sudo php install-pear-nozlib.phar
-sudo pear channel-update pear.php.net
-sudo pecl channel-update pecl.php.net
-sudo pear upgrade-all
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;使用 Homebrew 安装 ICU 库&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew install icu4c
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;安装 intl&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo pecl install intl
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;icu4c path: &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/opt/icu4c/&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;编辑 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/php.ini&lt;/code&gt; 在最后添加：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extension=intl.so
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;重启 Apache&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apachectl restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;检查是否安装成功&lt;/p&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;intl &lt;span class=&quot;c&quot;&gt;#正常会返回 'intl'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;手动安装步骤&quot;&gt;手动安装步骤&lt;/h2&gt;
-
-&lt;p&gt;手动安装 ICU（&lt;a href=&quot;http://download.icu-project.org/files/icu4c/52.1/icu4c-52_1-src.tgz&quot;&gt;ICU下载&lt;/a&gt;）&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar xzvf icu4c-52_1-src.tgz
-cd icu/source
-./runConfigureICU MacOSX
-make
-sudo make install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;手动安装 intl （ &lt;a href=&quot;http://www.php.net/get/php-5.5.29.tar.gz/from/a/mirror&quot;&gt;PHP源&lt;/a&gt; ）&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ext/intl
-phpize
-./configure --enable-intl
-make
-sudo cp modules/intl.so /usr/lib/php/extensions/no-debug-non-zts-??????/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;参考资料&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://codingexplained.com/operating-systems/mac/installing-php-intl-extension-os-x-mavericks&quot;&gt;Installing the PHP intl extension on OS X Mavericks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://akrabat.com/setting-up-php-mysql-on-os-x-yosemite/&quot;&gt;Setting up PHP &amp;amp; MySQL on OS X Yosemite&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://mansion.im/2011/php-with-intl-and-gettext-on-osx-lion/&quot;&gt;PHP WITH INTL AND GETTEXT ON OSX LION&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Wed, 07 Oct 2015 10:26:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/10/07/installing-php-intl-extension-os-x-el-capitan/</guid>
-        
-        <category>OSX</category>
-        
-        <category>PHP</category>
-        
-        <category>Apache</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>移动端 HTML5 页面常见问题 —— 样式篇</title>
-        <description>&lt;h2 id=&quot;问题android-上圆形图片使用-border-时边框显示变形&quot;&gt;问题：Android 上圆形图片使用 border 时，边框显示变形&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/radius.png&quot; alt=&quot;圆形图片边框变形&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：给 img 外嵌套一个元素，为其使用圆角&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline-block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#FF7000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题android-上圆角元素背景颜色会溢出&quot;&gt;问题：Android 上圆角元素，背景颜色会溢出&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/border-radius.png&quot; alt=&quot;背景色溢出&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;background-clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;padding-box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题-android-上圆角使用-animation-做-loading-动画时圆角背景色溢出的bug&quot;&gt;问题： Android 上圆角使用 Animation 做 loading 动画时，圆角背景色溢出的bug&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/radius-animation-1.gif&quot; alt=&quot;圆角溢出&quot; /&gt;
-&lt;img width=&quot;320px&quot; src=&quot;http://note.rpsh.net/assets/2015/08/radius-animation-2.gif&quot; alt=&quot;解决圆角溢出&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#F9CEAC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;32px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;32px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-mask-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;原理是使用一个圆角的蒙板通过 &lt;code class=&quot;highlighter-rouge&quot;&gt;-webkit-mask-image&lt;/code&gt; 遮住多余的部分。蒙板： 
-&lt;img style=&quot;display:inline-block;vertical-align: bottom;&quot; src=&quot;http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png&quot; alt=&quot;圆角蒙板&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;问题css-三角在-android-上显示为方块&quot;&gt;问题：CSS 三角在 Android 上显示为方块&lt;/h2&gt;
-&lt;p&gt;解决：可能是对这个三角使用了圆角，去掉 &lt;code class=&quot;highlighter-rouge&quot;&gt;border-radius&lt;/code&gt; 即可&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;border-left-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;/*border-radius: 2px;*/&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题-android-上使用-svg-作为-background-image-时显示模糊&quot;&gt;问题： Android 上使用 svg 作为 background-image 时显示模糊&lt;/h2&gt;
-&lt;p&gt;解决：设置 &lt;code class=&quot;highlighter-rouge&quot;&gt;background-size&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题-active-样式不生效&quot;&gt;问题： :active 样式不生效&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/active.gif&quot; alt=&quot;元素 active 样式&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决： 参考&lt;a href=&quot;http://note.rpsh.net/posts/2014/03/18/phone-touch-css-style-active&quot;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;touchstart&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题-多行文字超出截断需要出现省略号&quot;&gt;问题： 多行文字超出截断需要出现省略号&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/ellipsis.png&quot; alt=&quot;多行文本的超出隐藏省略号&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决： 参考&lt;a href=&quot;http://note.rpsh.net/posts/2014/10/14/css-multiple-line-overflow-ellipsis&quot;&gt;这篇文章&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;text-overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ellipsis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-line-clamp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-box-orient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertical&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题-1px-线条边框&quot;&gt;问题： 1px 线条、边框&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/1px_line.png&quot; alt=&quot;1像素边框&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：使用高度为 1px ，一半为实色，一半为透明的渐变背景实现&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;如果需要有四个边框都有 1px 的线框，可以使用多背景图&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bottom&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;transparent&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#CACDD0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;no-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;background-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题滚动条滚动时没有像-ios-原生那么顺滑流畅滚动条没有-ios-回弹效果&quot;&gt;问题：滚动条滚动时没有像 iOS 原生那么顺滑流畅，滚动条没有 iOS 回弹效果&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/scroll-1.gif&quot; alt=&quot;iOS 滚动条&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-overflow-scrolling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;注：在 Android 上由于原生滚动没有回弹效果，所以这里也不会有回弹的效果。&lt;/p&gt;
-
-&lt;h2 id=&quot;问题当模块使用系统的横向滚动时不想显示出系统的滚动条样式&quot;&gt;问题：当模块使用系统的横向滚动时，不想显示出系统的滚动条样式&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/scroll-2.gif&quot; alt=&quot;隐藏滚动条&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：&lt;/p&gt;
-
-&lt;p&gt;Android：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;::-webkit-scrollbar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;iOS 要隐藏滚动条，会稍微复杂一些&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wrap&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;box&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.wrap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;overflow-x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;overflow-y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-overflow-scrolling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;原理：&lt;code class=&quot;highlighter-rouge&quot;&gt;.box&lt;/code&gt; 元素的横向滚动条通过其外层元素 &lt;code class=&quot;highlighter-rouge&quot;&gt;.wrap&lt;/code&gt; 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;overflow:hide&lt;/code&gt; 来隐藏。 （5px 是 iOS 上滚动条元素的高度）&lt;/p&gt;
-
-&lt;h2 id=&quot;问题横向滚动的元素滑动时有时图片显示不出来文字显示不出来&quot;&gt;问题：横向滚动的元素，滑动时有时图片显示不出来/文字显示不出来&lt;/h2&gt;
-
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/scroll-3.gif&quot; alt=&quot;滑动时元素不显示&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：给每个横滑的元素块使用硬件加速&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;translateZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题使用-animation-动画后页面上-overflowauto-的元素滚动条不能滑动&quot;&gt;问题：使用 animation 动画后，页面上 overflow:auto 的元素滚动条不能滑动&lt;/h2&gt;
-&lt;p&gt;解决：不使用 translate 方式的动画，换为使用 left/top 来实现元素移动的动画&lt;/p&gt;
-
-&lt;h2 id=&quot;问题-上下滑动页面时候页面元素消失&quot;&gt;问题： 上下滑动页面时候，页面元素消失&lt;/h2&gt;
-&lt;p&gt;解决：检查是否使用了  fadeIn 的 animation，如有则 fill-mode 使用 backwards 模式&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-animation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fadeIn&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.5s&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ease&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;backwards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题页面上数字自动变成了可以点击的链接&quot;&gt;问题：页面上数字自动变成了可以点击的链接&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/input_tel.gif&quot; alt=&quot;数字变为链接&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：在页面 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;head&amp;gt;&lt;/code&gt; 里添加&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;format-detection&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;telephone=no&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题input-在-ios-中圆角内阴影去不掉&quot;&gt;问题：input 在 iOS 中圆角、内阴影去不掉&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/input.png&quot; alt=&quot;去掉 input 的圆角与阴影&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-appearance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题焦点在-input-时placeholder-没有隐藏&quot;&gt;问题：焦点在 input 时，placeholder 没有隐藏&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/placholder.gif&quot; alt=&quot;focus 时隐藏 placholder&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：&lt;/p&gt;
-
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:focus::-webkit-input-placeholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;opacity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题-input-输入框调出数字输入键盘&quot;&gt;问题： input 输入框调出数字输入键盘&lt;/h2&gt;
-&lt;p&gt;解决&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;number&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;number&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;[0-9]*&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tel&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;分别对应下图中的1、2、3。&lt;/p&gt;
-
-&lt;p&gt;&lt;img width=&quot;95%&quot; src=&quot;http://note.rpsh.net/assets/2015/08/keyboard_number.png&quot; alt=&quot;圆形图片边框变形&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;需要注意的是，单独使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;number&quot;&lt;/code&gt; 时候， iOS 上出现并不是九宫格的数字键盘，如果需要九宫格的数字键盘，可选择使用 2、3 的方法。
-1、2、3 在 Android 上均可以唤起九宫格的数字键盘&lt;/p&gt;
-
-&lt;h2 id=&quot;问题搜索时键盘的回车按钮文字设定为搜索&quot;&gt;问题：搜索时，键盘的回车按钮文字设定为“搜索”&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/form_search.png&quot; alt=&quot;定义键盘回车文案为搜索&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决： &lt;code class=&quot;highlighter-rouge&quot;&gt;input&lt;/code&gt; 使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;type=&quot;search&quot;&lt;/code&gt;，放在 &lt;code class=&quot;highlighter-rouge&quot;&gt;form&lt;/code&gt; 表单内。两者结合就能使输入法中的回车按钮文字变为“搜索”&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;search&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;问题iframe-在-ios-上没有滚动条直接撑出去&quot;&gt;问题：iframe 在 iOS 上没有滚动条，直接撑出去&lt;/h2&gt;
-&lt;p&gt;&lt;img width=&quot;320&quot; src=&quot;http://note.rpsh.net/assets/2015/08/iframe.png&quot; alt=&quot;iframe 撑出界面&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;解决：给 iframe 外嵌套一个 div， 为这个 div 设置固定高度与 &lt;code class=&quot;highlighter-rouge&quot;&gt;overflow&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-overflow-scrolling&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;touch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Thu, 27 Aug 2015 12:10:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/27/mobile-web-html-css-faq/</guid>
-        
-        <category>HTML</category>
-        
-        <category>CSS</category>
-        
-        <category>移动开发</category>
-        
-        
-        <category>HTML</category>
-        
-      </item>
-    
-      <item>
-        <title>Mac/Windows版微信聊天图片、视频文件存储位置</title>
-        <description>&lt;p&gt;Mac 版微信收到的小视频默认不能保存到本地，而我们只要找到其在 Mac 上的存储位置就可以直接拿到视频文件。&lt;/p&gt;
-
-&lt;p&gt;微信聊体视频本地存储位置：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/Wechat/1.2/{一串字符}/Message/MessageTemp/{一串字符}/Video&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;微信聊体图片本地存储位置：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;~/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/Wechat/1.2/{一串字符}/Message/MessageTemp/{一串字符}/Image&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;使用 Windows 版微信的同样可以拿到微信在本地存储的聊天记录中的文件内容，在 Windows 系统存储的位置是：&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;C:\Users\{用户名}\Documents\WeChat Files\{微信名}&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%userprofile%\Documents\WeChat Files\{微信用户名}&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;这个文件夹下有：视频、音频、图片等都可以找到。&lt;/p&gt;
-</description>
-        <pubDate>Wed, 26 Aug 2015 01:58:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/08/26/mac-wechat-image-video-location/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/26/mac-wechat-image-video-location/</guid>
-        
-        <category>Mac</category>
-        
-        <category>微信</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>解决「iTunes无法备份 iPhone，因为 iPhone 已断开连接」</title>
-        <description>&lt;p&gt;使用 iTunes 备份 iPhone 时候，遇到备份失败，提示： iTunes无法备份 iPhone，因为 iPhone 已断开连接。&lt;/p&gt;
-
-&lt;p&gt;解决办法就是，还原 iPhone 的位置与隐私，方法：&lt;/p&gt;
-
-&lt;p&gt;设置 &amp;gt; 通用 &amp;gt; 还原 &amp;gt; 还原位置与隐私&lt;/p&gt;
-
-&lt;p&gt;然后插上 USB 数据线，重新连接电脑，信任这台电脑，接下来再用 iTunes 备份就可以成功了。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;如果上述方法不成功，可以尝试如下操作：&lt;/p&gt;
-
+&lt;h2 id=&quot;目前现状&quot;&gt;目前现状&lt;/h2&gt;
 &lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;打开 iTunes 偏好设置；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;切换到设备选项卡；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;删掉这个这个手机对应的上一次备份文件（如这个备份文件还需保留，可以右击，选择「在 Finder 中显示」，将这个文件夹备份转移到其他位置）；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;重新连接手机到 iTunes 进行备份。&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;主界面商品类目比较少&lt;/li&gt;
+  &lt;li&gt;主界面图片大但是图片本身质量并不高&lt;/li&gt;
+  &lt;li&gt;主界面商品价格展现并没有非常大的吸引力&lt;/li&gt;
+  &lt;li&gt;商品在数目增加时用户不方便做筛选&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;hr /&gt;
+&lt;h2 id=&quot;主界面布局&quot;&gt;主界面布局&lt;/h2&gt;
+&lt;p&gt;布局的形式选择以slide view的形式进行排布，因为前期几十种商品数量还是有点少，所以用户可以横滑拖动来浏览首推的商品，点击查看全部可以以信息流的形式来上滑浏览商品并且在top bar位置预留了filter，filter是以现有的条件进行筛选，包括类型、距离、价格。&lt;/p&gt;
 
-&lt;p&gt;还有一种玄学的处理手段：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/ck_trip-mainpage-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;上述方式都无效后，将手机切换到飞行模式，再重试备份／更新。&lt;/p&gt;
+&lt;h2 id=&quot;不同主界面布局的策略&quot;&gt;不同主界面布局的策略&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/ck_trip-mainpage-2.jpg&quot; alt=&quot;&quot; /&gt;
+最终在主界面的设计上使用了主页-2的布局，将原有的单排纵置设计成了双排纵置，增加了降价百分比，使用户看到只用代金券后折扣的比例，相比之前进行的小幅的改版，设计上遵照了微信提倡的小而简的原则。&lt;/p&gt;
+
+&lt;h2 id=&quot;筛选器的管理&quot;&gt;“筛选器”的管理&lt;/h2&gt;
+&lt;h3 id=&quot;设计思路-增加filter&quot;&gt;设计思路-增加filter&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;类型-通过在数据库相应的产品字段里添加商品类目达到筛选类型的目的&lt;/li&gt;
+  &lt;li&gt;距离-查看商品是否自带经纬度，不带经纬度的商品需要内容人员补充&lt;/li&gt;
+  &lt;li&gt;价格-商品自带价格信息，可以通过人均价格进行排序筛选&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/ck_trip-mainpage-3.jpg&quot; alt=&quot;&quot; /&gt;
+在设计筛选器来选择产品列表内的商品时会有多个值去衡量
+首先是商品的类型，用户可以选择是否去参加博物馆或者是水上运动类的项目。
+其次是推出的智能排序，在这里面涉及一些算法的排序，比如餐厅类型的商品有口味最佳，这种排序在一般景点类商品中是不会出现的，这个值的高低一部分是来自用户在评价商品的星级评价，另一部分是内容运营人员推荐的优质餐厅，这些优质餐厅是网上评价超高的餐厅或者是工作人员亲自体验过后的产品。
+最后是考虑位置因素，在这里选择了商圈的概念，济州岛内也区分不同的商圈区域，因为公共交通的原因，不同区域内的交通还是要花费一些时间。
+通过这三个维度的筛选过后应用为用户筛选出最适合的目的地进行消费，相应的筛选条件所需的字段会通过内容人员的协助进行完善。&lt;/p&gt;
+
+&lt;p&gt;在一些需要数据支持的部分，比如特定的产品类型如餐厅，会在使用完产品后的评价部分获取用户的真实点评，通过后台筛选有效的评价信息后将这些评价转化成合理的数值来作为商品在filter里排序的依据。如下图
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/ck_trip-mainpage-4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;遇到的坑&quot;&gt;遇到的坑&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;现阶段遇到的难点或者说是局限的地方是，暂时没有大量的用户购买记录来支持理论数据模型，也就是没有办法来进行验证，在沟通方案时老大也表示希望能通过a/b test的方式来验证最好的设计，因为小程序的审核时间很快，所以也是极大的便利了设计开发人员。&lt;/li&gt;
+  &lt;li&gt;再者就是在设计过程中因为是国外产品提供方提供的数据，所以内容上有大量的非中文信息，这个对用户的使用上带来了一定的不便，这些信息都是以图片的形式合成在商品介绍图上，对批量化编辑和修改带来了一定的难度。&lt;/li&gt;
+  &lt;li&gt;国外用户的使用习惯上还是和国内的使用习惯稍有差异，需要指导用户在境外体验流程上的一些操作，这对产品的整个连贯性上带俩挑战，如果稍有复杂的环节，用户就会对产品失去信心，所以界面流程大致参考的是传统电商和大众点评的一些使用流程，为的是尽可能的让国内的用户习惯得以保留。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;创建时间：2018年6月4日 上午09:36&lt;/p&gt;
+
+&lt;p&gt;#4-设计&lt;/p&gt;
 </description>
-        <pubDate>Sun, 23 Aug 2015 13:08:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/08/23/repair-itunes-iphone-backup-issue/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/23/repair-itunes-iphone-backup-issue/</guid>
+        <pubDate>Mon, 04 Jun 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/06/04/c_trip-mainpage/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/06/04/c_trip-mainpage/</guid>
         
-        <category>iTunes</category>
+        <category>design</category>
         
-        <category>iPhone</category>
+        <category>界面设计</category>
         
         
       </item>
     
       <item>
-        <title>Adobe Photoshop CC 导出 Webp 格式图片</title>
-        <description>&lt;p&gt;首先，下载插件： &lt;a href=&quot;http://telegraphics.com.au/sw/product/WebPFormat&quot;&gt;WebP Format&lt;/a&gt;&lt;/p&gt;
+        <title>利用deck.gl来可视化的方式展现数据</title>
+        <description>&lt;p&gt;单词：435 阅读时间：2m 11s&lt;/p&gt;
 
-&lt;p&gt;Windows 将 &lt;code class=&quot;highlighter-rouge&quot;&gt;WebPFormat64.8bi&lt;/code&gt; 丢进：&lt;/p&gt;
+&lt;h2 id=&quot;了解deckgl&quot;&gt;了解deck.gl&lt;/h2&gt;
+&lt;p&gt;首先我们需要先了解一下什么是&lt;a href=&quot;https://github.com/uber/deck.gl&quot;&gt;deck.gl&lt;/a&gt;，它是Uber开源团队开发的一款基于webgl的大数据二三维可视化框架，他可以用不同类型的可视化图层，包括热力图，点图，蜂窝柱状图等，将数据以可视化的方式展现在地图中，地图支持导入mapbox的底图，也就是说地图的样式也可以通过mapbox去设计，你可以设计各种炫酷配色的底来展现数据。&lt;/p&gt;
+&lt;h2 id=&quot;了解keplergl&quot;&gt;了解kepler.gl&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/uber/kepler.gl&quot;&gt;Kepler.gl&lt;/a&gt;是将deckgl做成了一个工具，把原本需要代码实现的效果做成了网页工具，因为它现在暂时将代码托管到GitHub pages，所以国内访问起来有点慢，如果有自己的服务器也可以将代码下载下来，部署到自己的服务器。
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/kepler-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;C:\Program Files\Adobe\Adobe Photoshop CC 2015\Plug-ins
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/kepler-2.jpg&quot; alt=&quot;&quot; /&gt;
+它现在还是1.0的版本，但是已经支持导入包括CSV json 和geojson在内的数据格式，如果你之前用过mapbox就可以通过授权access token的方式将地图导入进kepler里面，如果你没有数据也没有底图，没关系，Kepler非常贴心的提供了一些数据，包括纽约出租车线路图等，最后可以将你的可视化的数据图片导出到本地电脑。&lt;/p&gt;
+&lt;h2 id=&quot;测试demo&quot;&gt;测试demo&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/kepler-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Mac OS X 将 &lt;code class=&quot;highlighter-rouge&quot;&gt;WebPFormat.plugin&lt;/code&gt; 文件丢进：&lt;/p&gt;
+&lt;p&gt;我在这里用了纽约出租车的行车路线来作为一个测试的demo来看一下效果，
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/kepler-4.gif&quot; alt=&quot;&quot; /&gt;
+发现它解决了maputnik v1.2.0版本热力图中动态数据不知道如何展现的一些小问题，kepler可以将数据动态展现，这对以后将数据可视化的案例做成视频等格式非常有帮助。&lt;/p&gt;
+&lt;h2 id=&quot;一些猜想&quot;&gt;一些猜想&lt;/h2&gt;
+&lt;p&gt;之前在GitHub上面star了一个利用python爬虫工具去将全国的链家房价信息的项目&lt;a href=&quot;https://github.com/XuefengHuang/lianjia-scrawler&quot;&gt;GitHub - XuefengHuang/lianjia-scrawler: 链家二手房租房在线数据，存量房交易服务平台数据，详细数据分析教程&lt;/a&gt;，支持导出csv格式，如果将这些数据导入到deckgl中将是不错的参考，可以一目了然的比较例如在三环内哪里的房价最有竞争力等等…
+或者是如果能爬取百度或者高得的数据做成可视化，例如十分钟步行圈内有多少家便利店，半小时生活圈内有多少的医院学校等，想到这些作为曾经修过建筑系的我来讲真的是太激动了，如果那个时候就有这种神器做方案简直爽到不要不要的 hahahaha&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Applications/Adobe Photoshop CC 2015/Plug-ins
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;创建时间：2018年5月31日 上午10:46&lt;/p&gt;
 
-&lt;p&gt;重启你的 Adobe Photoshop ，在「另存为」菜单中就可以找到 WebP 格式了。
-&lt;img src=&quot;http://note.rpsh.net/assets/2015/08/webp-photoshop-plugin.jpg&quot; alt=&quot;WebPQuickLook&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Mac OS X 上如果想用 QuickLook 预览 WebP 格式文件，可以安装这个插件： &lt;a href=&quot;https://github.com/emin/WebPQuickLook&quot;&gt;WebPQuickLook&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;其他一些小工具：
-&lt;a href=&quot;https://webponize.github.io/&quot;&gt;WebPonize&lt;/a&gt; Mac 上一款将图片转为 WebP 的小工具，&lt;a href=&quot;https://github.com/1000ch/WebPonize/raw/master/webponize.tar.gz&quot;&gt;下载&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/webp/docs/cwebp&quot;&gt;cwebp 命令行&lt;/a&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;cwebp -q 80 example.png -o example.webp&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://image.online-convert.com/convert-to-webp&quot;&gt;WebP 在线转换 1&lt;/a&gt;, &lt;a href=&quot;https://webp-converter.com/&quot;&gt;2&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/speed/webp/docs/webp_codec&quot;&gt;让 Windows 支持预览 WebP 图片&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;参考链接：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;- [Complete Guide to Using WebP Image Format](http://www.hongkiat.com/blog/webp-guide/)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;#3-技术&lt;/p&gt;
 </description>
-        <pubDate>Fri, 14 Aug 2015 12:00:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/08/14/photoshop-cc-webp/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/14/photoshop-cc-webp/</guid>
+        <pubDate>Thu, 31 May 2018 10:46:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/05/31/deck.gl-data-visualization/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/05/31/deck.gl-data-visualization/</guid>
         
-        <category>Photoshop</category>
+        <category>development</category>
         
-        <category>WebP</category>
+        <category>数据可视化</category>
         
         
       </item>
     
       <item>
-        <title>让文字从右往左反转显示的 unicode</title>
-        <description>&lt;p&gt;有一个特殊的 unicode 可以让跟在它后边的文字从右往左反转显示&lt;/p&gt;
+        <title>maputnik V1.2.0地图编辑器热力图更新</title>
+        <description>&lt;h2 id=&quot;heatmap-layer-type-added&quot;&gt;heatmap layer type added&lt;/h2&gt;
+&lt;p&gt;四月份maputnik团队在GitHub上发布了新的V1.2.0版本的maputnik editor，在这个版本中最主要的也是最亮眼的功能就是能够将数据以热力图的模式展现出来，
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/heatmap-0.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;amp;#8238; 日照香炉生紫烟
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;如何在新版本的编辑器上使用热力图模式&quot;&gt;如何在新版本的编辑器上使用热力图模式&lt;/h2&gt;
+&lt;p&gt;截止目前maputnik团队只是在GitHub上托管了他们的代码，网页链接也是github pages的链接，以使用体验来讲，个人感觉还是太慢了，所以委托了我们的工程师将release的代码和网页文件托管到了我们自己的国内的服务器上，这样一来速度就非常快了，下面用几张截图来展示这次的更新&lt;/p&gt;
 
-&lt;p&gt;效果：&lt;/p&gt;
-&lt;div&gt;
-		&amp;#8238; 日照香炉生紫烟
-&lt;/div&gt;
+&lt;h3 id=&quot;官方现版本maputnik编辑器&quot;&gt;官方现版本maputnik编辑器&lt;/h3&gt;
+&lt;p&gt;1-下面的界面是一直使用版本的编辑器
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/heatmap-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;标记的链接是官方的org结尾的链接，使用起来还是很流畅的&lt;/li&gt;
+  &lt;li&gt;官方的logo在新版本的位置是有了一定的改变，这个在后面的截图中会展现出来&lt;/li&gt;
+  &lt;li&gt;这个地方是改变的重点，这个版本的数据的展示类型当中是只有上面几种类型，并没有heatmap的展示。&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;利用它可以做一些有趣的事情，让一些看起来正常的文字，其实背后藏着一些不正常的原文。&lt;/p&gt;
+&lt;h3 id=&quot;v120版本github-pages编辑器&quot;&gt;V1.2.0版本github pages编辑器&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/heatmap-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;官方在GitHub pages上托管了代码生成了一个链接&lt;/li&gt;
+  &lt;li&gt;在编辑器logo的部分加上了新版本V1.2.0的标记&lt;/li&gt;
+  &lt;li&gt;在数据的类型上不仅增加了heatmap还有hillshade&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;table&gt;
-	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt;&lt;/th&gt;
-			&lt;th style=&quot;text-align: center&quot;&gt;code&lt;/th&gt;
-		&lt;/tr&gt;
-	&lt;/thead&gt;
-	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt;html 实体&lt;/td&gt;
-			&lt;td style=&quot;text-align: center&quot;&gt;&amp;amp;#8238;&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;html 实体&lt;/td&gt;
-			&lt;td style=&quot;text-align: center&quot;&gt;&amp;amp;#x202e;&lt;/td&gt;
-		&lt;/tr&gt;
-		&lt;tr&gt;
-			&lt;td&gt;C/C++&lt;/td&gt;
-			&lt;td style=&quot;text-align: center&quot;&gt;\u202E&lt;/td&gt;
-		&lt;/tr&gt;
-	&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h3 id=&quot;托管到国内服务器后的编辑器&quot;&gt;托管到国内服务器后的编辑器&lt;/h3&gt;
+&lt;p&gt;通过工程师把代码部署到国内服务器后，访问速度上快了很多，通过简单的编辑就能直接出现热力图的显示，在下面的图片中利用了building的数据来做演示
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/05/heatmap-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;maputnik V1.2.0代码可部署到自己的服务器上生成链接&lt;/li&gt;
+  &lt;li&gt;logo V1.2.0部分加载正常&lt;/li&gt;
+  &lt;li&gt;building的数据用heatmap的类型显示&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;h2 id=&quot;新版本的特性应用&quot;&gt;新版本的特性应用&lt;/h2&gt;
+&lt;p&gt;在新版本出现新的数据展现方式会在地图设计中有多种应用方式，比如交通拥堵，人流拥堵等方式的数据交互，这个版本的开源会在接下来的地图设计上有更大的便利性&lt;/p&gt;
+
+&lt;h2 id=&quot;需要解决的问题&quot;&gt;需要解决的问题&lt;/h2&gt;
+&lt;p&gt;现在的数据都是地图瓦片上的数据，数据格式为json，都是静态的数据，没有大范围的动态变化，但是热力图的特性最大的优点就是能够动态的展示一定区域内的数据密度的显示，希望能把更多的和服务器接收和返回的动态数据更好的结合在地图上。&lt;/p&gt;
+
+&lt;p&gt;另外推荐阅读两篇关于热力图的博客文章
+&lt;a href=&quot;https://medium.com/strava-engineering/the-global-heatmap-now-6x-hotter-23fc01d301de&quot;&gt;building the global heatmap&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.mapbox.com/introducing-heatmaps-in-mapbox-gl-js-71355ada9e6c&quot;&gt;Introducing heatmaps in Mapbox GL JS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;相关链接：
+&lt;a href=&quot;https://github.com/maputnik/editor/releases&quot;&gt;github maputnik/editor&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://editor.openmaptiles.org/&quot;&gt;maputnik editor&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-heatmap&quot;&gt;mapbox style-spec heatmap&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 May 2018 11:59:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/05/28/maputnik-V1.2.0-heatmap/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/05/28/maputnik-V1.2.0-heatmap/</guid>
+        
+        <category>development</category>
+        
+        <category>数据可视化</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Example Post using Keynote Layout</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;下滑这里查看更多内容&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;7月9日，我在公司内部进行了名为「JavaScript 模块化七日谈」分享，并将该 Slides 分享到了微博上。出乎意料地，这篇微博先后被 @JS小组 @尤小右 @寸志 等近 200 人转发，阅读达到 10w，获得了还不错的评价。&lt;/p&gt;
+
+&lt;p&gt;于是，我决定将它重新发到我的博客上，并为它专门制作了适用于 Keynote 展示文稿的新布局。它能自动根据屏幕大小/旋转以一定比例填充屏幕，你也可以直接点击下方链接在新页面打开，来获得更好的、沉浸式的全屏体验&lt;/p&gt;
+
+&lt;h3 id=&quot;watch-slides-&quot;&gt;&lt;a href=&quot;https://www.icloud.com/keynote/0nt6eNOIfgNZQ4JBA-_0FOV6g&quot;&gt;Watch Slides →&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://huangxuan.me/js-module-7day/attach/qrcode.png&quot; width=&quot;350&quot; height=&quot;350&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;small class=&quot;img-hint&quot;&gt;你也可以通过扫描二维码在手机上观看&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;这个 Web Slides 开源在&lt;a href=&quot;https://github.com/Huxpro/js-module-7day&quot;&gt;我的 Github 上&lt;/a&gt;，欢迎你帮助我完善这个展示文稿，你可以给我提 issue，可以 fork &amp;amp; pull request。如果它能帮助到你了，希望你还能不吝啬 star 一下这个项目&lt;/p&gt;
+
+&lt;h3 id=&quot;catalog&quot;&gt;Catalog&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.fileformat.info/info/unicode/char/202e/index.htm&quot;&gt;http://www.fileformat.info/info/unicode/char/202e/index.htm&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://krebsonsecurity.com/2011/09/right-to-left-override-aids-email-attacks/&quot;&gt;http://krebsonsecurity.com/2011/09/right-to-left-override-aids-email-attacks/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;第一日 上古时期 &lt;strong&gt;&lt;em&gt;Module?&lt;/em&gt;&lt;/strong&gt; 从设计模式说起&lt;/li&gt;
+  &lt;li&gt;第二日 石器时代 &lt;strong&gt;&lt;em&gt;Script Loader&lt;/em&gt;&lt;/strong&gt; 只有封装性可不够，我们还需要加载&lt;/li&gt;
+  &lt;li&gt;第三日 蒸汽朋克 &lt;strong&gt;&lt;em&gt;Module Loader&lt;/em&gt;&lt;/strong&gt; 模块化架构的工业革命&lt;/li&gt;
+  &lt;li&gt;第四日 号角吹响 &lt;strong&gt;&lt;em&gt;CommonJS&lt;/em&gt;&lt;/strong&gt; 征服世界的第一步是跳出浏览器&lt;/li&gt;
+  &lt;li&gt;第五日 双塔奇兵 &lt;strong&gt;&lt;em&gt;AMD/CMD&lt;/em&gt;&lt;/strong&gt; 浏览器环境模块化方案&lt;/li&gt;
+  &lt;li&gt;第六日 精灵宝钻 &lt;strong&gt;&lt;em&gt;Browserify/Webpack&lt;/em&gt;&lt;/strong&gt; 大势所趋，去掉这层包裹！&lt;/li&gt;
+  &lt;li&gt;第七日 王者归来 &lt;strong&gt;&lt;em&gt;ES6 Module&lt;/em&gt;&lt;/strong&gt; 最后的战役&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;thanks&quot;&gt;Thanks&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://lab.hakim.se/reveal-js&quot;&gt;Reveal.js&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Fri, 07 Aug 2015 03:30:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/08/07/right-to-left-override-unicode/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/08/07/right-to-left-override-unicode/</guid>
+        <pubDate>Wed, 23 May 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/05/23/js-module-7day/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/05/23/js-module-7day/</guid>
         
-        <category>unicode</category>
+        <category>keynote</category>
         
-        <category>趣识</category>
+        <category>动效设计</category>
         
         
       </item>
     
       <item>
-        <title>纯 CSS 实现实时动态毛玻璃效果</title>
-        <description>&lt;p&gt;目前在 Web 上实现毛玻璃效果一般是通过一个大截屏图片的高斯模糊加上滚动位置的切换来&lt;a href=&quot;http://www.zhihu.com/question/30502281&quot;&gt;实现&lt;/a&gt;，而在 iOS9 和 OS X 10.11 的 Safari 原生支持了 CSS 的 &lt;code class=&quot;highlighter-rouge&quot;&gt;backdrop-filter&lt;/code&gt; 来实时地生成一个毛玻璃效果的背景。&lt;/p&gt;
+        <title>【竞品分析】稀客社交电商的分享机制及动机</title>
+        <description>&lt;p&gt;单词：1399  阅读时间：6m30s&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://note.rpsh.net/assets/2015/07/live-blur.gif&quot; alt=&quot;live-blur.gif&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;作为想要做微信小程序电商的任何一个设计师都逃不过的一个话题就是分享的机制要如何做？在工作中分析了几种小程序电商的一些分享机制和移动端app的典型分享机制来做一个探讨，以及构思稀客旅游电商小程序的一些分享机制。&lt;/p&gt;
 
-&lt;p&gt;代码：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;拼多多&lt;/strong&gt;-拼多多的目标用户主要是二三线城市甚至三四线城市居多的购物平台，应用上线不到一年就已经突破单日成交额1000万，区别于其他电商的最主要的特征就是在拼多多售卖的商品大部分都是生活日用品且价格非常低廉，像它的名字一样你可以通过拼团的方式购买到价格非常低廉的商品，因为潜在用户群体基数大和商品多为日常用品，所以在短期内积累了大量的用户。 稀客旅游电商的用户还是和普通的身边的朋友无法形成一个共同的环境，分享出去读到分享的好友大部分还是在国内，这是一个中间夹杂着时间和空间的门槛。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;外卖应用&lt;/strong&gt;-典型的如美团点评等为首的平台在购买完成一单外卖后用户有一次可以分享红包的机会，随机数量的外卖红包分享给个人或者群里时每个人都有机会去抢到红包，这是完美的解决了分享动因和获利的心理，还能衔接下次购物的一个循环，在一定时间内这种策略大量增加了订单量，还有一定的原因是外卖已经变成比较高拼的服务，还是区别于旅游这种还是存在一定门槛和周期性的消费活动。如果分享出去刺激身边好友的二次消费的几率不能期望很高。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;礼物说&lt;/strong&gt;-礼物说的产品一直是在细分领域里面对用户抓的非常精准的公司，礼物说真的是跟社交电商最完美的结合了，有非常强的分享的需求，所以礼物说的产品设计也是目的非常明确，挑选礼物、完成付款、像发红包一样分享出去，剩下的事情让收到礼物的人去完成，礼物要不要收，收了地址自己来填写，也避免了送礼物的人提前问地址带了的尴尬，收礼物的人先是收到了分享的礼物的惊喜，等待的心情和再拆开礼物时又有一种惊喜！礼物说是完全为了“利他”而产生的一个应用，所以甚至都不用考虑我为什么要分享这样的在大部分ToC产品中需要琢磨的问题。但是缺点也是比较明显的因为不是“利己”的应用，所以用户主动打开的几率还是比较低，因为产品定位的原因，所以记得礼物说的创始人之前还提出了买礼物送给自己这样的概念，但我个人作为想给自己买礼物的人还是优先选择种类齐全，评价完善的有信赖的大平台（猜测礼物说的评价不会有很高质量的亲身使用体验，毕竟不会每个人都会送完礼物还问礼物使用体验怎么样，有没有质量问题这种…hin 尴尬😅）&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;携程微领队&lt;/strong&gt;携程作为旅游行业的老大哥自然也会有动作，比如携程推出的微领队的概念，是解决了一种场景化需求，在携程平台上有过消费的用户可以选择加入携程的微领队，其实微领队就是一个群，把将要出行的用户精准的“包围起来”集中服务是再完美不过的事情了，也是一种双赢，用户在微领队中结识了同行的旅伴，获得了最新的目的地实时消息，有什么问题还能得到最优质的解答服务，同样对商家来说也能收到用户最真实的数据和推出用户最需要的付费服务甚至作为一个平台收取平台内部的其他旅行服务商家的平台费，这是一次大胆的尝试也不能不说是一次比较成功的尝试。&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-backdrop-filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;目前还需要 &lt;code class=&quot;highlighter-rouge&quot;&gt;webkit&lt;/code&gt; 的前缀。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方案一&lt;/strong&gt;：稀客在最初讨论的几套方案中有一项是“帮砍价”的形式，不同于拼多多的双方”互利互惠原则“，帮砍价很容易让分享者产生“人情债”负担感，所以是稀客不是很建议的分享形式。&lt;/p&gt;
 
-&lt;p&gt;除了 &lt;code class=&quot;highlighter-rouge&quot;&gt;blur&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;backdrop-filter&lt;/code&gt; 还有以下这些属性&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;blur()&lt;/li&gt;
-  &lt;li&gt;brightness()&lt;/li&gt;
-  &lt;li&gt;contrast()&lt;/li&gt;
-  &lt;li&gt;drop-shadow()&lt;/li&gt;
-  &lt;li&gt;grayscale()&lt;/li&gt;
-  &lt;li&gt;hue-rotate()&lt;/li&gt;
-  &lt;li&gt;invert()&lt;/li&gt;
-  &lt;li&gt;opacity()&lt;/li&gt;
-  &lt;li&gt;saturate()&lt;/li&gt;
-  &lt;li&gt;sepia()&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;方案二&lt;/strong&gt;：第二种尝试是利用类似于咖啡厅coupon的形式去做一次线上变形，用户下单完成购物即可获得一次分享的机会，活跃用户会产生一种身份识别，高度活跃用户是“VIP”用户，通过它分享想出去的券其他好友也可以使用相同额度的优惠，这在双方的立场上都是互利互惠的，一种是在分享者的角度讲旅行有分享的需求，如何能将日常的拍景点照变成一种类似于打卡签到的卡片形式，觉得更有心意，同时还能让好友参与进来获得同等的“用户身份额度”，但是这种分享方式在单个个体当中容易产生分享冲动，但是放到所有的用户群体当中时就会是有非常明显的“区别对待”和“变相充值消费”的一些影响，而且单从这种传播带来的二次消费上也是达不到可预期的状态，因为在“可预期”的“未来”可以享受的折扣。是具备诱惑力的，但是出境游不可预期。&lt;/p&gt;
 
-&lt;p&gt;用法跟 filter &lt;a href=&quot;https://drafts.fxtf.org/filters/#typedef-filter-function-list&quot;&gt;相似&lt;/a&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;方案三&lt;/strong&gt;：&lt;em&gt;“在济州岛，我应该吃什么，黑猪肉、刺身、银带鱼？请朋友们帮我出主意。从发布这条消息的角度，这是一种显摆；从看到消息的角度，可能是会意的一笑，或者以往访问济州岛的时候美好的美食回忆，或者她自己的美食偏好，强迫自己去回答这个“选择题“。”&lt;/em&gt;这是团队内成员在跳出砍价模式后的一种思路，在产品设计上更类似于分享一种游戏，个人感觉在朋友圈里面这样的问题是可以大大方方抛出的问题，而且好处是能带来更多的互动，这应该是一种满足用户分享后达到预期的目的。&lt;/p&gt;
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;-webkit-backdrop-filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brightness&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;不仅是普通的图片，实时播放的视频也能实现毛玻璃：&lt;/p&gt;
+&lt;p&gt;关于产品的讨论还在进行中，希望最终能得到一个比较合适的解决方案。&lt;/p&gt;
 
-&lt;video muted=&quot;&quot; style=&quot;margin:auto;display:block;&quot; width=&quot;375&quot; height=&quot;333&quot; autoplay=&quot;&quot; src=&quot;http://itltcdn.b0.upaiyun.com/demo/ios9-blur.mp4&quot; loop=&quot;&quot;&gt;&lt;/video&gt;
+&lt;p&gt;早期渠道方面会选择稀客微信群去推荐小程序，在微信环境下还是能产生长远的影响，希望微信能推出小程序收藏夹来让用户更精准的收藏我们的小程序产品^_^ ! 稀客微信群是稀客服务精准客户的运营，不同于微领队给用户发信息的做法，稀客微信群是用户在稀客地图产品内主动选择的做法，做到更加不打扰用户，给予用户充分的选择，减少用户对跟人信息的担心，在精准的用户当中长期投放体验类项目和优惠券产品是一项长期的增加收入的任务，需要在保证群里用户活跃度的情况下“合时宜”的推荐产品一直是初衷，&lt;/p&gt;
 
-&lt;p&gt;最后放一个 demo：(iOS9、OS 10.11 Safari 可以体验)&lt;/p&gt;
+&lt;p&gt;创建时间：2018年4月20日 下午20:59&lt;/p&gt;
 
-&lt;p&gt;&lt;img style=&quot;display:block;margin:auto;&quot; src=&quot;http://note.rpsh.net/assets/2015/07/live-blur-qr.png&quot; alt=&quot;live-blur-qr.png&quot; width=&quot;200&quot; height=&quot;200&quot; /&gt;&lt;/p&gt;
-
-&lt;iframe height=&quot;301&quot; scrolling=&quot;no&quot; src=&quot;//codepen.io/rpsh/embed/OVaYQV/?height=301&amp;amp;theme-id=0&amp;amp;default-tab=result&quot; frameborder=&quot;no&quot; allowtransparency=&quot;true&quot; allowfullscreen=&quot;true&quot; style=&quot;width: 100%;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;参考资料：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/library/mac/releasenotes/General/WhatsNewInSafari/Articles/Safari_9.html&quot;&gt;Safari 9.0&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;#4-设计&lt;/p&gt;
 </description>
-        <pubDate>Thu, 30 Jul 2015 12:18:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2015/07/30/pure-css-live-blur/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2015/07/30/pure-css-live-blur/</guid>
+        <pubDate>Fri, 20 Apr 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/04/20/competitive_analysis_share/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/04/20/competitive_analysis_share/</guid>
         
-        <category>CSS3</category>
+        <category>design</category>
         
-        <category>CSS</category>
+        <category>竞品分析</category>
         
-        <category>毛玻璃</category>
+        
+      </item>
+    
+      <item>
+        <title>Adobe批处理操作修改文本</title>
+        <description>&lt;p&gt;单词数量：536   阅读时间：2m42s&lt;/p&gt;
+
+&lt;h2 id=&quot;ai处理矢量图标&quot;&gt;Ai处理矢量图标&lt;/h2&gt;
+&lt;p&gt;在工作中有一项是关于地图上icon的修改，在产品迭代过程中，需要对产品中的icon做一些小改动，比如为了使地图图标和底图的颜色产生较高的对比和反差需要为图标矢量源文件及上0.75px的inner boarding，产品内有300多个底图样式图标分别表示不同的poi 类型，工作如果是手动来做需要耗费大量的时间，所以打算用Ai来做一个批处理。
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;首先我将每一个文件所要做的统一操作列出来，&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;打开文件&lt;/li&gt;
+  &lt;li&gt;新建矩形吸取原图标背景的颜色&lt;/li&gt;
+  &lt;li&gt;添加0.75px的内描边 删除原背景&lt;/li&gt;
+  &lt;li&gt;文件导出为svg文件&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;不难发现，每次的操作都是统一的不涉及异处理，所以在::ai-窗口-动作::里面打开一个源文件进行动作录制，保证每一步都被记录进来，动作录制到保存文件之后就完成录制并保存动作，&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果工作中需要处理大量的重复劳动的话建议设置一个快捷键，简直爽到飞起，但是个人还是不建议设计师一直做重复的简单的劳动，像是浪费时间和扼杀创造力，所以大部分这样的工作就会让实习生去联手…&lt;/p&gt;
+
+&lt;p&gt;不到五分钟搞定几百个icon，get&lt;/p&gt;
+
+&lt;h2 id=&quot;ps批处理替换文本&quot;&gt;Ps批处理替换文本&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;问题：图片上面有一个文本框，需要做一万张图片，但文本框里的文字要换。更换的文字在一张csv文件上如何用批处理解决这个问题？&lt;/em&gt;
+在上一年度的工作中遇到一个问题是需要制作一个线下派发的刮刮卡，是和网易严选合作的一次活动，卡片上面有一排字母和数字随机生成的一串兑换码，用这个条码可以兑换一些网易严选的产品这些码是工程师生成用来唯一识别用户的作用，总数已公示一万份，需要做一个后期效果的统计。&lt;/p&gt;
+
+&lt;p&gt;在设计师的角色上这次的任务涉及到了线上线下的一个环节，线上需要设计兑奖页面，线下需要去印刷卡片，会是一个比较有趣的过程。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这个项目首先需要跟工程师要到一份CSV的文件里面会按照顺序有一万份券码，在photoshop中需要用到数据变量功能，&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;需要把需要替换文本的文字单独制作一个图层，&lt;/li&gt;
+  &lt;li&gt;用&lt;em&gt;::图像-变量-定义::&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;把需要替换的文本做成一份txt文件&lt;/li&gt;
+  &lt;li&gt;图像-变量-数据库-导入 txt文件&lt;/li&gt;
+  &lt;li&gt;然后导出批处理的文件 文件-导出-数据库为文件&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这样我们需要制作的一万份文件都是每个文件拥有不同的条码
+希望能掌握工作中更多的提高效率的方法&lt;/p&gt;
+
+&lt;p&gt;2018年4月12日14:05&lt;/p&gt;
+
+&lt;p&gt;#4-设计&lt;/p&gt;
+</description>
+        <pubDate>Thu, 12 Apr 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/04/12/Adobe-batch-processing/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/04/12/Adobe-batch-processing/</guid>
+        
+        <category>design</category>
+        
+        <category>软件操作</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>这真是个“人情淡薄”的地方</title>
+        <description>&lt;p&gt;L刚得知毕业前需要来北京培训拿到实习证明才能顺利毕业的消息后，整天闷闷不乐，不愿意离开安逸的小城市，当时还在上大学时的我对北京的印象就只有满城的雾霾和拥堵的地铁…&lt;/p&gt;
+
+&lt;p&gt;L刚来到这座城市的时候需要克服很多之前都没有想象过的困难。初入职场，经历第一次跳槽，带着兴奋的心情入职新公司，之后不久身边亲近的同事都陆陆续续离开。L的心情很复杂，却不得不去面对，也在这当中学会了成长，在这里并没有那些可以一直朝夕相处的人，渐渐的开始习惯了这些种种变化。&lt;/p&gt;
+
+&lt;p&gt;还记得上次年末公司聚餐时的心情，本来就不大的团队由三位成员要离开。老大当时说了这样的话，希望你们带着即将毕业般的心情离开了这里，在经历了这段时间的成长之后，能够到更大的平台去实现自己的价值，同时感谢大家这段时间以来为团队付出的努力，希望大家的未来更加美好。&lt;/p&gt;
+
+&lt;p&gt;现在想想，在这座城市还能有三俩昔日同窗真的是一件非常幸运的事，感恩在多年前的那个时刻遇见了你们，见证了我们彼此的成长。&lt;/p&gt;
+
+&lt;p&gt;去年夏天一个普通的工作日早晨，还是站在那个经常上班等地铁的站台，在熙熙攘攘的人群中瞥见了一个十多年前老同学，虽然容貌没有改变多少但还是不太敢相信，为了证实还特地拍了张照片给朋友去确认，站在人群中感觉像是经历了一个平行时空，好像我们不是在等待一辆拥挤的地铁去上班，而是赶着去上学的一班公交车，十年前的我们和现在的感觉并没有什么不一样，就像十年前的我们坐在电视机前玩红白机一坐就是一天，现在我们坐在电脑前修图出方案也是一坐一天…&lt;/p&gt;
+
+&lt;p&gt;几周前的一个下午，靠在在走廊里刷着微博放松，看到一位同事迎面走过来很认真的跟我打了声招呼然后寒暄几句就走了，一看表也是到了下班时间，可是过了那天却再也没有见到过那位新来的同事，后来也只是偶尔在朋友圈里看到有一直更新着的动态，时间就是这样，还没有来得及彼此熟悉了解，却又消失在人群中，有的同时甚至都不记得叫什么，只有一两个留在脑海里的片段提醒我他们真实的有过交集…&lt;/p&gt;
+
+&lt;p&gt;后来想，不是人情冷漠啊，是匆匆过往的人们都没有时间停下来，大家都走的很快，方向又不同，境遇自然也不尽相同，忽然想会不会到了某个时候大家都开始慢下来，人与人的交集就会越来越多，集合也越来越多，最后共感慢慢的就多起来了吧…&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://unsplash.com/photos/t01KsbmACSs&quot;&gt;封面图链接&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2018年3月27日 下午11:33&lt;/p&gt;
+</description>
+        <pubDate>Tue, 27 Mar 2018 11:33:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/03/27/%E8%BF%99%E7%9C%9F%E6%98%AF%E4%B8%AA%E4%BA%BA%E6%83%85%E6%B7%A1%E8%96%84%E7%9A%84%E5%9C%B0%E6%96%B9/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/03/27/%E8%BF%99%E7%9C%9F%E6%98%AF%E4%B8%AA%E4%BA%BA%E6%83%85%E6%B7%A1%E8%96%84%E7%9A%84%E5%9C%B0%E6%96%B9/</guid>
+        
+        <category>inspiration</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>地图poi_name与marki配色</title>
+        <description>&lt;p&gt;阅读时长：3min16s 单词：656&lt;/p&gt;
+
+&lt;p&gt;在稀客地图中有大量的视觉设计工作，其中一项比较重要的工作就是地图样式的配色工作，地图样式的配色和视觉层级的调整是比较复杂且精密的一项工程，每一项图层出现的层级、出现的顺序、以及各自的颜色对用户带来的感受差别都是很大的，但是因为有比较完整的设计文档可供查阅是比较大的帮助。&lt;/p&gt;
+
+&lt;p&gt;地图设计是典型的数据驱动设计的一种形式，&lt;a href=&quot;http://wiki.openstreetmap.org/wiki/Map_Features&quot;&gt;地图属性&lt;/a&gt;就像是我们常用的设计工具Photoshop中的图层一样，从最低的陆地、海洋一层一层到草地、雪地、再到上面的建筑和POI（兴趣点），我们要设定每一种属性出现的层级和他的颜色等信息，数据的形式主要有三种，&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Node&quot;&gt;点（node）&lt;/a&gt;、&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Way&quot;&gt;线（way）&lt;/a&gt;、&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Area&quot;&gt;面（area）&lt;/a&gt;，完全就是设计基础课上的三大构成…&lt;/p&gt;
+
+&lt;p&gt;三种属性都可以赋予一定的属性，这里我们主要设计的是poi（兴趣点）的属性，兴趣点的数据类型是点，展示方式我们可以设定为symbol，只有它可以在一个点上添加marki（图标），在稀客地图中主要将poi的类型分成了主要的&lt;strong&gt;吃&lt;/strong&gt; &lt;strong&gt;购&lt;/strong&gt; &lt;strong&gt;生活&lt;/strong&gt; &lt;strong&gt;特殊&lt;/strong&gt; &lt;strong&gt;玩&lt;/strong&gt; &lt;strong&gt;行&lt;/strong&gt; &lt;strong&gt;游&lt;/strong&gt; &lt;strong&gt;住&lt;/strong&gt;这几个类型。每种类型用不同的颜色表示赋予颜色识别性。如下图…
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/harmonize_colours-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;颜色选取&quot;&gt;颜色选取&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/harmonize_colours-2.jpg&quot; alt=&quot;&quot; /&gt;
+颜色的选取主要是通过（HSB）色相、彩度和明度的调节来进行选择，色相的选择首先是基于我们所有大的类型一共有8种，所以在0～360的色相范围内均匀分布就可以，这样能保证在地图上冷暖的搭配比较均匀。&lt;/p&gt;
+
+&lt;p&gt;其次在彩度上有一个范围设定，色彩过于饱和会对视觉造成疲劳，每种类型色彩的彩度根据实际不同的视觉效果设定在40～60之间，青色和绿色的色彩饱和度触发神经兴奋的临界值比较高，所以他们的色彩饱和度比其他颜色比较低，所以尽量保证全局保证既不会出现色彩暗淡或者过于饱和的情况。
+&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/harmonize_colours-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在明度上也有一些考虑的原因是要根据地图底色和poi色彩的对比来进行设定，为了突出地图上的poi的重要性，一般底图底层的色彩彩度不会很高，明度也是为了使文字和poi的显示不会太亮。&lt;a href=&quot;https://github.com/getflourish/Sketch-Color-Contrast-Analyser&quot;&gt;Sketch-Color-Contrast-Analyser&lt;/a&gt;在这里安利大家一个sketch插件，这个插件是为了满足WCAG（&lt;a href=&quot;https://www.w3.org/Translations/WCAG20-zh/&quot;&gt;web内容无障碍指南&lt;/a&gt;），在这份指南中，有标准的分级，比如字幕属于AA级，它对应的背景和文字的对比度数值需要在4.5:1或者3.0:1以上。&lt;/p&gt;
+
+&lt;p&gt;这份指南的目的是为了更有好的设计，为了一些特殊人群的照顾，稀客地图也秉承着design for all的思想进行设计，因为在室外使用的频次也比较高，所以不得不考虑这些问题。&lt;/p&gt;
+
+&lt;p&gt;最后在图标和文字的明度上稍有区别，图标的主要目的是为了用户首先认知某的点的类型，但是文字的主要目标是让用户便于快速阅读，所以文字在明度上区间都会比图标要小一些，也就是暗一些，为了阅读时的舒适度。&lt;/p&gt;
+
+&lt;p&gt;以上就是在稀客地图在poi marki和 poi name上的设计思考。&lt;/p&gt;
+
+&lt;p&gt;最后附上网上一篇网上的文章 &lt;a href=&quot;http://www.5icool.org/a/201006/531.html&quot;&gt;web页面文字的色彩与可读性研究&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2018年3月23日 下午4:00&lt;/p&gt;
+
+&lt;p&gt;#4-设计&lt;/p&gt;
+</description>
+        <pubDate>Fri, 23 Mar 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/03/23/mapicon-harmonize-colours/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/03/23/mapicon-harmonize-colours/</guid>
+        
+        <category>design</category>
+        
+        <category>配色</category>
         
         
       </item>
