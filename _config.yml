@@ -50,7 +50,7 @@ anchorjs: true                          # if you want to customize anchor. check
 
 # 评论系统
 # Disqus comments configuration (leave blank to disable comments)
-disqus_shortname: 'youngbeom'
+disqus_shortname: 'disqus_I2AvuV5Phs'
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
