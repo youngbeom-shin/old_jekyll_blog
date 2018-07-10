@@ -6,7 +6,7 @@ email: youngbeomshin@163.com
 description: "关于交互与界面、极客与艺术 | 永范，Web & Mobile Lover，industrial designer，UX Designer | 这里是 @youngbeom永范 的个人博客，记录发生着的一切。"
 keyword: "永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计"
 author: "申永范"
-url: "http://blog.youngbeom.com"
+url: "https://blog.youngbeom.com"
 baseurl: ""
 timezone: Asia/Shanghai
 feedurl: ""
@@ -37,7 +37,6 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 
-
 # Markdown settings
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
@@ -49,17 +48,12 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 
-
-# 评论系统
 # Duoshuo settings
 #duoshuo_username: huxblog
 # Share component is depend on Comment so we can NOT use share only.
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-
-disqus_username: youngbeom
-
-disqus_username: youngbeom
+disqus_username: blog-youngbeom
 
 
 #sitemap
@@ -67,14 +61,13 @@ gems:
   - jekyll-sitemap
   - jekyll-paginate
 
-
-# 统计
 # Analytics settings
 # Baidu Analytics
 #ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 # Google Analytics
-ga_track_id: 'UA-119556076-1'            # Format: UA-xxxxxx-xx
-ga_domain: blog.youngbeom.com
+ga_track_id: 'UA-5528027-2'            # Format: UA-xxxxxx-xx
+ga_domain: note.rpsh.net
+
 
 
 # Sidebar settings

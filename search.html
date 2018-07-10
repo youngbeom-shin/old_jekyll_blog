@@ -1,7 +1,7 @@
 ---
 title: Search
 layout: default
-description: youngbeom的文章站内搜索
+description: 任平生笔记站内搜索
 header-img: "assets/common/home-bg.jpg"
 thumb-img: "assets/common/home-thumb.jpg"
 permalink: search/
@@ -29,7 +29,7 @@ permalink: search/
 				{% if site.custom-search %}
 					<!-- 自定义搜索 start -->
 					<div class="google-search" id="google-search">
-						<gcse:search></gcse:search>
+						<gcse:search></gcse:search>	
 					</div>
 					<div class="baidu-search">
 						<div class="bdcs-frame-box" id="bdcs-frame-box"></div>
@@ -78,9 +78,9 @@ permalink: search/
 						</form>
 					{% endif %}
 					<!-- 跳转到搜索引擎去 end -->
-					</div>
+					</div>				
 				{% endif %}
-
+				
 			</div>
 		</div>
 	</div>
@@ -138,7 +138,7 @@ if( getParameterByName('q') ){
 					document.getElementById('search-keywords').innerHTML = '{' + keywords + '}';
 					document.title = keywords + ' - {{ site.title }}';
 				}
-
+				
 			})
 		}
 
@@ -156,7 +156,7 @@ if( getParameterByName('q') ){
 				/* Baidu search 不支持 callback ，修改页面 title 统一为 Search */
 				document.getElementById('search-keywords').innerHTML = 'Search';
 				document.title = 'Search - {{ site.title }}';
-
+				
 			/* google search 加载失败，fallback 到百度 end */
 			{% else %}
 				/* 没有设置 baidu 的 fallback，则提供跳转到搜索引擎的链接 */
@@ -183,7 +183,7 @@ if( getParameterByName('q') ){
 				searchBox.innerHTML = difficultyHTML;
 			{% endif %}
 		}
-
+		
 	})();
 	</script>
 	<!-- Google 自定义搜索 end -->
@@ -336,7 +336,7 @@ if( getParameterByName('q') ){
 	padding-left: 0;
 }
 
-.page-search .gs-result .gs-title,
+.page-search .gs-result .gs-title, 
 .page-search .gs-result .gs-title *{
 	color: #404040;
 }
@@ -449,5 +449,5 @@ footer{
 </style>
 
 <!-- 自定义搜索 end -->
-
+	
 {% endif %}
