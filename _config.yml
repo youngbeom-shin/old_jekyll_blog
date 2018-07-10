@@ -6,7 +6,7 @@ email: youngbeomshin@163.com
 description: "关于交互与界面、极客与艺术 | 永范，Web & Mobile Lover，industrial designer，UX Designer | 这里是 @youngbeom永范 的个人博客，记录发生着的一切。"
 keyword: "永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计"
 author: "申永范"
-url: "https://blog.youngbeom.com"
+url: "http://blog.youngbeom.com"
 baseurl: ""
 timezone: Asia/Shanghai
 feedurl: ""
@@ -53,7 +53,7 @@ anchorjs: true                          # if you want to customize anchor. check
 # Share component is depend on Comment so we can NOT use share only.
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-disqus_username: blog-youngbeom
+disqus_username: https-youngbeom-shin-github-io
 
 
 #sitemap
