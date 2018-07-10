@@ -37,6 +37,7 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 
+
 # Markdown settings
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
@@ -48,18 +49,16 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 
-# 评论系统
-# Disqus comments configuration (leave blank to disable comments)
-disqus_shortname: 'youngbeom'
+# Duoshuo settings
+#duoshuo_username: huxblog
+# Share component is depend on Comment so we can NOT use share only.
+#duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-# Support for LiveRe comments system.
-# You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zNzgwNS8xNDMzNg==
+disqus_username: youngbeom
 
 
 #sitemap
-url: "http://blog.youngbeom.com" # the base hostname & protocol for your site
-plugins:
+gems:
   - jekyll-sitemap
   - jekyll-paginate
 
@@ -69,7 +68,6 @@ plugins:
 # Google Analytics
 ga_track_id: 'UA-119556076-1'            # Format: UA-xxxxxx-xx
 ga_domain: blog.youngbeom.com
-
 
 
 # Sidebar settings
@@ -98,9 +96,9 @@ friends: [
 
 
 # Site Search
-search: true 							# whether or not using Search
-search-engine: google 					# google or baidu
-search-placeholder: '搜索博客内容'			# placeholder of search input
+search: true                            # whether or not using Search
+search-engine: google                   # google or baidu
+search-placeholder: '搜索博客内容'            # placeholder of search input
 
 
 # Custom Search
