@@ -10,7 +10,7 @@
 	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
 
 	<title>Search - 任平生的学习笔记</title>
-	<meta name="description" content="任平生笔记站内搜索" />
+	<meta name="description" content="youngbeom的文章站内搜索" />
 	<meta name="keyword"  content="任平生, 互联网, 前端, rpsh" />
 
 	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
@@ -43,12 +43,12 @@
 	<meta name="twitter:site" content="@rpsh" />
 	<meta name="twitter:url" property="og:url" content="http://localhost:4000/search/" />
 	<meta name="twitter:title" property="og:title" itemprop="name" content="Search - 任平生的学习笔记" />
-	<meta name="twitter:description" property="og:description" itemprop="description" content="任平生笔记站内搜索" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="youngbeom的文章站内搜索" />
 	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/home-thumb.jpg" />
 
 	<meta name="wxm:timeline_title" content="Search - 任平生的学习笔记" />
 	<meta name="wxm:appmessage_title" content="Search - 任平生的学习笔记" />
-	<meta name="wxm:appmessage_desc" content="任平生笔记站内搜索" />
+	<meta name="wxm:appmessage_desc" content="youngbeom的文章站内搜索" />
 	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/home-thumb.jpg" />
 	<meta name="wxm:link" content="http://localhost:4000/search/" />
 	
@@ -157,7 +157,7 @@
 			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 				<div class="site-heading" id="tag-heading">
 					<h1 id="search-keywords">Search</h1>
-					<span class="subheading">任平生笔记站内搜索</span>
+					<span class="subheading">youngbeom的文章站内搜索</span>
 				</div>
 			</div>
 		</div>
@@ -172,14 +172,14 @@
 				
 					<!-- 自定义搜索 start -->
 					<div class="google-search" id="google-search">
-						<gcse:search></gcse:search>	
+						<gcse:search></gcse:search>
 					</div>
 					<div class="baidu-search">
 						<div class="bdcs-frame-box" id="bdcs-frame-box"></div>
 					</div>
 					<!-- 自定义搜索 end -->
 				
-				
+
 			</div>
 		</div>
 	</div>
@@ -237,7 +237,7 @@ if( getParameterByName('q') ){
 					document.getElementById('search-keywords').innerHTML = '{' + keywords + '}';
 					document.title = keywords + ' - 任平生的学习笔记';
 				}
-				
+
 			})
 		}
 
@@ -255,11 +255,11 @@ if( getParameterByName('q') ){
 				/* Baidu search 不支持 callback ，修改页面 title 统一为 Search */
 				document.getElementById('search-keywords').innerHTML = 'Search';
 				document.title = 'Search - 任平生的学习笔记';
-				
+
 			/* google search 加载失败，fallback 到百度 end */
 			
 		}
-		
+
 	})();
 	</script>
 	<!-- Google 自定义搜索 end -->
@@ -400,7 +400,7 @@ if( getParameterByName('q') ){
 	padding-left: 0;
 }
 
-.page-search .gs-result .gs-title, 
+.page-search .gs-result .gs-title,
 .page-search .gs-result .gs-title *{
 	color: #404040;
 }
@@ -513,7 +513,8 @@ footer{
 </style>
 
 <!-- 自定义搜索 end -->
-	
+
+
 
 
     <!-- Footer -->
