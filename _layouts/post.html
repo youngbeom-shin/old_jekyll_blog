@@ -85,23 +85,13 @@ layout: default
 
 <!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-<a class="a2a_button_wechat"></a>
-<a class="a2a_button_sina_weibo"></a>
-<a class="a2a_button_douban"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_line"></a>
-<a class="a2a_button_kakao"></a>
+    <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    <a class="a2a_button_sina_weibo"></a>
+    <a class="a2a_button_wechat"></a>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_copy_link"></a>
 </div>
-<script>
-var a2a_config = a2a_config || {};
-a2a_config.linkname = "youngbeom的博客";
-a2a_config.linkurl = "https://blog.youngbeom.com/";
-a2a_config.onclick = 1;
-a2a_config.locale = "zh-CN";
-a2a_config.prioritize = ["wechat", "sina_weibo", "facebook", "twitter", "line", "kakao"];
-</script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
 
@@ -116,7 +106,7 @@ a2a_config.prioritize = ["wechat", "sina_weibo", "facebook", "twitter", "line", 
     var disqus_title      = '{{ page.title }}';
     var disqus_url        = '{{ site.url }}{{ page.url }}';
     // var disqus_developer = 1; // Comment out when the site is live
-
+    
     (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
@@ -129,7 +119,7 @@ a2a_config.prioritize = ["wechat", "sina_weibo", "facebook", "twitter", "line", 
   /* * * CONFIGURATION VARIABLES * * */
   var disqus_shortname  = '{{ site.disqus_shortname }}';
   // var disqus_developer = 1; // Comment out when the site is live
-
+  
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function () {
       var s = document.createElement('script'); s.async = true;
@@ -142,19 +132,16 @@ a2a_config.prioritize = ["wechat", "sina_weibo", "facebook", "twitter", "line", 
     Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 </noscript>
 {% endif %}
-
+		    
 <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zNzgwNS8xNDMzNg==">
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNDkxMC8xMTQ0Nw==">
 <script type="text/javascript">
    (function(d, s) {
        var j, e = d.getElementsByTagName(s)[0];
-
        if (typeof LivereTower === 'function') { return; }
-
        j = d.createElement(s);
        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
        j.async = true;
-
        e.parentNode.insertBefore(j, e);
    })(document, 'script');
 </script>
