@@ -49,19 +49,15 @@ anchorjs: true                          # if you want to customize anchor. check
 
 
 
-<<<<<<< HEAD
-=======
+
 # 评论系统
->>>>>>> origin/master
 # Duoshuo settings
 #duoshuo_username: huxblog
 # Share component is depend on Comment so we can NOT use share only.
 #duoshuo_share: true                     # set to false if you want to use Comment without Sharing
-<<<<<<< HEAD
-=======
+
 
 disqus_username: youngbeom
->>>>>>> origin/master
 
 disqus_username: youngbeom
 
