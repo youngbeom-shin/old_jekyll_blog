@@ -1,9 +1,9 @@
 {
-    "name": "rpsh-notes",
-    "title": "任平生的学习笔记",
+    "name": "youngbeom",
+    "title": "youngbeom的博客",
     "version": "1.0.0",
-    "homepage": "http://rpsh.github.io",
-    "author": "rpsh",
+    "homepage": "https://www.youngbeom.com",
+    "author": "youngbeom",
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-less": "~0.11.4",
@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/rpsh/rpsh.github.io"
+        "url": "https://github.com/youngbeom-shin/youngbeom-shin.github.io"
     },
     "scripts": {
         "preview": "cd _site; python -m SimpleHTTPServer"

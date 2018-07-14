@@ -51,6 +51,7 @@ anchorjs: true                          # if you want to customize anchor. check
 # 评论系统
 # Disqus comments configuration (leave blank to disable comments)
 disqus_username: https-youngbeom-shin-github-io
+
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
 livere_uid: MTAyMC8zNzgwNS8xNDMzNg==
