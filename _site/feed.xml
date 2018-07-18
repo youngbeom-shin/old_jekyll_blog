@@ -5,9 +5,170 @@
     <description>关于交互与界面、极客与艺术 | 永范，Web &amp; Mobile Lover，industrial designer，UX Designer | 这里是 @youngbeom永范 的个人博客，记录发生着的一切。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 18 Jul 2018 14:21:06 +0800</pubDate>
-    <lastBuildDate>Wed, 18 Jul 2018 14:21:06 +0800</lastBuildDate>
+    <pubDate>Wed, 18 Jul 2018 19:41:01 +0800</pubDate>
+    <lastBuildDate>Wed, 18 Jul 2018 19:41:01 +0800</lastBuildDate>
     <generator>Jekyll v3.8.1</generator>
+    
+      <item>
+        <title>地图UI设计工作流-从mapbox到sketch</title>
+        <description>&lt;p&gt;单词数量：1812  阅读时间：9m 03s&lt;/p&gt;
+
+&lt;h1 id=&quot;地图ui设计工作流-从mapbox到sketch&quot;&gt;地图UI设计工作流-从mapbox到sketch&lt;/h1&gt;
+&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;因为公司的主要产品是一款地图产品，所以在毕业后到现在的两年时间，除了做产品的界面还有其他的一些设计以外，还接触到关于地理信息的一些产品，设计地图的只要是两款产品，一个是&lt;a href=&quot;https://www.mapbox.com/&quot;&gt;mapbox studio&lt;/a&gt;，另一个是maputnik，后者是瑞士的一个大学生&lt;a href=&quot;https://github.com/lukasmartinelli&quot;&gt;Lukas Martinelli&lt;/a&gt;创立的项目，这里面还有一个故事，虽说两个公司都是做开源数据的一些项目，但是lukas认为mapbox在一些标准的设定以及开源上没有做到真正的开源，所以他在大学时就把mapbox定的一些标准通过自己定义的schema重新改写了一番，做出来一个GitHub上的公共库让大家都能使用，常常钦佩这样的一类人，做项目并不是以盈利为目的，但是却创造了更大的价值。
+但是mapbox的创新开发速度是飞快的，尤其是最近拿到了软银的战略投资后，比如他们在基于unity引擎开发的&lt;a href=&quot;https://www.mapbox.com/augmented-reality/&quot;&gt;AR SDK&lt;/a&gt;包以及&lt;a href=&quot;https://www.mapbox.com/automotive/&quot;&gt;自动驾驶&lt;/a&gt;相关的一些项目都是具有战略意义的一些产品。&lt;/p&gt;
+
+&lt;p&gt;后来括谷歌还有特斯拉等美国顶尖公司的众多管理层以及精英都加入了mapbox，17年的时候lukas也加入到了mapbox，现在maputnik只有十几个人在继续维护，但是不可否认这家小公司在开源这件事情上作出的贡献，因为他们的存在让各大公司在使用或搭建地图服务时相比只有谷歌时多了一份选择。&lt;/p&gt;
+&lt;h2 id=&quot;carto-css&quot;&gt;carto css&lt;/h2&gt;
+&lt;p&gt;起初在还未接触mapbox的时候还没有设计地图的概念，那时候的地图样式是通过&lt;a href=&quot;https://tumluliu.gitbooks.io/carto_zh-cn/&quot;&gt;carto css&lt;/a&gt;渲染出来的，样式几乎没有设计感，色彩的使用和搭配也是没有规范，翻出来很老旧的地图样式，效果就是下面这样的。&lt;/p&gt;
+
+&lt;h3 id=&quot;项目初期样式效果&quot;&gt;项目初期样式效果&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;改版后地图样式&quot;&gt;改版后地图样式&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-2.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;设计中对地图的需求&quot;&gt;设计中对地图的需求&lt;/h3&gt;
+&lt;p&gt;在很多之前的设计稿中，我需要用到地图界面在设计中时都会去百度截取所需的区域，然后将它粘贴到我的设计稿中，这样看起来的效果就是我们没有办法去“设计”地图，包括色板、图标、文字样式等。&lt;/p&gt;
+
+&lt;h2 id=&quot;snazzy-maps&quot;&gt;snazzy maps&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://snazzymaps.com/&quot;&gt;snazzy map&lt;/a&gt;是基于谷歌地图重新设计样式的一个网站，网站内有非常多的样式可以学习，虽然很大程度上达到了定制化的目的，但是还是有非常多的限制，不能在数据或者更细节的样式上做调整，对于图层的支持上也不是很多。&lt;/p&gt;
+
+&lt;h2 id=&quot;使用mapbox&quot;&gt;使用mapbox&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过mapbox的官网介绍，他们是一家为web及移动应用提供位置服务及导航的平台。mapbox已经是一款非常强大的平台，对于我这样的设计师来讲已经满足了我几乎所有的需求(除了数据获取)，包括地图颜色、图标定制、字体库等。对于新上手的设计师mapbox studio也有一些设计样本提供学习和使用。&lt;/p&gt;
+
+&lt;h3 id=&quot;使用mapbox-studio设计地图样式&quot;&gt;使用mapbox studio设计地图样式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;首先你需要注册一个账号，通过这个账号会保留你所设计的样式，同时这个账号也是一个开发者账号，你可以通过平台提供的access token来将你设计的样式应用在网页或者移动应用当中。
+注册完成后可以看到右上角有几个入口：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;home&lt;/li&gt;
+  &lt;li&gt;styles&lt;/li&gt;
+  &lt;li&gt;tilesets&lt;/li&gt;
+  &lt;li&gt;datasets&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;设计一款全新的地图样式&quot;&gt;设计一款全新的地图样式&lt;/h3&gt;
+&lt;p&gt;点击style(样式)，进入后可以看到你设计过的全部的样式文件，如果你还没有设计过地图样式，这个部分会是空白的，点击create创建一款全新的地图，在这里你可以选择利用mapbox给你提供的基础样式的基础上进行创作，或者选择一款空白的地图来手动添加图层。
+也可以选择第二种方式就是上传已有的样式文件来生成地图，这里的上传格式要求json格式的文件。
+对于第一次操作的设计师来讲，最好的建议是先去观察体验基础款的地图样式设计，因为在这份地图里面包含了几乎所有的地图图层，包括道路，植被类型，用地类型，甚至兴趣点的数据和样式图标都是按照规范设定好的，这样就能知道数据的结构和mapbox的设计逻辑，其实进入设计面板大家很容易就能看到左边的图层栏很像Adobe的layer，就是一层一层覆盖的，从最基础的土地类型到覆盖在上面的植被到道路最后建筑和兴趣点，这就方便理解了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-5.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击creat就会打开&lt;strong&gt;地图样式编辑器&lt;/strong&gt;这里就是所有的UI样式展现的地方，最核心的样式设计的界面！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-6.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击左上角的&lt;strong&gt;add layer&lt;/strong&gt;按钮去添加一个新的图层，点击&lt;strong&gt;No tileset，click to select.&lt;/strong&gt;就会去手动的添加一个数据来源，这里的tile中文翻译过来是瓷砖 瓦片的意思，地图的样式就是一个一个的“瓦片”构成，如果大家在网络状态不好的时候打开地图就会发现界面的加载是一块一块的，这个就是瓦片。在mapbox中提供多种的数据来源比如：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mapbox Satellite&lt;/li&gt;
+  &lt;li&gt;Mapbox Streets v7&lt;/li&gt;
+  &lt;li&gt;Mapbox Traffic V1&lt;/li&gt;
+  &lt;li&gt;Mapbox Terrain V2&lt;/li&gt;
+  &lt;li&gt;也可以手动上传自己本地已有的数据&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-7.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在这里我选择了Mapbox Streets v7里面的&lt;strong&gt;water&lt;/strong&gt;类型的数据，有了数据源我们就可以创建图层对数据进行样式的编辑了。颜色可以设置在不同的zoom级显示不同的颜色，比如zoom比较小时海洋的颜色浅一些，zoom放大到高一些的时候颜色变成深蓝色，等等。除此之外还可以给海洋加上一些图案，比如波纹，设置透明度，描边等等…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-8.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;对mapbox赋予颜色比如我给海洋的颜色赋值&lt;strong&gt;HSL(210,29,80)&lt;/strong&gt;这样它就和陆地的视觉上出现差异，渐渐有了地图的雏形。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-9.jpg&quot; alt=&quot;&quot; /&gt;
+接下来我们可以添加更多的图层，比如国境线，我们在tileset里面选择&lt;strong&gt;admin&lt;/strong&gt; 之后可以选择让他出现的层级，比如国境线让他在0～22的层级上出现，这样就会在放大到最大的层级时都有数据展现。&lt;/p&gt;
+
+&lt;h3 id=&quot;数据的展现方式&quot;&gt;数据的展现方式&lt;/h3&gt;
+&lt;p&gt;根据数据的不同类型mapbox给出了不同的展现方式，&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;fill&lt;/li&gt;
+  &lt;li&gt;fill extrusion&lt;/li&gt;
+  &lt;li&gt;line&lt;/li&gt;
+  &lt;li&gt;circle&lt;/li&gt;
+  &lt;li&gt;symbol&lt;/li&gt;
+  &lt;li&gt;heatmap
+这都是数据在地图上的不同展现类型，比如国境线是line，草坪是fill，带图标的兴趣点是symbol，或者如果你有纽约的出租车运营数据，你也可以将数据以热力图的形式用heatmap类型来展现。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;创新的方式去设计地图样式-cartogram&quot;&gt;创新的方式去设计地图样式-Cartogram&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-10.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.mapbox.com/cartogram/&quot;&gt;Cartogram&lt;/a&gt;是mapbox官方提供的一款有意思的网站，他可以通过你拖拽一张图片去自动分析照片中的配色，然后给出他的一个配色选择，但是他也不是所有的图层都支持，现在的版本中Cartogram支持&lt;strong&gt;land&lt;/strong&gt; &lt;strong&gt;building&lt;/strong&gt;  &lt;strong&gt;water&lt;/strong&gt; &lt;strong&gt;label&lt;/strong&gt; 这四种图层类型占据了地图组成的大部分面积，所以四种类型的色彩发生变化对整个视觉的改变是非常大的，我们在设计的时候抓取风格调性可以通过这种方式来设计。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-11.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我在这里使用的是mapbox cartogram默认的一张黑白照片，之后点击屏幕上方的&lt;strong&gt;saved style&lt;/strong&gt;之后就可以在你的mapbox studio里面看到你的配色之后的地图了！非常的
+方便快捷。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-12.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-13.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-14.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-15.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-16.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;发布地图样式&quot;&gt;发布地图样式&lt;/h3&gt;
+&lt;p&gt;通过上述的步骤，我们已经设计了一款个性化的地图，现在我们需要做的就是将设计好的地图&lt;strong&gt;发布&lt;/strong&gt;出去，在mapbox studio中发布地图可以点击右上角的&lt;strong&gt;publish your style&lt;/strong&gt;，点击发布之后你就可以通过点击&lt;strong&gt;share，develop，and use your style&lt;/strong&gt;来使用这分地图。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-17.jpg&quot; alt=&quot;&quot; /&gt;
+下图中的右下角有个&lt;strong&gt;Style URL&lt;/strong&gt;，我们需要使用这个&lt;a href=&quot;https://api.mapbox.com/styles/v1/youngbeom/cjjjpztvads5s2sm93o6x9zeo.html?fresh=true&amp;amp;title=true&amp;amp;access_token=pk.eyJ1IjoieW91bmdiZW9tIiwiYSI6ImNpc2ZxMXpvbTAxb2wzbm52cWI3d21xd3kifQ.-8V1Aipme2wTcp_9R95p7w#13.0/40.725100/-74.005100/0&quot;&gt;链接&lt;/a&gt;来在我们的sketch中使用这份地图，我们点击复制！
+&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-18.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;从mapbox到sketch&quot;&gt;从mapbox到sketch&lt;/h2&gt;
+&lt;p&gt;我们到这里就已经掌握了基础的mapbox studio的使用方法，接下来我们就要进入sketch当中，我们需要去下载一个&lt;a href=&quot;https://github.com/bouchenoiremarc/Sketch-Maps&quot;&gt;Sketch Maps&lt;/a&gt;插件。下载完成插件并安装之后，&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;打开sketch并新建一个画布&lt;/li&gt;
+  &lt;li&gt;新建一个矩形&lt;/li&gt;
+  &lt;li&gt;选中矩形之后，点击&lt;strong&gt;Plugins—Sketch Maps—Fill with Map&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;在插件弹出框内输入你要生成地图的地址，比如法国的埃菲尔铁塔&lt;/li&gt;
+  &lt;li&gt;设置地图的zoom level (地图缩放层级)，bearing (方位角度-最大360度)和pitch (视角，比如有3D模式的地图-最大60度)&lt;/li&gt;
+  &lt;li&gt;记住在mapbox设计完地图样式之后的 style URL，可以直接复制粘贴到插件弹窗内&lt;/li&gt;
+  &lt;li&gt;点击确认生成地图&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-19.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-20.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-21.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到这一步你就能看到亲自设计的地图样式已经填充到矩形里面了，这在一些页面的设计中会经常用到地图的填充，如果在这些页面中能用上自己品牌调性的地图也是非常提高产品体验的部分，绝对会是一个加分项，比如点评的境外地图部分就可以用mapbox提供的服务，在国外的应用中像snapchat和lonelyplanet已经开始使用mapbox的服务。其实mapbox收费是阶梯制的，对于个人开发者利用地图服务还是很划算的，这里是详细&lt;a href=&quot;https://www.mapbox.com/pricing/&quot;&gt;价格说明&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;结论&quot;&gt;结论&lt;/h2&gt;
+&lt;p&gt;mapbox真的是一款非常强大的地图设计工具，如果你有一些数据想做为可视化的展现，或者你想讲数据作为服务提供给客户，mapbox绝对可以满足大部分需求，下面有视频可以作为教材去更加深入的了解mapbox这款工具，油管的视频需要准备梯子。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?list=PLOlUoOtyTOXh8bwQ6MM7p7l6gfo4j8hch&amp;amp;time_continue=13&amp;amp;v=fpl4no2T1sQ&quot;&gt;Mapbox Studio: An Introduction - YouTube&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果在尝试的过程遇到一些问题或者好玩的尝试欢迎交流讨论，希望遇到更多志同道合的人一起学习！&lt;/p&gt;
+
+&lt;p&gt;相关阅读：https://blog.yipl.com.np/map-ui-design-workflow-mapbox-to-sketch-3cb281212783&lt;/p&gt;
+
+&lt;p&gt;#4-设计&lt;/p&gt;
+</description>
+        <pubDate>Tue, 03 Jul 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/07/03/mapbox-to-sketch/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/07/03/mapbox-to-sketch/</guid>
+        
+        <category>development</category>
+        
+        <category>地图设计</category>
+        
+        <category>mapbox</category>
+        
+        <category>sketch</category>
+        
+        
+      </item>
     
       <item>
         <title>不同数据源POI碰撞检测的实现方案</title>
@@ -432,50 +593,6 @@
         <guid isPermaLink="true">http://localhost:4000/posts/2018/03/27/%E8%BF%99%E7%9C%9F%E6%98%AF%E4%B8%AA%E4%BA%BA%E6%83%85%E6%B7%A1%E8%96%84%E7%9A%84%E5%9C%B0%E6%96%B9/</guid>
         
         <category>inspiration</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>地图poi_name与marki配色</title>
-        <description>&lt;p&gt;阅读时长：3min16s 单词：656&lt;/p&gt;
-
-&lt;p&gt;在稀客地图中有大量的视觉设计工作，其中一项比较重要的工作就是地图样式的配色工作，地图样式的配色和视觉层级的调整是比较复杂且精密的一项工程，每一项图层出现的层级、出现的顺序、以及各自的颜色对用户带来的感受差别都是很大的，但是因为有比较完整的设计文档可供查阅是比较大的帮助。&lt;/p&gt;
-
-&lt;p&gt;地图设计是典型的数据驱动设计的一种形式，&lt;a href=&quot;http://wiki.openstreetmap.org/wiki/Map_Features&quot;&gt;地图属性&lt;/a&gt;就像是我们常用的设计工具Photoshop中的图层一样，从最低的陆地、海洋一层一层到草地、雪地、再到上面的建筑和POI（兴趣点），我们要设定每一种属性出现的层级和他的颜色等信息，数据的形式主要有三种，&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Node&quot;&gt;点（node）&lt;/a&gt;、&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Way&quot;&gt;线（way）&lt;/a&gt;、&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Area&quot;&gt;面（area）&lt;/a&gt;，完全就是设计基础课上的三大构成…&lt;/p&gt;
-
-&lt;p&gt;三种属性都可以赋予一定的属性，这里我们主要设计的是poi（兴趣点）的属性，兴趣点的数据类型是点，展示方式我们可以设定为symbol，只有它可以在一个点上添加marki（图标），在稀客地图中主要将poi的类型分成了主要的&lt;strong&gt;吃&lt;/strong&gt; &lt;strong&gt;购&lt;/strong&gt; &lt;strong&gt;生活&lt;/strong&gt; &lt;strong&gt;特殊&lt;/strong&gt; &lt;strong&gt;玩&lt;/strong&gt; &lt;strong&gt;行&lt;/strong&gt; &lt;strong&gt;游&lt;/strong&gt; &lt;strong&gt;住&lt;/strong&gt;这几个类型。每种类型用不同的颜色表示赋予颜色识别性。如下图…
-&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/harmonize_colours-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;颜色选取&quot;&gt;颜色选取&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/harmonize_colours-2.jpg&quot; alt=&quot;&quot; /&gt;
-颜色的选取主要是通过（HSB）色相、彩度和明度的调节来进行选择，色相的选择首先是基于我们所有大的类型一共有8种，所以在0～360的色相范围内均匀分布就可以，这样能保证在地图上冷暖的搭配比较均匀。&lt;/p&gt;
-
-&lt;p&gt;其次在彩度上有一个范围设定，色彩过于饱和会对视觉造成疲劳，每种类型色彩的彩度根据实际不同的视觉效果设定在40～60之间，青色和绿色的色彩饱和度触发神经兴奋的临界值比较高，所以他们的色彩饱和度比其他颜色比较低，所以尽量保证全局保证既不会出现色彩暗淡或者过于饱和的情况。
-&lt;img src=&quot;http://blog.youngbeom.com/assets/2018/06/harmonize_colours-3.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在明度上也有一些考虑的原因是要根据地图底色和poi色彩的对比来进行设定，为了突出地图上的poi的重要性，一般底图底层的色彩彩度不会很高，明度也是为了使文字和poi的显示不会太亮。&lt;a href=&quot;https://github.com/getflourish/Sketch-Color-Contrast-Analyser&quot;&gt;Sketch-Color-Contrast-Analyser&lt;/a&gt;在这里安利大家一个sketch插件，这个插件是为了满足WCAG（&lt;a href=&quot;https://www.w3.org/Translations/WCAG20-zh/&quot;&gt;web内容无障碍指南&lt;/a&gt;），在这份指南中，有标准的分级，比如字幕属于AA级，它对应的背景和文字的对比度数值需要在4.5:1或者3.0:1以上。&lt;/p&gt;
-
-&lt;p&gt;这份指南的目的是为了更有好的设计，为了一些特殊人群的照顾，稀客地图也秉承着design for all的思想进行设计，因为在室外使用的频次也比较高，所以不得不考虑这些问题。&lt;/p&gt;
-
-&lt;p&gt;最后在图标和文字的明度上稍有区别，图标的主要目的是为了用户首先认知某的点的类型，但是文字的主要目标是让用户便于快速阅读，所以文字在明度上区间都会比图标要小一些，也就是暗一些，为了阅读时的舒适度。&lt;/p&gt;
-
-&lt;p&gt;以上就是在稀客地图在poi marki和 poi name上的设计思考。&lt;/p&gt;
-
-&lt;p&gt;最后附上网上一篇网上的文章 &lt;a href=&quot;http://www.5icool.org/a/201006/531.html&quot;&gt;web页面文字的色彩与可读性研究&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018年3月23日 下午4:00&lt;/p&gt;
-
-&lt;p&gt;#4-设计&lt;/p&gt;
-</description>
-        <pubDate>Fri, 23 Mar 2018 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2018/03/23/mapicon-harmonize-colours/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2018/03/23/mapicon-harmonize-colours/</guid>
-        
-        <category>design</category>
-        
-        <category>配色</category>
         
         
       </item>
