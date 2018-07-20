@@ -5,8 +5,8 @@
     <description>关于交互与界面、极客与艺术 | 永范，Web &amp; Mobile Lover，industrial designer，UX Designer | 这里是 @youngbeom永范 的个人博客，记录发生着的一切。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 20 Jul 2018 18:27:34 +0800</pubDate>
-    <lastBuildDate>Fri, 20 Jul 2018 18:27:34 +0800</lastBuildDate>
+    <pubDate>Fri, 20 Jul 2018 18:32:56 +0800</pubDate>
+    <lastBuildDate>Fri, 20 Jul 2018 18:32:56 +0800</lastBuildDate>
     <generator>Jekyll v3.8.1</generator>
     
       <item>
@@ -38,7 +38,7 @@
 &lt;p&gt;注意右边的oversides部分，我们一共设计了四个颜色的色板，他就可以变换四种颜色的icon，剩下的我们要做的就是将每一个设计的icon的组件都添加一层色板的蒙版以及看看icon的部件一共需要几种颜色展现。&lt;/p&gt;
 
 &lt;h2 id=&quot;结论&quot;&gt;结论&lt;/h2&gt;
-&lt;p&gt;在设计小程序相关项目中亲测，为项目节省了大量的时间，对项目文件的规范化也是有非常大的提升，希望还可以发现更多有效的手段提升效率，避免将时间过多投入在重复性的劳动中。&lt;/p&gt;
+&lt;p&gt;在设计小程序相关项目中亲测，为项目节省了大量的时间，对项目文件的规范化也是有非常大的提升，希望还可以发现更多有效的手段提升效率，避免将时间过多投入在重复性的劳动中。最后附上这次值得sketch&lt;a href=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/%E5%9B%BE%E6%A0%87%E5%B5%8C%E5%A5%97%E7%BB%84%E4%BB%B6.sketch&quot;&gt;模板文件&lt;/a&gt;，希望有帮助。&lt;/p&gt;
 
 &lt;p&gt;相关文章：&lt;a href=&quot;https://blog.yipl.com.np/design-workflow-quick-tip-7-step-by-step-guide-to-use-color-as-a-symbol-override-in-a-symbol-in-5e263cc5a862&quot;&gt;Design workflow quick tip #7 — Step-by-step guide to use Color as a symbol override in a symbol in…&lt;/a&gt;
 #4-设计&lt;/p&gt;
