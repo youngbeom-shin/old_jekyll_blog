@@ -5,9 +5,58 @@
     <description>关于交互与界面、极客与艺术 | 永范，Web &amp; Mobile Lover，industrial designer，UX Designer | 这里是 @youngbeom永范 的个人博客，记录发生着的一切。</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 19 Jul 2018 18:21:45 +0800</pubDate>
-    <lastBuildDate>Thu, 19 Jul 2018 18:21:45 +0800</lastBuildDate>
+    <pubDate>Fri, 20 Jul 2018 18:27:34 +0800</pubDate>
+    <lastBuildDate>Fri, 20 Jul 2018 18:27:34 +0800</lastBuildDate>
     <generator>Jekyll v3.8.1</generator>
+    
+      <item>
+        <title>sketch设计工作流-利用色板遮罩制作图标嵌套组件</title>
+        <description>&lt;p&gt;&lt;strong&gt;symbol&lt;/strong&gt;也就是组件是sketch中个人认为最方便的一个设计了，它将我们常用的设计规范控件都组件化，方便随时调用以及重新改版，并且可以导出你的组件给团队内的任何一位设计师，这对版本管理和团队协同效率的提升都是非常大的帮助，试想一下如果产品界面有几十个界面中都用了同一个icon，但是改版时需要替换成新的样式，这时候如果没有利用组建而是一个个查找替换将是非常费时间的工作，前期我在做项目时刚接触到sketch就上手做了一些功能的设计，结果因为不规范导致项目进展迟缓，后期通过学习&lt;a href=&quot;http://bradfrost.com/&quot;&gt;Brad Frost&lt;/a&gt;提出的&lt;strong&gt;原子化设计理论&lt;/strong&gt;开始设计页面的组成，极大的锻炼了我的设计思维，让我的工作流程更加的顺畅，把更多的时间去留给思考设计。
+&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-1.png&quot; alt=&quot;&quot; /&gt;
+这里的“原子”就是最基本的元素，文字、颜色、icon等都是最基本的元素，我们称之为“原子”，再比如一个按钮里面包含背景颜色、文字或者icon，这样的组建我们称之为“分子”，在sketch中我们称这样的组件为嵌套组件(nested symbol)。&lt;/p&gt;
+
+&lt;h2 id=&quot;创建一个icon组件&quot;&gt;创建一个icon组件&lt;/h2&gt;
+&lt;p&gt;首先我们要做的第一步就是创建一个icon的组建，我在这里创建了一个星星的图标。
+&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-2.png&quot; alt=&quot;&quot; /&gt;      &lt;br /&gt;
+接下来将这个图标变成一个组件，点击右键创建组件并命名为icon/star（命名的规则十分重要，每一个/符号相当于是一个“文件夹”，是包含关系）。&lt;/p&gt;
+
+&lt;h2 id=&quot;添加颜色组件&quot;&gt;添加颜色组件&lt;/h2&gt;
+&lt;p&gt;在这里我们将颜色也制作成组件的原因是临近命名的组件方便查找和替换，我在文件当中制作了四个颜色的组件。
+&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;制作色板和图标的剪切蒙版&quot;&gt;制作色板和图标的剪切蒙版&lt;/h2&gt;
+&lt;p&gt;这一步在symbol图层内将色板的组件放置在图标组建上方，然后框选两个组建之后右键&lt;strong&gt;musk&lt;/strong&gt;，这样我们的图标就带有颜色的属性了。
+&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-5.png&quot; alt=&quot;&quot; /&gt;
+这里需要注意的是icon不能为组合的形式必须是唯一的路径，如果是组合的icon，需要到路径工具里面合并成一个，像adobe的pathfinder一样，因为一个色板图层只能做一个路径的遮罩，还有一点是在symbol画板中图标路径上的色板需要是组建的形式覆盖在上面，完成以上的步骤我们的图标嵌套色板的组件就做完了。我们可以到page图层当中看效果了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-6.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-7.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;注意右边的oversides部分，我们一共设计了四个颜色的色板，他就可以变换四种颜色的icon，剩下的我们要做的就是将每一个设计的icon的组件都添加一层色板的蒙版以及看看icon的部件一共需要几种颜色展现。&lt;/p&gt;
+
+&lt;h2 id=&quot;结论&quot;&gt;结论&lt;/h2&gt;
+&lt;p&gt;在设计小程序相关项目中亲测，为项目节省了大量的时间，对项目文件的规范化也是有非常大的提升，希望还可以发现更多有效的手段提升效率，避免将时间过多投入在重复性的劳动中。&lt;/p&gt;
+
+&lt;p&gt;相关文章：&lt;a href=&quot;https://blog.yipl.com.np/design-workflow-quick-tip-7-step-by-step-guide-to-use-color-as-a-symbol-override-in-a-symbol-in-5e263cc5a862&quot;&gt;Design workflow quick tip #7 — Step-by-step guide to use Color as a symbol override in a symbol in…&lt;/a&gt;
+#4-设计&lt;/p&gt;
+</description>
+        <pubDate>Fri, 20 Jul 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/posts/2018/07/20/icon-color-nested-symbol/</link>
+        <guid isPermaLink="true">http://localhost:4000/posts/2018/07/20/icon-color-nested-symbol/</guid>
+        
+        <category>design</category>
+        
+        <category>界面设计</category>
+        
+        <category>sketch</category>
+        
+        <category>design_system</category>
+        
+        
+      </item>
     
       <item>
         <title>地图UI设计工作流-从mapbox到sketch</title>
@@ -564,35 +613,6 @@
         <category>design</category>
         
         <category>软件操作</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>这真是个“人情淡薄”的地方</title>
-        <description>&lt;p&gt;L刚得知毕业前需要来北京培训拿到实习证明才能顺利毕业的消息后，整天闷闷不乐，不愿意离开安逸的小城市，当时还在上大学时的我对北京的印象就只有满城的雾霾和拥堵的地铁…&lt;/p&gt;
-
-&lt;p&gt;L刚来到这座城市的时候需要克服很多之前都没有想象过的困难。初入职场，经历第一次跳槽，带着兴奋的心情入职新公司，之后不久身边亲近的同事都陆陆续续离开。L的心情很复杂，却不得不去面对，也在这当中学会了成长，在这里并没有那些可以一直朝夕相处的人，渐渐的开始习惯了这些种种变化。&lt;/p&gt;
-
-&lt;p&gt;还记得上次年末公司聚餐时的心情，本来就不大的团队由三位成员要离开。老大当时说了这样的话，希望你们带着即将毕业般的心情离开了这里，在经历了这段时间的成长之后，能够到更大的平台去实现自己的价值，同时感谢大家这段时间以来为团队付出的努力，希望大家的未来更加美好。&lt;/p&gt;
-
-&lt;p&gt;现在想想，在这座城市还能有三俩昔日同窗真的是一件非常幸运的事，感恩在多年前的那个时刻遇见了你们，见证了我们彼此的成长。&lt;/p&gt;
-
-&lt;p&gt;去年夏天一个普通的工作日早晨，还是站在那个经常上班等地铁的站台，在熙熙攘攘的人群中瞥见了一个十多年前老同学，虽然容貌没有改变多少但还是不太敢相信，为了证实还特地拍了张照片给朋友去确认，站在人群中感觉像是经历了一个平行时空，好像我们不是在等待一辆拥挤的地铁去上班，而是赶着去上学的一班公交车，十年前的我们和现在的感觉并没有什么不一样，就像十年前的我们坐在电视机前玩红白机一坐就是一天，现在我们坐在电脑前修图出方案也是一坐一天…&lt;/p&gt;
-
-&lt;p&gt;几周前的一个下午，靠在在走廊里刷着微博放松，看到一位同事迎面走过来很认真的跟我打了声招呼然后寒暄几句就走了，一看表也是到了下班时间，可是过了那天却再也没有见到过那位新来的同事，后来也只是偶尔在朋友圈里看到有一直更新着的动态，时间就是这样，还没有来得及彼此熟悉了解，却又消失在人群中，有的同时甚至都不记得叫什么，只有一两个留在脑海里的片段提醒我他们真实的有过交集…&lt;/p&gt;
-
-&lt;p&gt;后来想，不是人情冷漠啊，是匆匆过往的人们都没有时间停下来，大家都走的很快，方向又不同，境遇自然也不尽相同，忽然想会不会到了某个时候大家都开始慢下来，人与人的交集就会越来越多，集合也越来越多，最后共感慢慢的就多起来了吧…&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://unsplash.com/photos/t01KsbmACSs&quot;&gt;封面图链接&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2018年3月27日 下午11:33&lt;/p&gt;
-</description>
-        <pubDate>Tue, 27 Mar 2018 11:33:00 +0800</pubDate>
-        <link>http://localhost:4000/posts/2018/03/27/%E8%BF%99%E7%9C%9F%E6%98%AF%E4%B8%AA%E4%BA%BA%E6%83%85%E6%B7%A1%E8%96%84%E7%9A%84%E5%9C%B0%E6%96%B9/</link>
-        <guid isPermaLink="true">http://localhost:4000/posts/2018/03/27/%E8%BF%99%E7%9C%9F%E6%98%AF%E4%B8%AA%E4%BA%BA%E6%83%85%E6%B7%A1%E8%96%84%E7%9A%84%E5%9C%B0%E6%96%B9/</guid>
-        
-        <category>inspiration</category>
         
         
       </item>

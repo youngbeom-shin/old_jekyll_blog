@@ -181,6 +181,31 @@
 			">
 				
 <div class="post-preview">
+    <a href="/posts/2014/10/14/css-multiple-line-overflow-ellipsis/">
+        <h2 class="post-title">
+            纯CSS实现多行文本截断并有省略号
+        </h2>
+        
+        <div class="post-content-preview">
+            单行文本截断并末尾出现省略号一般写法是：
+
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+
+
+多行文版截断并出现省略号的纯CSS解决一直是个“复杂的难题“，不过有个“被废弃”的 webkit 私有属性反而可以实现，而且在移动端的兼容性不错， iOS 与 Android 均有不错的支持
+
+display: -we...
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by 任平生 on October 14, 2014
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/posts/2014/10/10/php-simplexmlelement-addchild-namespace/">
         <h2 class="post-title">
             PHP SimpleXMLElement 添加带 Namespace 的节点
@@ -405,34 +430,6 @@ sudo vi /etc/apache2/users/username.config
     </a>
     <p class="post-meta">
         Posted by 任平生 on April 15, 2014
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/posts/2014/03/26/mt-8-in-itunes-links-for-appstore/">
-        <h2 class="post-title">
-            App Store 链接中的 mt=8 是什么意思
-        </h2>
-        
-        <div class="post-content-preview">
-            常见到 iOS App 发出来的下载链接最后都会跟一个 ?mt=8 的尾巴，这是什么意思呢？在 Stackoverflow 上找到了答案：
-
-mt = Media Type
-而数字的对应关系如下：
-
-1   Music
-2   Podcasts
-3   Audiobooks
-4   TV Shows
-5   Music Videos
-6   Movies
-7   iPod Games
-8  ...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 任平生 on March 26, 2014
     </p>
 </div>
 <hr>
@@ -721,7 +718,7 @@ mt = Media Type
 							
 						
 							
-								<a href="/tags/#design" title="design" rel="5">
+								<a href="/tags/#design" title="design" rel="6">
 									design
 								</a>
 							
@@ -751,7 +748,7 @@ mt = Media Type
 							
 						
 							
-								<a href="/tags/#界面设计" title="界面设计" rel="2">
+								<a href="/tags/#界面设计" title="界面设计" rel="3">
 									界面设计
 								</a>
 							
@@ -760,6 +757,12 @@ mt = Media Type
 						
 							
 						
+							
+						
+							
+								<a href="/tags/#sketch" title="sketch" rel="2">
+									sketch
+								</a>
 							
 						
 							
@@ -822,9 +825,9 @@ mt = Media Type
 				<h5>FRIENDS</h5>
 				<ul class="list-inline">
 					
-						<li><a href="http://rpsh.net/">任平生</a></li>
+						<li><a href=""></a></li>
 					
-						<li><a href="http://itluantan.com/">IT乱谈</a></li>
+						<li><a href=""></a></li>
 					
 				</ul>
 				
@@ -957,7 +960,7 @@ mt = Media Type
 	// var _gaId = document.getElementById('gaId').value;
 	var _gaId =  'UA-5528027-2';
 	// var _gaDomain = document.getElementById('gaDomain').value;
-	var _gaDomain = 'note.rpsh.net';
+	var _gaDomain = 'blog.youngbeom.com';
 
 	// Originial
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
