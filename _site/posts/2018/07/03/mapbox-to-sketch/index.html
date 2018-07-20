@@ -199,12 +199,12 @@
 
 <h1 id="地图ui设计工作流-从mapbox到sketch">地图UI设计工作流-从mapbox到sketch</h1>
 <h2 id="前言">前言</h2>
-<p>因为公司的主要产品是一款地图产品，所以在毕业后到现在的两年时间，除了做产品的界面还有其他的一些设计以外，还接触到关于地理信息的一些产品，设计地图的只要是两款产品，一个是<a href="https://www.mapbox.com/">mapbox studio</a>，另一个是maputnik，后者是瑞士的一个大学生<a href="https://github.com/lukasmartinelli">Lukas Martinelli</a>创立的项目，这里面还有一个故事，虽说两个公司都是做开源数据的一些项目，但是lukas认为mapbox在一些标准的设定以及开源上没有做到真正的开源，所以他在大学时就把mapbox定的一些标准通过自己定义的schema重新改写了一番，做出来一个GitHub上的公共库让大家都能使用，常常钦佩这样的一类人，做项目并不是以盈利为目的，但是却创造了更大的价值。
-但是mapbox的创新开发速度是飞快的，尤其是最近拿到了软银的战略投资后，比如他们在基于unity引擎开发的<a href="https://www.mapbox.com/augmented-reality/">AR SDK</a>包以及<a href="https://www.mapbox.com/automotive/">自动驾驶</a>相关的一些项目都是具有战略意义的一些产品。</p>
+<p>因为公司的主要产品是一款地图产品，所以在毕业后到现在的两年时间里，除了做产品的界面还有其他的一些设计以外，还接触到关于地理信息的一些产品，设计地图的主要使用的是两款工具，一个是<a href="https://www.mapbox.com/">mapbox studio</a>，另一个是maputnik，后者是瑞士的一个大学生<a href="https://github.com/lukasmartinelli">Lukas Martinelli</a>创立的项目，这里面还有一个故事，虽说两个公司都是做开源数据的一些项目，但是lukas认为mapbox在一些标准的设定以及开源上没有做到真正的开源，所以他在大学时就把mapbox定的一些标准通过自己定义的schema重新改写了一番，做出来一个GitHub上的公共库让大家都能使用，非常钦佩这样的一类人，他们做项目并不是以盈利为首要目的，而是去创造更大的价值。
+但是mapbox的创新开发速度非常快，尤其是最近拿到了软银的战略投资后，比如他们在基于unity引擎开发的<a href="https://www.mapbox.com/augmented-reality/">AR SDK</a>以及<a href="https://www.mapbox.com/automotive/">自动驾驶</a>相关的一些项目都是具有战略意义的。</p>
 
-<p>后来括谷歌还有特斯拉等美国顶尖公司的众多管理层以及精英都加入了mapbox，17年的时候lukas也加入到了mapbox，现在maputnik只有十几个人在继续维护，但是不可否认这家小公司在开源这件事情上作出的贡献，因为他们的存在让各大公司在使用或搭建地图服务时相比只有谷歌时多了一份选择。</p>
+<p>后来包括谷歌还有特斯拉等在内的美国顶尖公司的众多管理层以及精英都加入了mapbox，17年的时候lukas也加入到了mapbox，现在maputnik只有十几个人在继续维护，但是不可否认这家小公司在开源这件事情上作出的贡献，因为他们的存在让各大公司在使用或搭建地图服务时相比只有谷歌时多了其他的选择。</p>
 <h2 id="carto-css">carto css</h2>
-<p>起初在还未接触mapbox的时候还没有设计地图的概念，那时候的地图样式是通过<a href="https://tumluliu.gitbooks.io/carto_zh-cn/">carto css</a>渲染出来的，样式几乎没有设计感，色彩的使用和搭配也是没有规范，翻出来很老旧的地图样式，效果就是下面这样的。</p>
+<p>项目初期没有使用mapbox时还没有设计地图的概念，那时候的地图样式是通过<a href="https://tumluliu.gitbooks.io/carto_zh-cn/">carto css</a>渲染出来的，样式几乎没有设计感，色彩的使用和搭配也是没有规范，翻出来很老旧的地图样式，效果就是下面这样的。</p>
 
 <h3 id="项目初期样式效果">项目初期样式效果</h3>
 <p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-1.jpg" alt="" /></p>
@@ -222,7 +222,7 @@
 
 <p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-3.jpg" alt="" /></p>
 
-<p>通过mapbox的官网介绍，他们是一家为web及移动应用提供位置服务及导航的平台。mapbox已经是一款非常强大的平台，对于我这样的设计师来讲已经满足了我几乎所有的需求(除了数据获取)，包括地图颜色、图标定制、字体库等。对于新上手的设计师mapbox studio也有一些设计样本提供学习和使用。</p>
+<p>通过mapbox的官网介绍可以知道，他们是一家为web及移动应用提供位置服务及导航的平台。mapbox已经是一款非常强大的平台，对于我这样的设计师来讲已经满足了我几乎所有的需求(除了数据获取，数据获取建议<a href="https://www.openstreetmap.org/#map=12/26.3409/128.1461">openstreetmap</a>)，可定制部分包括地图颜色、图标定制、字体库等。对于新上手的设计师mapbox studio也有一些设计样本供学习和使用。</p>
 
 <h3 id="使用mapbox-studio设计地图样式">使用mapbox studio设计地图样式</h3>
 
@@ -240,7 +240,7 @@
 <h3 id="设计一款全新的地图样式">设计一款全新的地图样式</h3>
 <p>点击style(样式)，进入后可以看到你设计过的全部的样式文件，如果你还没有设计过地图样式，这个部分会是空白的，点击create创建一款全新的地图，在这里你可以选择利用mapbox给你提供的基础样式的基础上进行创作，或者选择一款空白的地图来手动添加图层。
 也可以选择第二种方式就是上传已有的样式文件来生成地图，这里的上传格式要求json格式的文件。
-对于第一次操作的设计师来讲，最好的建议是先去观察体验基础款的地图样式设计，因为在这份地图里面包含了几乎所有的地图图层，包括道路，植被类型，用地类型，甚至兴趣点的数据和样式图标都是按照规范设定好的，这样就能知道数据的结构和mapbox的设计逻辑，其实进入设计面板大家很容易就能看到左边的图层栏很像Adobe的layer，就是一层一层覆盖的，从最基础的土地类型到覆盖在上面的植被到道路最后建筑和兴趣点，这就方便理解了。</p>
+对于第一次操作的设计师来讲，最好的建议是先去观察体验基础款的地图样式设计，因为在这份地图里面包含了几乎所有的地图图层，包括道路，植被类型，用地类型，甚至兴趣点的数据和样式图标都是按照规范设定好的，这样就能知道数据的结构和mapbox的设计逻辑，其实进入设计面板大家很容易就能看到左边的图层栏很像Adobe的layer，就是一层一层覆盖的，从最基础的土地类型到覆盖在上面的植被到道路最后建筑和兴趣点，这就方便我们去理解他的设计原理了。</p>
 
 <p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-5.jpg" alt="" /></p>
 
@@ -248,7 +248,7 @@
 
 <p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-6.jpg" alt="" /></p>
 
-<p>点击左上角的<strong>add layer</strong>按钮去添加一个新的图层，点击<strong>No tileset，click to select.</strong>就会去手动的添加一个数据来源，这里的tile中文翻译过来是瓷砖 瓦片的意思，地图的样式就是一个一个的“瓦片”构成，如果大家在网络状态不好的时候打开地图就会发现界面的加载是一块一块的，这个就是瓦片。在mapbox中提供多种的数据来源比如：</p>
+<p>点击左上角的<strong>add layer</strong>按钮去添加一个新的图层，点击<strong>No tileset，click to select.</strong>就会去手动的添加一个数据来源，这里的tile中文翻译过来是瓷砖 瓦片的意思，地图的样式就是一个一个的“瓦片”构成，如果大家在网络状态不好的时候打开一款地图应用就会发现界面的加载是一块一块的，这个就是瓦片。在mapbox中提供多种的数据来源比如：</p>
 <ul>
   <li>Mapbox Satellite</li>
   <li>Mapbox Streets v7</li>
@@ -336,8 +336,6 @@
 <p>如果在尝试的过程遇到一些问题或者好玩的尝试欢迎交流讨论，希望遇到更多志同道合的人一起学习！</p>
 
 <p>相关阅读：https://blog.yipl.com.np/map-ui-design-workflow-mapbox-to-sketch-3cb281212783</p>
-
-<p>#4-设计</p>
 
 
 
