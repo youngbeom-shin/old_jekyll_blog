@@ -9,15 +9,15 @@
 	<link rel="shortcut icon" type="image/png" href="/assets/common/favicon.png" />
 	<link rel="apple-touch-icon" href="/assets/common/favicon.png" />
 
-	<title>Adobe批处理操作修改文本 - 永范的博客 | youngbeom Blog</title>
-	<meta name="description" content="ps和ai的批处理实操" />
+	<title>通过代码层面管理并编辑svg图片-sprites - 永范的博客 | youngbeom Blog</title>
+	<meta name="description" content="设计开发" />
 	<meta name="keyword"  content="设计文档, 永范, youngbeom永范 , 设计师 , @youngbeom, 永范的博客, youngbeom blog, 博客, 个人网站, 互联网, Web, 前端, 设计" />
 
 	<meta http-equiv="Content-Security-Policy" content="frame-src 'self' disqus.com *.google.com zhannei.baidu.com jsfiddle.net caniuse.com codepen.io *.github.io; script-src 'self' *.google-analytics.com *.google.com *.googleapis.com cdn.bootcss.com disqus.com *.disqus.com *.disquscdn.com zhannei.baidu.com 'unsafe-inline' 'unsafe-eval'">
 	
 	<link rel="author" href="https://plus.google.com/100791036880126418228/posts" />
 	
-	<link rel="canonical" href="http://localhost:4000/posts/2018/04/12/Adobe-batch-processing/" />
+	<link rel="canonical" href="http://localhost:4000/posts/2018/07/25/coding-sprite-svg/" />
 
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.min.css" />
@@ -41,28 +41,28 @@
 	<!-- og/twitter/wechat meta -->
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@rpsh" />
-	<meta name="twitter:url" property="og:url" content="http://localhost:4000/posts/2018/04/12/Adobe-batch-processing/" />
-	<meta name="twitter:title" property="og:title" itemprop="name" content="Adobe批处理操作修改文本 - 永范的博客 | youngbeom Blog" />
-	<meta name="twitter:description" property="og:description" itemprop="description" content="ps和ai的批处理实操" />
-	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/adobe-batch-processing-thumb.jpg" />
+	<meta name="twitter:url" property="og:url" content="http://localhost:4000/posts/2018/07/25/coding-sprite-svg/" />
+	<meta name="twitter:title" property="og:title" itemprop="name" content="通过代码层面管理并编辑svg图片-sprites - 永范的博客 | youngbeom Blog" />
+	<meta name="twitter:description" property="og:description" itemprop="description" content="设计开发" />
+	<meta name="twitter:image" property="og:image" itemprop="image" content="http://localhost:4000/assets/common/coding-sprite-svg-thumb.jpg" />
 
-	<meta name="wxm:timeline_title" content="Adobe批处理操作修改文本 - 永范的博客 | youngbeom Blog" />
-	<meta name="wxm:appmessage_title" content="Adobe批处理操作修改文本 - 永范的博客 | youngbeom Blog" />
-	<meta name="wxm:appmessage_desc" content="ps和ai的批处理实操" />
-	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/adobe-batch-processing-thumb.jpg" />
-	<meta name="wxm:link" content="http://localhost:4000/posts/2018/04/12/Adobe-batch-processing/" />
+	<meta name="wxm:timeline_title" content="通过代码层面管理并编辑svg图片-sprites - 永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_title" content="通过代码层面管理并编辑svg图片-sprites - 永范的博客 | youngbeom Blog" />
+	<meta name="wxm:appmessage_desc" content="设计开发" />
+	<meta name="wxm:img_url" content="http://localhost:4000/assets/common/coding-sprite-svg-thumb.jpg" />
+	<meta name="wxm:link" content="http://localhost:4000/posts/2018/07/25/coding-sprite-svg/" />
 	
 	<!-- header banner -->
 	<style type="text/css">
 		header.intro-header{
-			background-image: url('/assets/common/adobe-batch-processing-bg.jpg')
+			background-image: url('/assets/common/coding-sprite-svg-bg.jpg')
 		}
 		@media (max-width:767px){
 			header.intro-header{
-				background-image: url('/assets/common/adobe-batch-processing-thumb.jpg');
+				background-image: url('/assets/common/coding-sprite-svg-thumb.jpg');
 			}
 			/*header.intro-header:before{
-				background-image: url('/assets/common/adobe-batch-processing-thumb.jpg');
+				background-image: url('/assets/common/coding-sprite-svg-thumb.jpg');
 			}*/
 		}
 	</style>
@@ -152,7 +152,7 @@
 
     <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="/assets/common/adobe-batch-processing-bg.jpg" width="0" height="0"> -->
+<!-- <img src="/assets/common/coding-sprite-svg-bg.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
 <header class="intro-header" >
@@ -164,16 +164,22 @@
 						
 						<a class="tag" href="/tags/#design" rel="tag" title="design">design</a>
 						
-						<a class="tag" href="/tags/#软件操作" rel="tag" title="软件操作">软件操作</a>
+						<a class="tag" href="/tags/#workflow" rel="tag" title="workflow">workflow</a>
+						
+						<a class="tag" href="/tags/#vector" rel="tag" title="vector">vector</a>
+						
+						<a class="tag" href="/tags/#file" rel="tag" title="file">file</a>
+						
+						<a class="tag" href="/tags/#design_system" rel="tag" title="design_system">design_system</a>
 						
 					</div>
-					<h1 itemprop="headline">Adobe批处理操作修改文本</h1>
-					<h2 class="subheading">ps和ai的批处理实操</h2>
+					<h1 itemprop="headline">通过代码层面管理并编辑svg图片-sprites</h1>
+					<h2 class="subheading">关于svg格式的学习和应用</h2>
 					
-					<span class="meta">Posted by youngbeom on April 12, 2018</span>
-					<meta itemprop="alternativeHeadline" content="ps和ai的批处理实操" />
-					<meta itemprop="image" content="http://localhost:4000/assets/common/adobe-batch-processing-thumb.jpg" />
-					<meta itemprop="datePublished" content="2018-04-12 00:00:00 +0800" />
+					<span class="meta">Posted by youngbeom on July 25, 2018</span>
+					<meta itemprop="alternativeHeadline" content="设计开发" />
+					<meta itemprop="image" content="http://localhost:4000/assets/common/coding-sprite-svg-thumb.jpg" />
+					<meta itemprop="datePublished" content="2018-07-25 23:34:00 +0800" />
 				</div>
 			</div>
 		</div>
@@ -191,54 +197,115 @@
 				col-md-10 col-md-offset-1
 				post-container">
 
-				<p>单词数量：536   阅读时间：2m42s</p>
+				<h1 id="通过代码层面管理并编辑svg图片-sprites">通过代码层面管理并编辑svg图片-sprites</h1>
 
-<h2 id="ai处理矢量图标">Ai处理矢量图标</h2>
-<p>在工作中有一项是关于地图上icon的修改，在产品迭代过程中，需要对产品中的icon做一些小改动，比如为了使地图图标和底图的颜色产生较高的对比和反差需要为图标矢量源文件及上0.75px的inner boarding，产品内有300多个底图样式图标分别表示不同的poi 类型，工作如果是手动来做需要耗费大量的时间，所以打算用Ai来做一个批处理。
-<img src="http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-1.jpg" alt="" /></p>
+<p>单词数量：1360  阅读时间：6m 48s</p>
 
-<p>首先我将每一个文件所要做的统一操作列出来，</p>
+<h2 id="发现问题操作不规范导致finder中svg图像显示大小不同">发现问题：操作不规范导致finder中svg图像显示大小不同</h2>
+<p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-1.png" alt="" /></p>
 
+<p>上图是我在管理sprites image时发现矢量文件显示出现问题，我们知道svg是基于xml的代码，出现这个问题的时候最先想到的是表现形式的不同一定是因为内部代码的格式或者是写法不同的，所以用sublime打开两个svg文件，发现内部的代码确实是不同的。</p>
+
+<p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-2.png" alt="" /></p>
+
+<p>通过分析可以看到，大图svg的代码是一行写出来的，而小图svg的代码是用了6行，还有在代码的细节上也有些许差异，不光是代码层面，在我用AI打开svg文件的时候发现图层上的表现也是不一样的。
+<img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-3.png" alt="" /></p>
+
+<p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-4.png" alt="" /></p>
+
+<h2 id="猜想可能出现问题的原因">猜想可能出现问题的原因</h2>
 <ol>
-  <li>打开文件</li>
-  <li>新建矩形吸取原图标背景的颜色</li>
-  <li>添加0.75px的内描边 删除原背景</li>
-  <li>文件导出为svg文件</li>
+  <li>图层命名导致</li>
+  <li>因为存在多余的无用图层</li>
+  <li>图层顺序导致</li>
+  <li>代码行数导致</li>
+  <li>代码内容出错</li>
 </ol>
 
-<p>不难发现，每次的操作都是统一的不涉及异处理，所以在::ai-窗口-动作::里面打开一个源文件进行动作录制，保证每一步都被记录进来，动作录制到保存文件之后就完成录制并保存动作，</p>
+<h2 id="验证猜想">验证猜想</h2>
 
-<p><img src="http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-2.jpg" alt="" /></p>
+<h3 id="1-layer图层命名导致">1. layer图层命名导致</h3>
+<p>通过分析accessories_11和aerialway_11的图层命名不同，想通过更改并统一命名来调试达到目的，发现并不能实现最终效果，猜想错误。</p>
 
-<p>如果工作中需要处理大量的重复劳动的话建议设置一个快捷键，简直爽到飞起，但是个人还是不建议设计师一直做重复的简单的劳动，像是浪费时间和扼杀创造力，所以大部分这样的工作就会让实习生去联手…</p>
+<h3 id="2-因为存在多余的无用图层">2. 因为存在多余的无用图层</h3>
+<p>没有实际路径的图层在两个文件内都存在，但是删除了无用图层之后再次导出为svg发现还是没有变成大图。猜想错误。</p>
 
-<p>不到五分钟搞定几百个icon，get</p>
+<h3 id="3-图层顺序导致">3. 图层顺序导致</h3>
+<p>因为aerialway_11的图层中复合路径的图层在最上面，所以认为是否因为顺序导致大小的不同，但是试验过后并没有得到验证。再后来查看代码上面<path>字段的时候发现，我们设计软件最底部的图层会在代码的最上面开始显示，也就是顺序设计软件和代码是相反的。</path></p>
 
-<h2 id="ps批处理替换文本">Ps批处理替换文本</h2>
-<p><em>问题：图片上面有一个文本框，需要做一万张图片，但文本框里的文字要换。更换的文字在一张csv文件上如何用批处理解决这个问题？</em>
-在上一年度的工作中遇到一个问题是需要制作一个线下派发的刮刮卡，是和网易严选合作的一次活动，卡片上面有一排字母和数字随机生成的一串兑换码，用这个条码可以兑换一些网易严选的产品这些码是工程师生成用来唯一识别用户的作用，总数已公示一万份，需要做一个后期效果的统计。</p>
+<h3 id="4-代码行数导致">4. 代码行数导致</h3>
+<p>通过sublime将accessories_11的代码从6行合并成1行再存储发现还是没有变成大图，和是否是多行但行还是没有关系。代码行数的不同在后文会有解释说明，主要是再导出的时候框选了minify导致丢失原有的格式。但是格式的不同并不会在设计软件的显示上出现差别，都是一样的图形显示。</p>
 
-<p>在设计师的角色上这次的任务涉及到了线上线下的一个环节，线上需要设计兑奖页面，线下需要去印刷卡片，会是一个比较有趣的过程。</p>
+<h3 id="5-代码内容出错">5. 代码内容出错</h3>
+<p>经过上面的实验，最终还是将问题集中在代码的内容上，发现两者在viewbox附近的代码存在不同，accessories_11部分相比aerialway_11在viewbox前面多了一段<code class="highlighter-rouge">width="19" height="19”</code>代码，我试着将这一段代码删除再存储，发现问题得到解决，基本可以判定是这段代码使文件在显示上存在差异。</p>
 
-<p><img src="http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-3.jpg" alt="" /></p>
+<p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-5.png" alt="" /></p>
 
-<p><img src="http://blog.youngbeom.com/assets/2018/06/adobe-batch-processing-4.jpg" alt="" /></p>
+<p>后来在实际操作illustrator的时候发现需要框选responsive，这样最终在finder中看到的都是大图的图标，代码中也不会带有width和height，另外一个如果是框选minify的话会让svg的代码变成一行，丢掉原有的对其格式。也就是上文提及的代码行数问题。
+<img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-6.png" alt="" />
+::上图为标准导出设定::</p>
 
-<p>这个项目首先需要跟工程师要到一份CSV的文件里面会按照顺序有一万份券码，在photoshop中需要用到数据变量功能，</p>
+<p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-7.png" alt="" />
+::选择minify选项的svg代码::</p>
+
+<p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-8.png" alt="" />
+::没有选择minify选项的svg代码::</p>
+
+<h2 id="统一代码格式">统一代码格式</h2>
+<p>现在剩下的就是希望我们的svg文件都能以大视图的方式显示在finder中，这对我们去操作查找图标帮助非常大，所以我们要批量将文件夹内的400多个svg文件中的<code class="highlighter-rouge">width="19" height="19”</code>代码删除，我想通过sublime查找和替换的方式去批量操作。</p>
+
+<h2 id="导出规范">导出规范</h2>
 <ol>
-  <li>需要把需要替换文本的文字单独制作一个图层，</li>
-  <li>用<em>::图像-变量-定义::</em></li>
-  <li>把需要替换的文本做成一份txt文件</li>
-  <li>图像-变量-数据库-导入 txt文件</li>
-  <li>然后导出批处理的文件 文件-导出-数据库为文件</li>
+  <li>layer name=file name！</li>
+  <li>用export as</li>
+  <li>Use Artboards</li>
+  <li>styleing：Presentation Attributes
+Font：svg
+Image：Preserve
+Object IDs：Layer Names
+Decimal：3
+Responsive勾选，Minify不勾选</li>
 </ol>
 
-<p>这样我们需要制作的一万份文件都是每个文件拥有不同的条码
-希望能掌握工作中更多的提高效率的方法</p>
+<p>这里的Responsive就是会在导出的代码中不包含<code class="highlighter-rouge">width="19" height="19”</code>，会通过自适应的方式而不是去限定高宽的数值，这是在软件层面操作的时候设定的方式，但是如果在sublime中直接编辑删除上面的代码则是省去了打开AI的时间，甚至比Adobe的批处理更省时间。
+规范制订的目的是为了防止数量特别多时也能快速的找到相应的位置和标记的代码，方便修改和做进一步的操作。</p>
 
-<p>2018年4月12日14:05</p>
+<h2 id="应用通过sublime批量操作修改icon">应用：通过sublime批量操作修改icon</h2>
+<p>通过sublime操作去修改svg的主要原因是因为省去了打开操作设计软件的步骤，直接查找替换会快速很多，节省了大量的时间。</p>
+<h3 id="操作说明">操作说明</h3>
+<p>首先我们频繁会改动的svg主要集中在默认的icon，不包含世界杯地图等这样的特殊样式地图，以交通类目下的bicycle为例，icon主要是分为两个部分，交通主题色圆形的背景部分<code class="highlighter-rouge">&lt;circle cx="9.5" cy="9.5" r="9.5" fill="#6c7"/&gt;</code>和背景上面的自行车图形部分<code class="highlighter-rouge">&lt;path d="M10.5,5.5a.5.5,0,0,0,0,1H11v.7L8.3,8.8,7.7,7.5h.7a.5.5,0,0,0,0-1h-2a.5.5,0,0,0,0,1h.2L7,8.6c-.2,0-.4-.1-.6-.1A2.475,2.475,0,0,0,4,11.046L4,11.1a2.6,2.6,0,0,0,2.5,2.4A2.476,2.476,0,0,0,9,11.049V11H9a2.011,2.011,0,0,0-.4-1.3l2.5-1.4.4.4A2.526,2.526,0,0,0,10,11a2.5,2.5,0,1,0,2.7-2.5L12,7.8V6a.457.457,0,0,0-.4-.5Zm-4,4A1.5,1.5,0,1,1,5,11,1.5,1.5,0,0,1,6.5,9.5Zm6,0h0A1.454,1.454,0,0,1,14,10.9V11a1.5,1.5,0,0,1-3,0,1.473,1.473,0,0,1,1.445-1.5Z" fill="#fff"/&gt;</code>  这两部分的代码会经常修改的是里面的颜色部分，为了方便归类和修改我讲所有的icon都分成了几大类
+<img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-9.png" alt="" />
+在默认主题下是上述代码中的颜色，但是在新的样式light主题中icon如果太过鲜艳会吸引过多的视觉注意，这违背了最初的设计目标，所以我们选择了灰色背景白色图标的方式，在sublime修改几十个图标颜色替换的操作只需要不到一分钟，下面分解具体的操作。
+<img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-10.jpg" alt="" /></p>
 
-<p>#4-设计</p>
+<ol>
+  <li><strong>用sublime打开交通类图标所在的文件夹</strong>
+ file——open——图标所在文件夹
+<img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-11.png" alt="" /></li>
+  <li>
+    <p><strong>在文件内查找</strong>
+find—find in files(com+shift+F)—输入要替换的内容
+<img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-12.png" alt="" /></p>
+  </li>
+  <li><strong>分别替换背景和图标颜色</strong>
+在find输入框中填写需要替换的16进制颜色代码，在replace输入框中填写新的代码，之后点击右下角的::Replace::之后点击file—save all，操作完成后就能在文件夹内看到变化后的图标。
+<img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-13.png" alt="" /></li>
+</ol>
+
+<p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/coding-sprite-svg-14.png" alt="" /></p>
+
+<ol>
+  <li>之后就可以通过脚本命令行来制作sprites了，在sourcetree中提交万修改就能在测试服务器中看到新的效果了。</li>
+</ol>
+
+<h2 id="总结">总结</h2>
+<h3 id="简单高效">简单高效</h3>
+<p>通过代码层面去管理和编辑svg是新的一种尝试，能让我们更加了解svg这种特殊的矢量格式，也能通过这种方式大大增加工作效率，最初接触这项任务时完成四百多张图标的操作用了将近两个工作日，而现在只需要不到十分钟就能操作完成并且部署看到新的效果。</p>
+<h3 id="便于管理">便于管理</h3>
+<p>通过发现的问题简单的操作了一下关于图标的管理及制作的一些小细节，发现通过整理和归类对于svg的管理也带来了帮助，通过文件夹的归类方式上也能让设计思维得到表达，但是在具体在设计实施的过程中也可能会因为一些需求进行相应的变化，目前的方案只是适用于比较简单重复性比较高的任务，如果后期变得复杂还需要引入正则表达式的方式进行增删、查找和编辑，但是最终目标还是提高效率和设计质量，如果对于上述方案有新的想法和建议欢迎在评论区补充！</p>
+
+<p>(评论系统在翻墙时可见…)</p>
+
 
 
 
@@ -252,13 +319,9 @@
 				<ul class="pager">
 					
 					<li class="previous">
-						<a href="/posts/2018/03/27/%E8%BF%99%E7%9C%9F%E6%98%AF%E4%B8%AA%E4%BA%BA%E6%83%85%E6%B7%A1%E8%96%84%E7%9A%84%E5%9C%B0%E6%96%B9/" title="这真是个“人情淡薄”的地方" rel="bookmark">&larr; 这真是个“人情淡薄”的地方</a>
+						<a href="/posts/2018/07/20/icon-color-nested-symbol/" title="sketch设计工作流-利用色板遮罩制作图标嵌套组件" rel="bookmark">&larr; sketch设计工作流-利用色板遮罩制作图标嵌套组件</a>
 					</li>
 					
-					
-					<li class="next">
-						<a href="/posts/2018/04/20/competitive_analysis_share/" title="【竞品分析】稀客社交电商的分享机制及动机" rel="bookmark">【竞品分析】稀客社交电商的分享机制及动机 &rarr;</a>
-					</li>
 					
 				</ul>
 
@@ -267,9 +330,9 @@
 				<!-- 评论框 start -->
 				<div class="post-comment">
 					<div id="disqus_thread" class="disqus-thread"
-						data-thread-key="/posts/2018/04/12/Adobe-batch-processing"
-						data-title="Adobe批处理操作修改文本"
-						data-url="http://localhost:4000/posts/2018/04/12/Adobe-batch-processing/" >
+						data-thread-key="/posts/2018/07/25/coding-sprite-svg"
+						data-title="通过代码层面管理并编辑svg图片-sprites"
+						data-url="http://localhost:4000/posts/2018/07/25/coding-sprite-svg/" >
 					</div>
 				</div>
 				<!-- 评论框 end -->
@@ -412,8 +475,8 @@
 <script type="text/javascript">
 	/* * * CONFIGURATION VARIABLES * * */
 	var disqus_shortname = "https-youngbeom-shin-github-io";
-	var disqus_identifier = "/posts/2018/04/12/Adobe-batch-processing";
-	var disqus_url = "http://localhost:4000/posts/2018/04/12/Adobe-batch-processing/";
+	var disqus_identifier = "/posts/2018/07/25/coding-sprite-svg";
+	var disqus_url = "http://localhost:4000/posts/2018/07/25/coding-sprite-svg/";
 
 	(function() {
 		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -660,7 +723,7 @@
 
 
 <!-- Image to hack wechat -->
-<img src="http://localhost:4000/assets/common/adobe-batch-processing-thumb.jpg" width="0" height="0" />
+<img src="http://localhost:4000/assets/common/coding-sprite-svg-thumb.jpg" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
