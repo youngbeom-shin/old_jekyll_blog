@@ -41,11 +41,13 @@ tags:
 ![](http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-5.png)
 这里需要注意的是icon不能为group的形式必须是唯一的path，如果是group内的多个path组成的icon，需要到路径工具里面合并成一个，像adobe的pathfinder一样，因为一个色板图层只能做一个路径的蒙版，还有要注意的一点是在symbol画板中图标路径上的色板需要是组件的形式覆盖在上面，完成以上的步骤我们的图标嵌套色板的组件就做完了。我们可以到page图层当中看效果了。
 
-![](http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-6.png)
+![](http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-6.gif)
 
-![](http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/icon-color-nested-symbol-7.png)
 
 注意右边的oversides部分，我们一共设计了四个颜色的色板，他就可以变换四种颜色的icon，剩下的我们要做的就是将每一个设计的icon的组件都添加一层色板的蒙版以及看看icon的部件一共需要几种颜色展现。
+
+## 拓展
+我们还可以进一步拓展动态颜色icon的用法，讲我们常用的色板做成3种状态，即 default hover active ，这样我们就可以在设计图中将icon做成不同的三种状态。
 
 ## 结论
 在设计小程序相关项目中亲测，为项目节省了大量的时间，对项目文件的规范化也是有非常大的提升，希望还可以发现更多有效的手段提升效率，避免将时间过多投入在重复性的劳动中。最后附上sketch[模板文件](http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/%E5%9B%BE%E6%A0%87%E5%B5%8C%E5%A5%97%E7%BB%84%E4%BB%B6.sketch)，希望有帮助。
