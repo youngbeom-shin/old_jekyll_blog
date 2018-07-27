@@ -12,6 +12,7 @@ author:     "youngbeom"
 tags:
     design 
     软件操作
+    Adobe
 
 ---
 单词数量：536   阅读时间：2m42s

@@ -11,7 +11,7 @@ thumb-img: "assets/common/harmonize_colours-thumb.jpg"
 author:     "youngbeom"
 tags:
     design 
-    配色
+    color 
 
 ---
 阅读时长：3min16s 单词：656

@@ -14,6 +14,7 @@ tags:
     界面设计
     sketch
     design_system
+    nested_symbol
 
 ---
 # sketch设计工作流-利用色板遮罩制作图标嵌套组件

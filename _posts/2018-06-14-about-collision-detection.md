@@ -11,7 +11,8 @@ thumb-img: "assets/common/home-thumb.jpg"
 author:     "youngbeom"
 tags:
     development 
-    地图数据
+    data_anaysis
+    data_visualization
 
 ---
 
