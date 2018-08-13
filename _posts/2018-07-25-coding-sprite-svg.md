@@ -10,8 +10,7 @@ header-img: "assets/common/coding-sprite-svg-bg.jpg"
 thumb-img: "assets/common/coding-sprite-svg-thumb.jpg"
 author:     "youngbeom"
 tags:
-    design 
-    workflow
+    design_workflow
     vector file
     design_system
 
