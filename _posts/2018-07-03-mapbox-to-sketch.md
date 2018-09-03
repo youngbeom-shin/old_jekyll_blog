@@ -153,6 +153,7 @@ tags:
 ## 结论
 mapbox真的是一款非常强大的地图设计工具，如果你有一些数据想做为可视化的展现，或者你想将数据作为服务提供给客户，mapbox绝对可以满足大部分需求，下面有视频可以作为教材去更加深入的了解mapbox这款工具，油管的视频需要准备梯子。
 
+[Mapbox Studio: An Introduction - YouTube](https://www.youtube.com/watch?list=PLOlUoOtyTOXh8bwQ6MM7p7l6gfo4j8hch&time_continue=13&v=fpl4no2T1sQ)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fpl4no2T1sQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 如果在尝试的过程遇到一些问题或者好玩的尝试欢迎交流讨论，希望遇到更多志同道合的人一起学习！

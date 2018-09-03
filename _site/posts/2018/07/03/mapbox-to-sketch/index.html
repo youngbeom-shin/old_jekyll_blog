@@ -199,12 +199,10 @@
 
 <h1 id="地图ui设计工作流-从mapbox到sketch">地图UI设计工作流-从mapbox到sketch</h1>
 <h2 id="前言">前言</h2>
-<p>因为公司的主要产品是一款地图产品，所以在毕业后到现在的两年时间里，除了做产品的界面还有其他的一些设计以外，还接触到关于地理信息的一些产品，设计地图的主要使用的是两款工具，一个是<a href="https://www.mapbox.com/">mapbox studio</a>，另一个是maputnik，后者是瑞士的一个大学生<a href="https://github.com/lukasmartinelli">Lukas Martinelli</a>创立的项目，这里面还有一个故事，虽说两个公司都是做开源数据的一些项目，但是lukas认为mapbox在一些标准的设定以及开源上没有做到真正的开源，所以他在大学时就把mapbox定的一些标准通过自己定义的schema重新改写了一番，做出来一个GitHub上的公共库让大家都能使用，非常钦佩这样的一类人，他们做项目并不是以盈利为首要目的，而是去创造更大的价值。
-但是mapbox的创新开发速度非常快，尤其是最近拿到了软银的战略投资后，比如他们在基于unity引擎开发的<a href="https://www.mapbox.com/augmented-reality/">AR SDK</a>以及<a href="https://www.mapbox.com/automotive/">自动驾驶</a>相关的一些项目都是具有战略意义的。</p>
+<p>因为公司主要产品是一款旅游地图应用-<a href="https://itunes.apple.com/cn/app/%E7%A8%80%E5%AE%A2%E5%9C%B0%E5%9B%BE-%E4%B8%AD%E6%96%87%E5%A2%83%E5%A4%96%E6%97%85%E6%B8%B8%E5%9C%B0%E5%9B%BE/id1077638140?mt=8">稀客地图</a> ，每年服务于出境自由行的中国用户，给用户提供精准的导航服务和语音讲解等功能，所以在毕业后到现在的两年时间，除了做产品的交互界面还有其他的一些视觉设计之外，还接触到了mapbox，mapbox是一款非常便捷的地图开发设计工具，除了基础的地图样式设计以外，其开发的<a href="https://www.mapbox.com/augmented-reality/">AR SDK</a>包以及<a href="https://www.mapbox.com/automotive/">自动驾驶</a>相关的一些项目都做的非常赞。这家初创公司还拿到了软银的投资，后来包括谷歌还有特斯拉等公司的一些高管和精英都加入了mapbox这家公司。</p>
 
-<p>后来包括谷歌还有特斯拉等在内的美国顶尖公司的众多管理层以及精英都加入了mapbox，17年的时候lukas也加入到了mapbox，现在maputnik只有十几个人在继续维护，但是不可否认这家小公司在开源这件事情上作出的贡献，因为他们的存在让各大公司在使用或搭建地图服务时相比只有谷歌时多了其他的选择。</p>
 <h2 id="carto-css">carto css</h2>
-<p>项目初期没有使用mapbox时还没有设计地图的概念，那时候的地图样式是通过<a href="https://tumluliu.gitbooks.io/carto_zh-cn/">carto css</a>渲染出来的，样式几乎没有设计感，色彩的使用和搭配也是没有规范，翻出来很老旧的地图样式，效果就是下面这样的。</p>
+<p>起初在还未接触mapbox的时候还没有设计地图的概念，最开始的时候地图样式是通过<a href="https://tumluliu.gitbooks.io/carto_zh-cn/">carto css</a>渲染出来的，样式还是有些杂乱，色彩的使用和搭配也是没有制定规范，设计和开发人员前期主要任务是将信息呈现在地图上，有很多细节还没有打磨，翻出来前期的地图样式，效果就是下面这样的。</p>
 
 <h3 id="项目初期样式效果">项目初期样式效果</h3>
 <p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-1.jpg" alt="" /></p>
@@ -213,7 +211,7 @@
 <p><img src="http://youngbeom-cloud.oss-cn-shanghai.aliyuncs.com/blog/assets/2018/07/mapbox-to-sketch-2.jpg" alt="" /></p>
 
 <h3 id="设计中对地图的需求">设计中对地图的需求</h3>
-<p>在很多之前的设计稿中，我需要用到地图界面在设计中时都会去百度截取所需的区域，然后将它粘贴到我的设计稿中，这样看起来的效果就是我们没有办法去“设计”地图，包括色板、图标、文字样式等。</p>
+<p>在很多之前的设计稿中，我需要在设计中用到地图界面时都会去其他地图平台截取所需的区域，然后将它粘贴到我的设计稿中，但是这样做的缺点就是我们无法做到个性化，没有办法去“设计”地图，包括整体的色板、图标、文字样式等。</p>
 
 <h2 id="snazzy-maps">snazzy maps</h2>
 <p><a href="https://snazzymaps.com/">snazzy map</a>是基于谷歌地图重新设计样式的一个网站，网站内有非常多的样式可以学习，虽然很大程度上达到了定制化的目的，但是还是有非常多的限制，不能在数据或者更细节的样式上做调整，对于图层的支持上也不是很多。</p>
@@ -329,13 +327,13 @@
 <p>到这一步你就能看到亲自设计的地图样式已经填充到矩形里面了，这在一些页面的设计中会经常用到地图的填充，如果在这些页面中能用上自己品牌调性的地图也是非常提高产品体验的部分，绝对会是一个加分项，比如点评的境外地图部分就可以用mapbox提供的服务，在国外的应用中像snapchat和lonelyplanet已经开始使用mapbox的服务。其实mapbox收费是阶梯制的，对于个人开发者利用地图服务还是很划算的，这里是详细<a href="https://www.mapbox.com/pricing/">价格说明</a></p>
 
 <h2 id="结论">结论</h2>
-<p>mapbox真的是一款非常强大的地图设计工具，如果你有一些数据想做为可视化的展现，或者你想讲数据作为服务提供给客户，mapbox绝对可以满足大部分需求，下面有视频可以作为教材去更加深入的了解mapbox这款工具，油管的视频需要准备梯子。</p>
+<p>mapbox真的是一款非常强大的地图设计工具，如果你有一些数据想做为可视化的展现，或者你想将数据作为服务提供给客户，mapbox绝对可以满足大部分需求，下面有视频可以作为教材去更加深入的了解mapbox这款工具，油管的视频需要准备梯子。</p>
 
 <p><a href="https://www.youtube.com/watch?list=PLOlUoOtyTOXh8bwQ6MM7p7l6gfo4j8hch&amp;time_continue=13&amp;v=fpl4no2T1sQ">Mapbox Studio: An Introduction - YouTube</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fpl4no2T1sQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 
 <p>如果在尝试的过程遇到一些问题或者好玩的尝试欢迎交流讨论，希望遇到更多志同道合的人一起学习！</p>
 
-<p>相关阅读：https://blog.yipl.com.np/map-ui-design-workflow-mapbox-to-sketch-3cb281212783</p>
 
 
 
