@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "应用加载、缓存和刷新状态整理"
-subtitle:   "关于svg格式的学习和应用"
+subtitle:   "页面特殊状态的设计"
 description: "设计开发"
 keyword: "设计文档"
 date: 2018-12-25 12:11
