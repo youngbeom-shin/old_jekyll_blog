@@ -159,3 +159,10 @@ mapbox真的是一款非常强大的地图设计工具，如果你有一些数�
 如果在尝试的过程遇到一些问题或者好玩的尝试欢迎交流讨论，希望遇到更多志同道合的人一起学习！
 
 
+参考链接：
+
+https://studio.mapbox.com/
+
+http://apps.mapbox.com/cartogram
+
+https://blog.yipl.com.np/map-ui-design-workflow-mapbox-to-sketch-3cb281212783
