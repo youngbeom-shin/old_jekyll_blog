@@ -86,16 +86,16 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "C7210",
-        href: "http://beforweb.com/"
+        title: "",
+        href: ""
     },
     {
-        title: "MartinRGB",
-        href: "http://www.martinrgb.com/"
+        title: "",
+        href: ""
     },
     {
-        title: "Jun",
-        href: "https://www.juuust.com"
+        title: "",
+        href: ""
     }
 ]
 
